@@ -7,12 +7,31 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Product.delete_all
 #...
+
 Product.create!(
-	title: 'Programming Ruby 1.9 & 2.0',
+	title: 'Retrovisor',
 	description: 
 		%{<p>
-			Ruby is the fastest growing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox.
+			Retrovisor Honda Civic 2007
 		</p>},
-	image_url: 'ruby-logo.png',
-	price: 49.95)
+	image_url: 'retro.jpg',
+	price: 12.5)
+Product.create!(
+	title: 'Luz Trasera',
+	description: 
+		%{<p>
+			Luz trasera Toyota Corolla 2003
+		</p>},
+	image_url: 'Luz trasera.jpg',
+	price: 25.0)
+
+
+#Product.create!(
+#	title: 'Programming Ruby 1.9 & 2.0',
+#	description: 
+#		%{<p>
+#			Ruby is the fastest growing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox.
+#		</p>},
+#	image_url: 'ruby-logo.png',
+#	price: 49.95)
 #...
