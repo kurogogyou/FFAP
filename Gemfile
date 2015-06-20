@@ -46,3 +46,9 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# for heroku
+gem 'rails_12factor'
+
+# ruby version
+ruby '2.0.0'
