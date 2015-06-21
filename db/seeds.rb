@@ -6,33 +6,34 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Product.delete_all
+Product.all.destroy
 #...
 
-Product.create!(
-	title: 'Retrovisor',
-	description: 
-		%{<p>
-			Retrovisor Honda Civic 2007
-		</p>},
-	image_url: 'retro.jpg',
-	price: 12.5)
-Product.create!(
-	title: 'Luz Trasera',
-	description: 
-		%{<p>
-			Luz trasera Toyota Corolla 2003
-		</p>},
-	image_url: 'Luz trasera.jpg',
-	price: 25.0)
+#Product.create!(
+#	title: 'Retrovisor',
+#	description: 
+#		%{<p>
+#			Retrovisor Honda Civic 2007
+#		</p>},
+#	image_url: 'retro.jpg',
+#	price: 12.5)
+#Product.create!(
+#	title: 'Luz Trasera',
+#	description: 
+#		%{<p>
+#			Luz trasera Toyota Corolla 2003
+#		</p>},
+#	image_url: 'Luz trasera.jpg',
+#	price: 25.0)
 
-Product.create!(
-	title: 'Bumper frontal',
-	description: 
-		%{<p>
-			Bumper Frontal Lexus IS 250 2009
-		</p>},
-	image_url: 'Bumper_Delantero.jpg',
-	price: 81.73)
+#Product.create!(
+#	title: 'Bumper frontal',
+#	description: 
+#		%{<p>
+#			Bumper Frontal Lexus IS 250 2009
+#		</p>},
+#	image_url: 'Bumper_Delantero.jpg',
+#	price: 81.73)
 
 #Product.create!(
 #	title: 'Luz Delantera',
