@@ -604,3 +604,104 @@
 2015-06-21T13:46:05.393626+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
 2015-06-21T13:46:05.393629+00:00 app[web.1]: 
 2015-06-21T13:46:05.393630+00:00 app[web.1]: 
+2015-06-21T14:19:14.718253+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands.rb:78:in `block in <top (required)>'
+2015-06-21T14:19:14.718255+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands.rb:73:in `tap'
+2015-06-21T14:19:14.718258+00:00 app[web.1]: 	bin/rails:4:in `require'
+2015-06-21T14:19:14.718259+00:00 app[web.1]: 	bin/rails:4:in `<main>'
+2015-06-21T14:19:14.718266+00:00 app[web.1]: [2015-06-21 14:19:14] INFO  going to shutdown ...
+2015-06-21T14:19:14.718299+00:00 app[web.1]: [2015-06-21 14:19:14] INFO  WEBrick::HTTPServer#start done.
+2015-06-21T14:19:14.718324+00:00 app[web.1]: => Rails 4.0.0 application starting in production on http://0.0.0.0:3318
+2015-06-21T14:19:14.718322+00:00 app[web.1]: => Booting WEBrick
+2015-06-21T14:19:14.718326+00:00 app[web.1]: => Run `rails server -h` for more startup options
+2015-06-21T14:19:14.718327+00:00 app[web.1]: => Ctrl-C to shutdown server
+2015-06-21T14:19:14.718328+00:00 app[web.1]: Exiting
+2015-06-21T14:19:15.344098+00:00 heroku[web.1]: Starting process with command `bin/rails server -p 8755 -e production`
+2015-06-21T14:19:15.518936+00:00 heroku[web.1]: Process exited with status 143
+2015-06-21T14:19:20.624728+00:00 app[web.1]: [2015-06-21 14:19:20] INFO  WEBrick 1.3.1
+2015-06-21T14:19:20.624762+00:00 app[web.1]: [2015-06-21 14:19:20] INFO  ruby 2.0.0 (2015-04-13) [x86_64-linux]
+2015-06-21T14:19:20.625158+00:00 app[web.1]: [2015-06-21 14:19:20] INFO  WEBrick::HTTPServer#start: pid=3 port=8755
+2015-06-21T14:19:21.217990+00:00 heroku[web.1]: State changed from starting to up
+2015-06-21T14:19:23.381438+00:00 heroku[run.7336]: State changed from up to complete
+2015-06-21T14:19:23.372862+00:00 heroku[run.7336]: Process exited with status 1
+2015-06-21T14:19:59.256353+00:00 app[web.1]: => Booting WEBrick
+2015-06-21T14:19:59.256359+00:00 app[web.1]: => Rails 4.0.0 application starting in production on http://0.0.0.0:8755
+2015-06-21T14:19:59.256362+00:00 app[web.1]: => Run `rails server -h` for more startup options
+2015-06-21T14:19:59.256363+00:00 app[web.1]: => Ctrl-C to shutdown server
+2015-06-21T14:19:59.256364+00:00 app[web.1]: Started GET "/" for 179.53.38.59 at 2015-06-21 14:19:59 +0000
+2015-06-21T14:19:59.256371+00:00 app[web.1]: Started GET "/" for 179.53.38.59 at 2015-06-21 14:19:59 +0000
+2015-06-21T14:19:59.339884+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T14:19:59.339894+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T14:19:59.389349+00:00 app[web.1]: Cache digest for store/index.html: adc6ef4d5aba717df436f80002e36314
+2015-06-21T14:19:59.389425+00:00 app[web.1]: Cache digest for store/index.html: adc6ef4d5aba717df436f80002e36314
+2015-06-21T14:19:59.390095+00:00 app[web.1]: Read fragment views/store//adc6ef4d5aba717df436f80002e36314 (0.3ms)
+2015-06-21T14:19:59.390150+00:00 app[web.1]: Read fragment views/store//adc6ef4d5aba717df436f80002e36314 (0.3ms)
+2015-06-21T14:19:59.393034+00:00 app[web.1]: Write fragment views/store//adc6ef4d5aba717df436f80002e36314 (1.0ms)
+2015-06-21T14:19:59.394895+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (9.7ms)
+2015-06-21T14:19:59.394955+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (9.7ms)
+2015-06-21T14:19:59.394666+00:00 app[web.1]: Write fragment views/store//adc6ef4d5aba717df436f80002e36314 (1.0ms)
+2015-06-21T14:19:59.534211+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (19.4ms)
+2015-06-21T14:19:59.534308+00:00 app[web.1]:   Rendered carts/_cart.html.erb (57.6ms)
+2015-06-21T14:19:59.534219+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (19.4ms)
+2015-06-21T14:19:59.534292+00:00 app[web.1]:   Rendered carts/_cart.html.erb (57.6ms)
+2015-06-21T14:19:59.536707+00:00 app[web.1]: 
+2015-06-21T14:19:59.534490+00:00 app[web.1]: Completed 500 Internal Server Error in 195ms
+2015-06-21T14:19:59.536713+00:00 app[web.1]:     4: <tr>
+2015-06-21T14:19:59.534511+00:00 app[web.1]: Completed 500 Internal Server Error in 195ms
+2015-06-21T14:19:59.536717+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T14:19:59.536719+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T14:19:59.536724+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___1829687506775061381_70334198576100'
+2015-06-21T14:19:59.536711+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T14:19:59.536714+00:00 app[web.1]:     5: <%end%>
+2015-06-21T14:19:59.536721+00:00 app[web.1]:     9: </tr>
+2015-06-21T14:19:59.536716+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T14:19:59.536729+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__2683005764209880898_70334192419880'
+2015-06-21T14:19:59.536732+00:00 app[web.1]: 
+2015-06-21T14:19:59.536741+00:00 app[web.1]:     5: <%end%>
+2015-06-21T14:19:59.536743+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T14:19:59.536722+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb__51300289078921891_70334201595980'
+2015-06-21T14:19:59.536746+00:00 app[web.1]:     9: </tr>
+2015-06-21T14:19:59.536749+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___1829687506775061381_70334198576100'
+2015-06-21T14:19:59.536738+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T14:19:59.536745+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T14:19:59.536736+00:00 app[web.1]: 
+2015-06-21T14:19:59.536727+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T14:19:59.536756+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb__2683005764209880898_70334192419880'
+2015-06-21T14:19:59.536748+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb__51300289078921891_70334201595980'
+2015-06-21T14:19:59.536726+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb__2683005764209880898_70334192419880'
+2015-06-21T14:19:59.536730+00:00 app[web.1]: 
+2015-06-21T14:19:59.536759+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__2683005764209880898_70334192419880'
+2015-06-21T14:19:59.536762+00:00 app[web.1]: 
+2015-06-21T14:19:59.536739+00:00 app[web.1]:     4: <tr>
+2015-06-21T14:19:59.536742+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T14:19:59.536758+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T14:19:59.536761+00:00 app[web.1]: 
+2015-06-21T14:19:59.539995+00:00 heroku[router]: at=info method=GET path="/" host=ffap-itt-2015.herokuapp.com request_id=7a5cfac9-c926-4d70-b232-449006f9f927 fwd="179.53.38.59" dyno=web.1 connect=1ms service=287ms status=500 bytes=1543
+2015-06-21T14:29:39.176710+00:00 heroku[api]: Starting process with command `bundle exec rake db:migrate` by mario.lara1289@gmail.com
+2015-06-21T14:29:43.279975+00:00 heroku[run.4284]: Awaiting client
+2015-06-21T14:29:43.308278+00:00 heroku[run.4284]: Starting process with command `bundle exec rake db:migrate`
+2015-06-21T14:29:43.817928+00:00 heroku[run.4284]: State changed from starting to up
+2015-06-21T14:29:49.113526+00:00 heroku[run.4284]: State changed from up to complete
+2015-06-21T14:29:49.109448+00:00 heroku[run.4284]: Process exited with status 0
+2015-06-21T14:29:54.110718+00:00 heroku[router]: at=info method=GET path="/" host=ffap-itt-2015.herokuapp.com request_id=2a70a18e-9cf6-4af5-9adf-c050805d9dc3 fwd="179.53.38.59" dyno=web.1 connect=1ms service=12ms status=500 bytes=1543
+2015-06-21T14:29:54.101285+00:00 app[web.1]: Started GET "/" for 179.53.38.59 at 2015-06-21 14:29:54 +0000
+2015-06-21T14:29:54.101296+00:00 app[web.1]: Started GET "/" for 179.53.38.59 at 2015-06-21 14:29:54 +0000
+2015-06-21T14:29:54.103459+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T14:29:54.103549+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T14:29:54.105488+00:00 app[web.1]: PG::UnableToSend: SSL connection has been closed unexpectedly
+2015-06-21T14:29:54.105491+00:00 app[web.1]: : SELECT  "carts".* FROM "carts"  WHERE "carts"."id" = $1 LIMIT 1
+2015-06-21T14:29:54.105496+00:00 app[web.1]: PG::UnableToSend: SSL connection has been closed unexpectedly
+2015-06-21T14:29:54.105498+00:00 app[web.1]: : SELECT  "carts".* FROM "carts"  WHERE "carts"."id" = $1 LIMIT 1
+2015-06-21T14:29:54.105654+00:00 app[web.1]: Completed 500 Internal Server Error in 2ms
+2015-06-21T14:29:54.105677+00:00 app[web.1]: Completed 500 Internal Server Error in 2ms
+2015-06-21T14:29:54.106952+00:00 app[web.1]: 
+2015-06-21T14:29:54.106955+00:00 app[web.1]: ActiveRecord::StatementInvalid (PG::UnableToSend: SSL connection has been closed unexpectedly
+2015-06-21T14:29:54.106957+00:00 app[web.1]: : SELECT  "carts".* FROM "carts"  WHERE "carts"."id" = $1 LIMIT 1):
+2015-06-21T14:29:54.106958+00:00 app[web.1]:   app/controllers/concerns/current_cart.rb:7:in `set_cart'
+2015-06-21T14:29:54.106961+00:00 app[web.1]: 
+2015-06-21T14:29:54.106959+00:00 app[web.1]: 
+2015-06-21T14:29:54.106966+00:00 app[web.1]: 
+2015-06-21T14:29:54.106969+00:00 app[web.1]: ActiveRecord::StatementInvalid (PG::UnableToSend: SSL connection has been closed unexpectedly
+2015-06-21T14:29:54.106971+00:00 app[web.1]: : SELECT  "carts".* FROM "carts"  WHERE "carts"."id" = $1 LIMIT 1):
+2015-06-21T14:29:54.106973+00:00 app[web.1]:   app/controllers/concerns/current_cart.rb:7:in `set_cart'
+2015-06-21T14:29:54.106974+00:00 app[web.1]: 
+2015-06-21T14:29:54.106976+00:00 app[web.1]: 
