@@ -99,3 +99,508 @@
 2015-06-20T13:02:39.126418+00:00 app[web.1]: 
 2015-06-20T13:02:39.126419+00:00 app[web.1]: 
 2015-06-20T13:02:39.412871+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=immense-bayou-4511.herokuapp.com request_id=29fe28f8-61b9-454a-af84-ddac8466a0f7 fwd="179.53.94.124" dyno=web.1 connect=1ms service=4ms status=200 bytes=228
+2015-06-20T19:30:29.911527+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (46.5ms)
+2015-06-20T19:30:29.945586+00:00 app[web.1]:   Rendered carts/_cart.html.erb (5.7ms)
+2015-06-20T19:30:29.911484+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (46.5ms)
+2015-06-20T19:30:29.943810+00:00 app[web.1]:   Rendered collection (0.0ms)
+2015-06-20T19:30:29.945657+00:00 app[web.1]:   Rendered carts/_cart.html.erb (5.7ms)
+2015-06-20T19:30:29.946107+00:00 app[web.1]: Completed 200 OK in 126ms (Views: 60.7ms | ActiveRecord: 45.2ms)
+2015-06-20T19:30:29.946166+00:00 app[web.1]: Completed 200 OK in 126ms (Views: 60.7ms | ActiveRecord: 45.2ms)
+2015-06-20T19:30:29.950608+00:00 heroku[router]: at=info method=GET path="/" host=ffap-itt-2015.herokuapp.com request_id=dc6b8f71-4c09-475a-af7f-f2453050053e fwd="186.150.4.199" dyno=web.1 connect=5ms service=236ms status=200 bytes=3871
+2015-06-20T19:30:54.052380+00:00 heroku[router]: at=info method=GET path="/assets/application-af083fc4e9b1c38c3e891a7b2171b10e.css" host=ffap-itt-2015.herokuapp.com request_id=511b0ec9-22af-4553-9584-46bf52699718 fwd="186.150.4.199" dyno=web.1 connect=2ms service=21ms status=200 bytes=3657
+2015-06-20T19:30:54.094124+00:00 heroku[router]: at=info method=GET path="/assets/logo-639290b0390eec9dbb26425dc3808604.jpg" host=ffap-itt-2015.herokuapp.com request_id=7b9ed1d7-ce69-4d6e-a46a-79a07b4ad9a7 fwd="186.150.4.199" dyno=web.1 connect=0ms service=43ms status=200 bytes=2253
+2015-06-20T19:30:54.094338+00:00 heroku[router]: at=info method=GET path="/assets/application-e40473eac596d1b4e077ef3e43dc19a5.js" host=ffap-itt-2015.herokuapp.com request_id=2cd9f1c1-36cb-4597-82a4-3b4ec2837b9b fwd="186.150.4.199" dyno=web.1 connect=1ms service=55ms status=200 bytes=130943
+2015-06-20T19:30:54.051872+00:00 heroku[router]: at=info method=GET path="/" host=ffap-itt-2015.herokuapp.com request_id=0d70a9cf-d749-4333-8d4f-c68455d35831 fwd="186.150.4.199" dyno=web.1 connect=1ms service=24ms status=200 bytes=3871
+2015-06-20T19:30:54.226232+00:00 heroku[router]: at=info method=GET path="/assets/Luz%20trasera-fcc73eb501dd8e2fff65b64cb0fe4be0.jpg" host=ffap-itt-2015.herokuapp.com request_id=b6f40d8d-67aa-46e9-96c6-c01889605e06 fwd="186.150.4.199" dyno=web.1 connect=0ms service=4ms status=200 bytes=6599
+2015-06-20T19:30:54.029111+00:00 app[web.1]: Started GET "/" for 186.150.4.199 at 2015-06-20 19:30:54 +0000
+2015-06-20T19:30:54.029120+00:00 app[web.1]: Started GET "/" for 186.150.4.199 at 2015-06-20 19:30:54 +0000
+2015-06-20T19:30:54.031242+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-20T19:30:54.031248+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-20T19:30:54.040521+00:00 app[web.1]: Read fragment views/store/products/2-20150620130716271575000/adc6ef4d5aba717df436f80002e36314 (0.3ms)
+2015-06-20T19:30:54.040528+00:00 app[web.1]: Read fragment views/store/products/2-20150620130716271575000/adc6ef4d5aba717df436f80002e36314 (0.3ms)
+2015-06-20T19:30:54.040737+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (3.9ms)
+2015-06-20T19:30:54.040771+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (3.9ms)
+2015-06-20T19:30:54.046537+00:00 app[web.1]:   Rendered collection (0.0ms)
+2015-06-20T19:30:54.046544+00:00 app[web.1]:   Rendered collection (0.0ms)
+2015-06-20T19:30:54.047845+00:00 app[web.1]:   Rendered carts/_cart.html.erb (2.9ms)
+2015-06-20T19:30:54.048174+00:00 app[web.1]: Completed 200 OK in 17ms (Views: 6.0ms | ActiveRecord: 8.7ms)
+2015-06-20T19:30:54.047850+00:00 app[web.1]:   Rendered carts/_cart.html.erb (2.9ms)
+2015-06-20T19:30:54.048179+00:00 app[web.1]: Completed 200 OK in 17ms (Views: 6.0ms | ActiveRecord: 8.7ms)
+2015-06-20T19:30:54.237185+00:00 heroku[router]: at=info method=GET path="/assets/application-af083fc4e9b1c38c3e891a7b2171b10e.css" host=ffap-itt-2015.herokuapp.com request_id=fc0e4689-bce0-4dcd-9dcc-d4fb3c1665cb fwd="186.150.4.199" dyno=web.1 connect=0ms service=3ms status=200 bytes=3657
+2015-06-20T19:30:54.534865+00:00 heroku[router]: at=info method=GET path="/assets/logo-639290b0390eec9dbb26425dc3808604.jpg" host=ffap-itt-2015.herokuapp.com request_id=1893d5fb-1c55-4560-a674-693fc8710ad7 fwd="186.150.4.199" dyno=web.1 connect=4ms service=4ms status=200 bytes=2253
+2015-06-20T19:30:54.486015+00:00 heroku[router]: at=info method=GET path="/assets/application-e40473eac596d1b4e077ef3e43dc19a5.js" host=ffap-itt-2015.herokuapp.com request_id=18ebe800-d8fc-4947-b271-c2a2e792aca9 fwd="186.150.4.199" dyno=web.1 connect=0ms service=6ms status=200 bytes=130943
+2015-06-20T19:30:54.795039+00:00 heroku[router]: at=info method=GET path="/assets/Luz%20trasera-fcc73eb501dd8e2fff65b64cb0fe4be0.jpg" host=ffap-itt-2015.herokuapp.com request_id=9d68f176-6ea2-4770-8d1e-14e08136ae46 fwd="186.150.4.199" dyno=web.1 connect=1ms service=4ms status=200 bytes=6599
+2015-06-20T19:30:55.102871+00:00 heroku[router]: at=info method=GET path="/assets/retro-91dc365141f4d42c3907a7025a5cc995.jpg" host=ffap-itt-2015.herokuapp.com request_id=3c168eb4-1ae0-4347-a03c-c521c5c88cab fwd="186.150.4.199" dyno=web.1 connect=0ms service=3ms status=200 bytes=7902
+2015-06-20T19:30:56.786337+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=ffap-itt-2015.herokuapp.com request_id=941861fc-57bf-433e-805b-5e76bb59b56f fwd="186.150.4.199" dyno=web.1 connect=1ms service=4ms status=200 bytes=228
+2015-06-20T20:38:09.951823+00:00 heroku[web.1]: Idling
+2015-06-20T20:38:09.952587+00:00 heroku[web.1]: State changed from up to down
+2015-06-20T20:38:12.949828+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2015-06-20T20:38:13.837956+00:00 app[web.1]: [2015-06-20 20:38:13] FATAL SignalException: SIGTERM
+2015-06-20T20:38:13.837963+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:170:in `select'
+2015-06-20T20:38:13.837967+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:170:in `block in start'
+2015-06-20T20:38:13.837968+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:32:in `start'
+2015-06-20T20:38:13.837970+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:160:in `start'
+2015-06-20T20:38:13.837971+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/handler/webrick.rb:14:in `run'
+2015-06-20T20:38:13.837973+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/server.rb:264:in `start'
+2015-06-20T20:38:13.837974+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands/server.rb:84:in `start'
+2015-06-20T20:38:13.837976+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands.rb:78:in `block in <top (required)>'
+2015-06-20T20:38:13.837977+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands.rb:73:in `tap'
+2015-06-20T20:38:13.837979+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands.rb:73:in `<top (required)>'
+2015-06-20T20:38:13.837981+00:00 app[web.1]: 	bin/rails:4:in `require'
+2015-06-20T20:38:13.837982+00:00 app[web.1]: 	bin/rails:4:in `<main>'
+2015-06-20T20:38:13.837990+00:00 app[web.1]: [2015-06-20 20:38:13] INFO  going to shutdown ...
+2015-06-20T20:38:13.838047+00:00 app[web.1]: [2015-06-20 20:38:13] INFO  WEBrick::HTTPServer#start done.
+2015-06-20T20:38:13.846621+00:00 app[web.1]: Exiting
+2015-06-20T20:38:15.275105+00:00 heroku[web.1]: Process exited with status 143
+2015-06-21T13:31:12.525257+00:00 heroku[web.1]: Unidling
+2015-06-21T13:31:12.525751+00:00 heroku[web.1]: State changed from down to starting
+2015-06-21T13:31:16.178026+00:00 heroku[web.1]: Starting process with command `bin/rails server -p 38284 -e production`
+2015-06-21T13:31:19.495970+00:00 app[web.1]: [2015-06-21 13:31:19] INFO  WEBrick 1.3.1
+2015-06-21T13:31:19.495998+00:00 app[web.1]: [2015-06-21 13:31:19] INFO  ruby 2.0.0 (2015-04-13) [x86_64-linux]
+2015-06-21T13:31:19.496404+00:00 app[web.1]: [2015-06-21 13:31:19] INFO  WEBrick::HTTPServer#start: pid=3 port=38284
+2015-06-21T13:31:20.160113+00:00 heroku[web.1]: State changed from starting to up
+2015-06-21T13:31:20.638354+00:00 app[web.1]: => Booting WEBrick
+2015-06-21T13:31:20.638359+00:00 app[web.1]: => Rails 4.0.0 application starting in production on http://0.0.0.0:38284
+2015-06-21T13:31:20.638361+00:00 app[web.1]: => Run `rails server -h` for more startup options
+2015-06-21T13:31:20.638362+00:00 app[web.1]: => Ctrl-C to shutdown server
+2015-06-21T13:31:20.638364+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:31:20 +0000
+2015-06-21T13:31:20.638370+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:31:20 +0000
+2015-06-21T13:31:20.725968+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:31:20.725977+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:31:20.793253+00:00 app[web.1]: Cache digest for store/index.html: adc6ef4d5aba717df436f80002e36314
+2015-06-21T13:31:20.793262+00:00 app[web.1]: Cache digest for store/index.html: adc6ef4d5aba717df436f80002e36314
+2015-06-21T13:31:20.794587+00:00 app[web.1]: Read fragment views/store/products/2-20150620130716271575000/adc6ef4d5aba717df436f80002e36314 (0.2ms)
+2015-06-21T13:31:20.794580+00:00 app[web.1]: Read fragment views/store/products/2-20150620130716271575000/adc6ef4d5aba717df436f80002e36314 (0.2ms)
+2015-06-21T13:31:20.797056+00:00 app[web.1]: Read fragment views/entry/products/2-20150620130716271575000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:31:20.797127+00:00 app[web.1]: Read fragment views/entry/products/2-20150620130716271575000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:31:20.805947+00:00 app[web.1]: Write fragment views/entry/products/2-20150620130716271575000/adc6ef4d5aba717df436f80002e36314 (1.1ms)
+2015-06-21T13:31:20.805955+00:00 app[web.1]: Write fragment views/entry/products/2-20150620130716271575000/adc6ef4d5aba717df436f80002e36314 (1.1ms)
+2015-06-21T13:31:20.806389+00:00 app[web.1]: Read fragment views/entry/products/1-20150620130716255225000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:31:20.806396+00:00 app[web.1]: Read fragment views/entry/products/1-20150620130716255225000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:31:20.808300+00:00 app[web.1]: Write fragment views/entry/products/1-20150620130716255225000/adc6ef4d5aba717df436f80002e36314 (0.7ms)
+2015-06-21T13:31:20.808306+00:00 app[web.1]: Write fragment views/entry/products/1-20150620130716255225000/adc6ef4d5aba717df436f80002e36314 (0.7ms)
+2015-06-21T13:31:20.809201+00:00 app[web.1]: Write fragment views/store/products/2-20150620130716271575000/adc6ef4d5aba717df436f80002e36314 (0.7ms)
+2015-06-21T13:31:20.809207+00:00 app[web.1]: Write fragment views/store/products/2-20150620130716271575000/adc6ef4d5aba717df436f80002e36314 (0.7ms)
+2015-06-21T13:31:20.809351+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (43.2ms)
+2015-06-21T13:31:20.809357+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (43.2ms)
+2015-06-21T13:31:20.832906+00:00 app[web.1]:   Rendered collection (0.0ms)
+2015-06-21T13:31:20.832896+00:00 app[web.1]:   Rendered collection (0.0ms)
+2015-06-21T13:31:20.834716+00:00 app[web.1]:   Rendered carts/_cart.html.erb (4.3ms)
+2015-06-21T13:31:20.835130+00:00 app[web.1]: Completed 200 OK in 109ms (Views: 59.0ms | ActiveRecord: 28.8ms)
+2015-06-21T13:31:20.834722+00:00 app[web.1]:   Rendered carts/_cart.html.erb (4.3ms)
+2015-06-21T13:31:20.835136+00:00 app[web.1]: Completed 200 OK in 109ms (Views: 59.0ms | ActiveRecord: 28.8ms)
+2015-06-21T13:31:20.837883+00:00 heroku[router]: at=info method=GET path="/" host=ffap-itt-2015.herokuapp.com request_id=cfaf1444-d6a7-4222-a13e-8cf2261d812f fwd="179.53.94.124" dyno=web.1 connect=0ms service=204ms status=200 bytes=3870
+2015-06-21T13:31:21.723570+00:00 heroku[router]: at=info method=GET path="/assets/application-af083fc4e9b1c38c3e891a7b2171b10e.css" host=ffap-itt-2015.herokuapp.com request_id=2c756ad1-ea64-44b0-8968-ead5e7c4f90f fwd="179.53.94.124" dyno=web.1 connect=2ms service=15ms status=304 bytes=133
+2015-06-21T13:31:22.528618+00:00 heroku[router]: at=info method=GET path="/assets/logo-639290b0390eec9dbb26425dc3808604.jpg" host=ffap-itt-2015.herokuapp.com request_id=8cdff6b8-6e4a-4548-a61f-16d8b81a9508 fwd="179.53.94.124" dyno=web.1 connect=1ms service=3ms status=304 bytes=133
+2015-06-21T13:31:22.782557+00:00 heroku[router]: at=info method=GET path="/assets/Luz%20trasera-fcc73eb501dd8e2fff65b64cb0fe4be0.jpg" host=ffap-itt-2015.herokuapp.com request_id=b465704d-9195-48e6-9c05-7ffd70815be9 fwd="179.53.94.124" dyno=web.1 connect=0ms service=4ms status=304 bytes=133
+2015-06-21T13:31:22.943913+00:00 heroku[router]: at=info method=GET path="/assets/retro-91dc365141f4d42c3907a7025a5cc995.jpg" host=ffap-itt-2015.herokuapp.com request_id=6a2956a3-8598-4da9-bcfe-27050e434e55 fwd="179.53.94.124" dyno=web.1 connect=1ms service=5ms status=304 bytes=133
+2015-06-21T13:31:37.488696+00:00 heroku[api]: Starting process with command `bundle exec rake db:seed` by mario.lara1289@gmail.com
+2015-06-21T13:31:41.306918+00:00 heroku[run.1989]: Awaiting client
+2015-06-21T13:31:41.348874+00:00 heroku[run.1989]: Starting process with command `bundle exec rake db:seed`
+2015-06-21T13:31:41.574865+00:00 heroku[run.1989]: State changed from starting to up
+2015-06-21T13:31:45.357133+00:00 heroku[run.1989]: State changed from up to complete
+2015-06-21T13:31:45.339439+00:00 heroku[run.1989]: Process exited with status 0
+2015-06-21T13:34:07.250778+00:00 heroku[run.9718]: Process exited with status 0
+2015-06-21T13:34:41.904867+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:34:41 +0000
+2015-06-21T13:34:41.904875+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:34:41 +0000
+2015-06-21T13:34:41.906474+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:34:41.906480+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:34:41.912867+00:00 app[web.1]: Read fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.2ms)
+2015-06-21T13:34:41.912876+00:00 app[web.1]: Read fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.2ms)
+2015-06-21T13:34:41.916341+00:00 app[web.1]: Read fragment views/entry/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:34:41.920243+00:00 app[web.1]: Write fragment views/entry/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (1.0ms)
+2015-06-21T13:34:41.916347+00:00 app[web.1]: Read fragment views/entry/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:34:41.920251+00:00 app[web.1]: Write fragment views/entry/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (1.0ms)
+2015-06-21T13:34:41.920575+00:00 app[web.1]: Read fragment views/entry/products/5-20150621133406369123000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:34:41.920581+00:00 app[web.1]: Read fragment views/entry/products/5-20150621133406369123000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:34:41.922068+00:00 app[web.1]: Write fragment views/entry/products/5-20150621133406369123000/adc6ef4d5aba717df436f80002e36314 (0.5ms)
+2015-06-21T13:34:41.922833+00:00 app[web.1]: Write fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.6ms)
+2015-06-21T13:34:41.922077+00:00 app[web.1]: Write fragment views/entry/products/5-20150621133406369123000/adc6ef4d5aba717df436f80002e36314 (0.5ms)
+2015-06-21T13:34:41.922871+00:00 app[web.1]: Write fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.6ms)
+2015-06-21T13:34:41.923015+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (12.2ms)
+2015-06-21T13:34:41.923010+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (12.2ms)
+2015-06-21T13:34:41.951650+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (7.4ms)
+2015-06-21T13:34:41.951659+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (7.4ms)
+2015-06-21T13:34:41.951730+00:00 app[web.1]:   Rendered carts/_cart.html.erb (8.9ms)
+2015-06-21T13:34:41.951751+00:00 app[web.1]:   Rendered carts/_cart.html.erb (8.9ms)
+2015-06-21T13:34:41.951964+00:00 app[web.1]: Completed 500 Internal Server Error in 45ms
+2015-06-21T13:34:41.951940+00:00 app[web.1]: Completed 500 Internal Server Error in 45ms
+2015-06-21T13:34:41.969891+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:34:41.969884+00:00 app[web.1]: 
+2015-06-21T13:34:41.969889+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:34:41.969896+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:34:41.969895+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:34:41.969898+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:34:41.969893+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:34:41.969899+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:34:41.969901+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___955790590765637268_69995471719620'
+2015-06-21T13:34:41.969906+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:34:41.969905+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb___296169024631066777_69995462685200'
+2015-06-21T13:34:41.969909+00:00 app[web.1]: 
+2015-06-21T13:34:41.969908+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___296169024631066777_69995462685200'
+2015-06-21T13:34:41.969911+00:00 app[web.1]: 
+2015-06-21T13:34:41.969920+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:34:41.969903+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4043748460150336362_69995475310400'
+2015-06-21T13:34:41.969917+00:00 app[web.1]: 
+2015-06-21T13:34:41.969919+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:34:41.969925+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:34:41.969924+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:34:41.969931+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb___296169024631066777_69995462685200'
+2015-06-21T13:34:41.969937+00:00 app[web.1]: 
+2015-06-21T13:34:41.969921+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:34:41.969927+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:34:41.969923+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:34:41.969935+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___296169024631066777_69995462685200'
+2015-06-21T13:34:41.969928+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___955790590765637268_69995471719620'
+2015-06-21T13:34:41.969930+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4043748460150336362_69995475310400'
+2015-06-21T13:34:41.969933+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:34:41.969938+00:00 app[web.1]: 
+2015-06-21T13:34:41.971811+00:00 heroku[router]: at=info method=GET path="/" host=ffap-itt-2015.herokuapp.com request_id=b574a0de-5817-4d70-b324-3e3fd3f69752 fwd="179.53.94.124" dyno=web.1 connect=1ms service=71ms status=500 bytes=1543
+2015-06-21T13:35:14.404046+00:00 heroku[router]: at=info method=GET path="/" host=ffap-itt-2015.herokuapp.com request_id=c49a31ee-fa5a-4dcf-9b61-558fdb5c301e fwd="179.53.94.124" dyno=web.1 connect=1ms service=22ms status=500 bytes=1543
+2015-06-21T13:35:14.383987+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:35:14 +0000
+2015-06-21T13:35:14.383979+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:35:14 +0000
+2015-06-21T13:35:14.385251+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:35:14.385256+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:35:14.390412+00:00 app[web.1]: Read fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.2ms)
+2015-06-21T13:35:14.390449+00:00 app[web.1]: Read fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.2ms)
+2015-06-21T13:35:14.390583+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (2.2ms)
+2015-06-21T13:35:14.390563+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (2.2ms)
+2015-06-21T13:35:14.395870+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (1.9ms)
+2015-06-21T13:35:14.395875+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (1.9ms)
+2015-06-21T13:35:14.395986+00:00 app[web.1]:   Rendered carts/_cart.html.erb (3.0ms)
+2015-06-21T13:35:14.395992+00:00 app[web.1]:   Rendered carts/_cart.html.erb (3.0ms)
+2015-06-21T13:35:14.396086+00:00 app[web.1]: Completed 500 Internal Server Error in 11ms
+2015-06-21T13:35:14.397817+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:35:14.397821+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:35:14.397827+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___955790590765637268_69995471719620'
+2015-06-21T13:35:14.397818+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:35:14.397825+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:35:14.397822+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:35:14.397824+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:35:14.397831+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb___296169024631066777_69995462685200'
+2015-06-21T13:35:14.397829+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4043748460150336362_69995475310400'
+2015-06-21T13:35:14.397840+00:00 app[web.1]: 
+2015-06-21T13:35:14.397833+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:35:14.397836+00:00 app[web.1]: 
+2015-06-21T13:35:14.397843+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:35:14.397842+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:35:14.397849+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:35:14.397847+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:35:14.397851+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___955790590765637268_69995471719620'
+2015-06-21T13:35:14.397835+00:00 app[web.1]: 
+2015-06-21T13:35:14.397844+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:35:14.397855+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:35:14.397848+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:35:14.397852+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4043748460150336362_69995475310400'
+2015-06-21T13:35:14.397853+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb___296169024631066777_69995462685200'
+2015-06-21T13:35:14.397858+00:00 app[web.1]: 
+2015-06-21T13:35:14.397856+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___296169024631066777_69995462685200'
+2015-06-21T13:35:14.396106+00:00 app[web.1]: Completed 500 Internal Server Error in 11ms
+2015-06-21T13:35:14.397814+00:00 app[web.1]: 
+2015-06-21T13:35:14.397820+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:35:14.397834+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___296169024631066777_69995462685200'
+2015-06-21T13:35:14.397846+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:35:14.397857+00:00 app[web.1]: 
+2015-06-21T13:39:14.689615+00:00 app[web.1]: 
+2015-06-21T13:39:14.689616+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:39:14.689618+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:39:14.689619+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:39:14.689620+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:39:14.689622+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:39:14.689623+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:39:14.689625+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:39:14.689626+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___955790590765637268_69995471719620'
+2015-06-21T13:39:14.689628+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4043748460150336362_69995475310400'
+2015-06-21T13:39:14.689639+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb___296169024631066777_69995462685200'
+2015-06-21T13:39:14.689641+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:39:14.689642+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___296169024631066777_69995462685200'
+2015-06-21T13:39:14.689643+00:00 app[web.1]: 
+2015-06-21T13:39:14.689645+00:00 app[web.1]: 
+2015-06-21T13:39:14.698005+00:00 heroku[router]: at=info method=GET path="/" host=ffap-itt-2015.herokuapp.com request_id=ab386604-d576-4a4e-badb-91e70ac60970 fwd="179.53.94.124" dyno=web.1 connect=1ms service=25ms status=500 bytes=1543
+2015-06-21T13:40:57.455559+00:00 heroku[web.1]: State changed from up to starting
+2015-06-21T13:41:01.219837+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2015-06-21T13:41:02.225629+00:00 app[web.1]: [2015-06-21 13:41:02] FATAL SignalException: SIGTERM
+2015-06-21T13:41:02.225652+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:170:in `select'
+2015-06-21T13:41:02.225655+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:170:in `block in start'
+2015-06-21T13:41:02.225656+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:32:in `start'
+2015-06-21T13:41:02.225657+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:160:in `start'
+2015-06-21T13:41:02.225659+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/handler/webrick.rb:14:in `run'
+2015-06-21T13:41:02.225660+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/server.rb:264:in `start'
+2015-06-21T13:41:02.225662+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands/server.rb:84:in `start'
+2015-06-21T13:41:02.225664+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands.rb:78:in `block in <top (required)>'
+2015-06-21T13:41:02.225665+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands.rb:73:in `tap'
+2015-06-21T13:41:02.225666+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands.rb:73:in `<top (required)>'
+2015-06-21T13:41:02.225669+00:00 app[web.1]: 	bin/rails:4:in `require'
+2015-06-21T13:41:02.225671+00:00 app[web.1]: 	bin/rails:4:in `<main>'
+2015-06-21T13:41:02.225680+00:00 app[web.1]: [2015-06-21 13:41:02] INFO  going to shutdown ...
+2015-06-21T13:41:02.228229+00:00 app[web.1]: [2015-06-21 13:41:02] INFO  WEBrick::HTTPServer#start done.
+2015-06-21T13:41:02.232000+00:00 app[web.1]: Exiting
+2015-06-21T13:41:04.046649+00:00 heroku[web.1]: Process exited with status 143
+2015-06-21T13:41:05.918926+00:00 heroku[web.1]: Starting process with command `bin/rails server -p 30774 -e production`
+2015-06-21T13:41:11.036306+00:00 app[web.1]: [2015-06-21 13:41:11] INFO  ruby 2.0.0 (2015-04-13) [x86_64-linux]
+2015-06-21T13:41:11.035143+00:00 app[web.1]: [2015-06-21 13:41:11] INFO  WEBrick 1.3.1
+2015-06-21T13:41:11.036879+00:00 app[web.1]: [2015-06-21 13:41:11] INFO  WEBrick::HTTPServer#start: pid=3 port=30774
+2015-06-21T13:41:11.790142+00:00 heroku[web.1]: State changed from starting to up
+2015-06-21T13:41:13.005805+00:00 app[web.1]: => Rails 4.0.0 application starting in production on http://0.0.0.0:30774
+2015-06-21T13:41:13.005789+00:00 app[web.1]: => Booting WEBrick
+2015-06-21T13:41:13.005808+00:00 app[web.1]: => Run `rails server -h` for more startup options
+2015-06-21T13:41:13.005809+00:00 app[web.1]: => Ctrl-C to shutdown server
+2015-06-21T13:41:13.005819+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:41:13 +0000
+2015-06-21T13:41:13.005811+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:41:13 +0000
+2015-06-21T13:41:13.157143+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:41:13.157221+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:41:13.227840+00:00 app[web.1]: Cache digest for store/index.html: adc6ef4d5aba717df436f80002e36314
+2015-06-21T13:41:13.227855+00:00 app[web.1]: Cache digest for store/index.html: adc6ef4d5aba717df436f80002e36314
+2015-06-21T13:41:13.229254+00:00 app[web.1]: Read fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.2ms)
+2015-06-21T13:41:13.229275+00:00 app[web.1]: Read fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.2ms)
+2015-06-21T13:41:13.232764+00:00 app[web.1]: Read fragment views/entry/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:41:13.232774+00:00 app[web.1]: Read fragment views/entry/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:41:13.241257+00:00 app[web.1]: Write fragment views/entry/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (1.2ms)
+2015-06-21T13:41:13.241269+00:00 app[web.1]: Write fragment views/entry/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (1.2ms)
+2015-06-21T13:41:13.241721+00:00 app[web.1]: Read fragment views/entry/products/5-20150621133406369123000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:41:13.243826+00:00 app[web.1]: Write fragment views/entry/products/5-20150621133406369123000/adc6ef4d5aba717df436f80002e36314 (0.8ms)
+2015-06-21T13:41:13.241725+00:00 app[web.1]: Read fragment views/entry/products/5-20150621133406369123000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:41:13.243831+00:00 app[web.1]: Write fragment views/entry/products/5-20150621133406369123000/adc6ef4d5aba717df436f80002e36314 (0.8ms)
+2015-06-21T13:41:13.244761+00:00 app[web.1]: Write fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.8ms)
+2015-06-21T13:41:13.244956+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (46.4ms)
+2015-06-21T13:41:13.244914+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (46.4ms)
+2015-06-21T13:41:13.244766+00:00 app[web.1]: Write fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.8ms)
+2015-06-21T13:41:13.307097+00:00 heroku[router]: at=info method=GET path="/" host=ffap-itt-2015.herokuapp.com request_id=27dfba38-0364-4c43-be81-f24427b7e379 fwd="179.53.94.124" dyno=web.1 connect=5ms service=311ms status=500 bytes=1543
+2015-06-21T13:41:13.301515+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (8.2ms)
+2015-06-21T13:41:13.301528+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (8.2ms)
+2015-06-21T13:41:13.301592+00:00 app[web.1]:   Rendered carts/_cart.html.erb (32.7ms)
+2015-06-21T13:41:13.301619+00:00 app[web.1]:   Rendered carts/_cart.html.erb (32.7ms)
+2015-06-21T13:41:13.301825+00:00 app[web.1]: Completed 500 Internal Server Error in 144ms
+2015-06-21T13:41:13.304073+00:00 app[web.1]: 
+2015-06-21T13:41:13.304077+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:41:13.301873+00:00 app[web.1]: Completed 500 Internal Server Error in 144ms
+2015-06-21T13:41:13.304079+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:41:13.304080+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:41:13.304082+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:41:13.304083+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:41:13.304085+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:41:13.304086+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:41:13.304088+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___305337443227805721_70080682608220'
+2015-06-21T13:41:13.304090+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4226921697603432351_70080899178400'
+2015-06-21T13:41:13.304095+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:41:13.304092+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:41:13.304093+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:41:13.304096+00:00 app[web.1]: 
+2015-06-21T13:41:13.304151+00:00 app[web.1]: 
+2015-06-21T13:41:13.304098+00:00 app[web.1]: 
+2015-06-21T13:41:13.304153+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:41:13.304156+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:41:13.304155+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:41:13.304159+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:41:13.304158+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:41:13.304162+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:41:13.304164+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___305337443227805721_70080682608220'
+2015-06-21T13:41:13.304170+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:41:13.304169+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:41:13.304161+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:41:13.304167+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:41:13.304166+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4226921697603432351_70080899178400'
+2015-06-21T13:41:13.304172+00:00 app[web.1]: 
+2015-06-21T13:41:13.304173+00:00 app[web.1]: 
+2015-06-21T13:41:02.225629+00:00 app[web.1]: [2015-06-21 13:41:02] FATAL SignalException: SIGTERM
+2015-06-21T13:41:02.225652+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:170:in `select'
+2015-06-21T13:41:02.225655+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:170:in `block in start'
+2015-06-21T13:41:02.225656+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:32:in `start'
+2015-06-21T13:41:02.225657+00:00 app[web.1]: 	/app/vendor/ruby-2.0.0/lib/ruby/2.0.0/webrick/server.rb:160:in `start'
+2015-06-21T13:41:02.225659+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/handler/webrick.rb:14:in `run'
+2015-06-21T13:41:02.225660+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/server.rb:264:in `start'
+2015-06-21T13:41:02.225662+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands/server.rb:84:in `start'
+2015-06-21T13:41:02.225664+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands.rb:78:in `block in <top (required)>'
+2015-06-21T13:41:02.225665+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands.rb:73:in `tap'
+2015-06-21T13:41:02.225666+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/commands.rb:73:in `<top (required)>'
+2015-06-21T13:41:02.225669+00:00 app[web.1]: 	bin/rails:4:in `require'
+2015-06-21T13:41:02.225671+00:00 app[web.1]: 	bin/rails:4:in `<main>'
+2015-06-21T13:41:02.225680+00:00 app[web.1]: [2015-06-21 13:41:02] INFO  going to shutdown ...
+2015-06-21T13:41:02.228229+00:00 app[web.1]: [2015-06-21 13:41:02] INFO  WEBrick::HTTPServer#start done.
+2015-06-21T13:41:02.232000+00:00 app[web.1]: Exiting
+2015-06-21T13:41:04.046649+00:00 heroku[web.1]: Process exited with status 143
+2015-06-21T13:41:05.918926+00:00 heroku[web.1]: Starting process with command `bin/rails server -p 30774 -e production`
+2015-06-21T13:41:11.036306+00:00 app[web.1]: [2015-06-21 13:41:11] INFO  ruby 2.0.0 (2015-04-13) [x86_64-linux]
+2015-06-21T13:41:11.035143+00:00 app[web.1]: [2015-06-21 13:41:11] INFO  WEBrick 1.3.1
+2015-06-21T13:41:11.036879+00:00 app[web.1]: [2015-06-21 13:41:11] INFO  WEBrick::HTTPServer#start: pid=3 port=30774
+2015-06-21T13:41:11.790142+00:00 heroku[web.1]: State changed from starting to up
+2015-06-21T13:41:13.005805+00:00 app[web.1]: => Rails 4.0.0 application starting in production on http://0.0.0.0:30774
+2015-06-21T13:41:13.005789+00:00 app[web.1]: => Booting WEBrick
+2015-06-21T13:41:13.005808+00:00 app[web.1]: => Run `rails server -h` for more startup options
+2015-06-21T13:41:13.005809+00:00 app[web.1]: => Ctrl-C to shutdown server
+2015-06-21T13:41:13.005819+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:41:13 +0000
+2015-06-21T13:41:13.005811+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:41:13 +0000
+2015-06-21T13:41:13.157143+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:41:13.157221+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:41:13.227840+00:00 app[web.1]: Cache digest for store/index.html: adc6ef4d5aba717df436f80002e36314
+2015-06-21T13:41:13.227855+00:00 app[web.1]: Cache digest for store/index.html: adc6ef4d5aba717df436f80002e36314
+2015-06-21T13:41:13.229254+00:00 app[web.1]: Read fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.2ms)
+2015-06-21T13:41:13.229275+00:00 app[web.1]: Read fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.2ms)
+2015-06-21T13:41:13.232764+00:00 app[web.1]: Read fragment views/entry/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:41:13.232774+00:00 app[web.1]: Read fragment views/entry/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:41:13.241257+00:00 app[web.1]: Write fragment views/entry/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (1.2ms)
+2015-06-21T13:41:13.241269+00:00 app[web.1]: Write fragment views/entry/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (1.2ms)
+2015-06-21T13:41:13.241721+00:00 app[web.1]: Read fragment views/entry/products/5-20150621133406369123000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:41:13.243826+00:00 app[web.1]: Write fragment views/entry/products/5-20150621133406369123000/adc6ef4d5aba717df436f80002e36314 (0.8ms)
+2015-06-21T13:41:13.241725+00:00 app[web.1]: Read fragment views/entry/products/5-20150621133406369123000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:41:13.243831+00:00 app[web.1]: Write fragment views/entry/products/5-20150621133406369123000/adc6ef4d5aba717df436f80002e36314 (0.8ms)
+2015-06-21T13:41:13.244761+00:00 app[web.1]: Write fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.8ms)
+2015-06-21T13:41:13.244956+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (46.4ms)
+2015-06-21T13:41:13.244914+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (46.4ms)
+2015-06-21T13:41:13.244766+00:00 app[web.1]: Write fragment views/store/products/6-20150621133406385144000/adc6ef4d5aba717df436f80002e36314 (0.8ms)
+2015-06-21T13:41:13.307097+00:00 heroku[router]: at=info method=GET path="/" host=ffap-itt-2015.herokuapp.com request_id=27dfba38-0364-4c43-be81-f24427b7e379 fwd="179.53.94.124" dyno=web.1 connect=5ms service=311ms status=500 bytes=1543
+2015-06-21T13:41:13.301515+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (8.2ms)
+2015-06-21T13:41:13.301528+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (8.2ms)
+2015-06-21T13:41:13.301592+00:00 app[web.1]:   Rendered carts/_cart.html.erb (32.7ms)
+2015-06-21T13:41:13.301619+00:00 app[web.1]:   Rendered carts/_cart.html.erb (32.7ms)
+2015-06-21T13:41:13.301825+00:00 app[web.1]: Completed 500 Internal Server Error in 144ms
+2015-06-21T13:41:13.304073+00:00 app[web.1]: 
+2015-06-21T13:41:13.304077+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:41:13.301873+00:00 app[web.1]: Completed 500 Internal Server Error in 144ms
+2015-06-21T13:41:13.304079+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:41:13.304080+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:41:13.304082+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:41:13.304083+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:41:13.304085+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:41:13.304086+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:41:13.304088+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___305337443227805721_70080682608220'
+2015-06-21T13:41:13.304090+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4226921697603432351_70080899178400'
+2015-06-21T13:41:13.304095+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:41:13.304092+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:41:13.304093+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:41:13.304096+00:00 app[web.1]: 
+2015-06-21T13:41:13.304151+00:00 app[web.1]: 
+2015-06-21T13:41:13.304098+00:00 app[web.1]: 
+2015-06-21T13:41:13.304153+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:41:13.304156+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:41:13.304155+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:41:13.304159+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:41:13.304158+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:41:13.304162+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:41:13.304164+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___305337443227805721_70080682608220'
+2015-06-21T13:41:13.304170+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:41:13.304169+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:41:13.304161+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:41:13.304167+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:41:13.304166+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4226921697603432351_70080899178400'
+2015-06-21T13:41:13.304172+00:00 app[web.1]: 
+2015-06-21T13:41:13.304173+00:00 app[web.1]: 
+2015-06-21T13:44:12.492714+00:00 heroku[api]: Starting process with command `bundle exec rake db:drop` by mario.lara1289@gmail.com
+2015-06-21T13:44:16.292328+00:00 heroku[run.2599]: Awaiting client
+2015-06-21T13:44:16.333252+00:00 heroku[run.2599]: Starting process with command `bundle exec rake db:drop`
+2015-06-21T13:44:16.795933+00:00 heroku[run.2599]: State changed from starting to up
+2015-06-21T13:44:19.777754+00:00 heroku[run.2599]: Process exited with status 0
+2015-06-21T13:44:19.792696+00:00 heroku[run.2599]: State changed from up to complete
+2015-06-21T13:45:24.602968+00:00 heroku[api]: Starting process with command `bundle exec rake db:migrate` by mario.lara1289@gmail.com
+2015-06-21T13:45:28.152118+00:00 heroku[run.9219]: Awaiting client
+2015-06-21T13:45:28.178129+00:00 heroku[run.9219]: Starting process with command `bundle exec rake db:migrate`
+2015-06-21T13:45:28.555643+00:00 heroku[run.9219]: State changed from starting to up
+2015-06-21T13:45:31.862999+00:00 heroku[run.9219]: State changed from up to complete
+2015-06-21T13:45:31.849301+00:00 heroku[run.9219]: Process exited with status 0
+2015-06-21T13:45:35.664868+00:00 heroku[api]: Starting process with command `bundle exec rake db:seed` by mario.lara1289@gmail.com
+2015-06-21T13:45:39.172028+00:00 heroku[run.6653]: Awaiting client
+2015-06-21T13:45:39.203723+00:00 heroku[run.6653]: Starting process with command `bundle exec rake db:seed`
+2015-06-21T13:45:39.455882+00:00 heroku[run.6653]: State changed from starting to up
+2015-06-21T13:45:44.258175+00:00 heroku[run.6653]: State changed from up to complete
+2015-06-21T13:45:44.246174+00:00 heroku[run.6653]: Process exited with status 0
+2015-06-21T13:45:44.246174+00:00 heroku[run.6653]: Process exited with status 0
+2015-06-21T13:46:04.221230+00:00 heroku[router]: at=info method=GET path="/" host=ffap-itt-2015.herokuapp.com request_id=c8a541a6-b914-47a2-bd7e-9e23ca85e9c1 fwd="179.53.94.124" dyno=web.1 connect=1ms service=67ms status=500 bytes=1543
+2015-06-21T13:46:04.157786+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:46:04 +0000
+2015-06-21T13:46:04.157794+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:46:04 +0000
+2015-06-21T13:46:04.161068+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:46:04.161072+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:46:04.165817+00:00 app[web.1]: Read fragment views/store/products/8-20150621134543231080000/adc6ef4d5aba717df436f80002e36314 (0.2ms)
+2015-06-21T13:46:04.165828+00:00 app[web.1]: Read fragment views/store/products/8-20150621134543231080000/adc6ef4d5aba717df436f80002e36314 (0.2ms)
+2015-06-21T13:46:04.167072+00:00 app[web.1]: Read fragment views/entry/products/8-20150621134543231080000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:46:04.167077+00:00 app[web.1]: Read fragment views/entry/products/8-20150621134543231080000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:46:04.171412+00:00 app[web.1]: Write fragment views/entry/products/8-20150621134543231080000/adc6ef4d5aba717df436f80002e36314 (2.5ms)
+2015-06-21T13:46:04.171421+00:00 app[web.1]: Write fragment views/entry/products/8-20150621134543231080000/adc6ef4d5aba717df436f80002e36314 (2.5ms)
+2015-06-21T13:46:04.171814+00:00 app[web.1]: Read fragment views/entry/products/7-20150621134543211393000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:46:04.171842+00:00 app[web.1]: Read fragment views/entry/products/7-20150621134543211393000/adc6ef4d5aba717df436f80002e36314 (0.1ms)
+2015-06-21T13:46:04.174476+00:00 app[web.1]: Write fragment views/entry/products/7-20150621134543211393000/adc6ef4d5aba717df436f80002e36314 (1.0ms)
+2015-06-21T13:46:04.174484+00:00 app[web.1]: Write fragment views/entry/products/7-20150621134543211393000/adc6ef4d5aba717df436f80002e36314 (1.0ms)
+2015-06-21T13:46:04.209685+00:00 app[web.1]: Write fragment views/store/products/8-20150621134543231080000/adc6ef4d5aba717df436f80002e36314 (35.0ms)
+2015-06-21T13:46:04.209827+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (46.0ms)
+2015-06-21T13:46:04.209696+00:00 app[web.1]: Write fragment views/store/products/8-20150621134543231080000/adc6ef4d5aba717df436f80002e36314 (35.0ms)
+2015-06-21T13:46:04.209845+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (46.0ms)
+2015-06-21T13:46:04.216880+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (2.4ms)
+2015-06-21T13:46:04.216893+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (2.4ms)
+2015-06-21T13:46:04.216952+00:00 app[web.1]:   Rendered carts/_cart.html.erb (3.8ms)
+2015-06-21T13:46:04.216956+00:00 app[web.1]:   Rendered carts/_cart.html.erb (3.8ms)
+2015-06-21T13:46:04.217123+00:00 app[web.1]: Completed 500 Internal Server Error in 57ms
+2015-06-21T13:46:04.217154+00:00 app[web.1]: Completed 500 Internal Server Error in 57ms
+2015-06-21T13:46:04.218921+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:46:04.218918+00:00 app[web.1]: 
+2015-06-21T13:46:04.218923+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:46:04.218924+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:46:04.218925+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:46:04.218927+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:46:04.218930+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:46:04.218928+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:46:04.218933+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___305337443227805721_70080682608220'
+2015-06-21T13:46:04.218937+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:46:04.218938+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:46:04.218935+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4226921697603432351_70080899178400'
+2015-06-21T13:46:04.218939+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:46:04.218941+00:00 app[web.1]: 
+2015-06-21T13:46:04.218942+00:00 app[web.1]: 
+2015-06-21T13:46:04.218947+00:00 app[web.1]: 
+2015-06-21T13:46:04.218948+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:46:04.218950+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:46:04.218951+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:46:04.218952+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:46:04.218954+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:46:04.218955+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:46:04.218956+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:46:04.218958+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___305337443227805721_70080682608220'
+2015-06-21T13:46:04.218959+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4226921697603432351_70080899178400'
+2015-06-21T13:46:04.218961+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:46:04.218962+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:46:04.218963+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:46:04.218966+00:00 app[web.1]: 
+2015-06-21T13:46:04.218965+00:00 app[web.1]: 
+2015-06-21T13:46:05.421386+00:00 heroku[router]: at=info method=GET path="/" host=ffap-itt-2015.herokuapp.com request_id=65b211b5-c3b9-40c6-aa7c-0f395b1d64b7 fwd="179.53.94.124" dyno=web.1 connect=6ms service=122ms status=500 bytes=1543
+2015-06-21T13:46:05.302923+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:46:05 +0000
+2015-06-21T13:46:05.305286+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:46:05.317821+00:00 app[web.1]: Read fragment views/store/products/8-20150621134543231080000/adc6ef4d5aba717df436f80002e36314 (0.4ms)
+2015-06-21T13:46:05.317889+00:00 app[web.1]: Read fragment views/store/products/8-20150621134543231080000/adc6ef4d5aba717df436f80002e36314 (0.4ms)
+2015-06-21T13:46:05.318081+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (5.3ms)
+2015-06-21T13:46:05.318128+00:00 app[web.1]:   Rendered store/index.html.erb within layouts/application (5.3ms)
+2015-06-21T13:46:05.382034+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (52.7ms)
+2015-06-21T13:46:05.388975+00:00 app[web.1]:   Rendered carts/_cart.html.erb (65.0ms)
+2015-06-21T13:46:05.389258+00:00 app[web.1]: Completed 500 Internal Server Error in 83ms
+2015-06-21T13:46:05.389021+00:00 app[web.1]:   Rendered carts/_cart.html.erb (65.0ms)
+2015-06-21T13:46:05.389205+00:00 app[web.1]: Completed 500 Internal Server Error in 83ms
+2015-06-21T13:46:05.391468+00:00 app[web.1]: 
+2015-06-21T13:46:05.391474+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:46:05.391475+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:46:05.391477+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:46:05.391478+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:46:05.391482+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:46:05.391484+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___305337443227805721_70080682608220'
+2015-06-21T13:46:05.391479+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:46:05.391481+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:46:05.391486+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4226921697603432351_70080899178400'
+2015-06-21T13:46:05.391491+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:46:05.391492+00:00 app[web.1]: 
+2015-06-21T13:46:05.391488+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:46:05.391489+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:46:05.303760+00:00 app[web.1]: Started GET "/" for 179.53.94.124 at 2015-06-21 13:46:05 +0000
+2015-06-21T13:46:05.306137+00:00 app[web.1]: Processing by StoreController#index as HTML
+2015-06-21T13:46:05.388650+00:00 app[web.1]:   Rendered line_items/_line_item.html.erb (52.7ms)
+2015-06-21T13:46:05.393612+00:00 app[web.1]:     4: <tr>
+2015-06-21T13:46:05.391493+00:00 app[web.1]: 
+2015-06-21T13:46:05.393611+00:00 app[web.1]: ActionView::Template::Error (undefined method `title' for nil:NilClass):
+2015-06-21T13:46:05.393607+00:00 app[web.1]: 
+2015-06-21T13:46:05.393614+00:00 app[web.1]:     5: <%end%>
+2015-06-21T13:46:05.393618+00:00 app[web.1]:     8:   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+2015-06-21T13:46:05.393615+00:00 app[web.1]:     6:   <td><%= line_item.quantity %> &times; </td>
+2015-06-21T13:46:05.393616+00:00 app[web.1]:     7:   <td><%= line_item.product.title %>  </td>
+2015-06-21T13:46:05.393623+00:00 app[web.1]:   app/views/carts/_cart.html.erb:3:in `_app_views_carts__cart_html_erb___4226921697603432351_70080899178400'
+2015-06-21T13:46:05.393619+00:00 app[web.1]:     9: </tr>
+2015-06-21T13:46:05.393621+00:00 app[web.1]:   app/views/line_items/_line_item.html.erb:7:in `_app_views_line_items__line_item_html_erb___305337443227805721_70080682608220'
+2015-06-21T13:46:05.393625+00:00 app[web.1]:   app/views/layouts/application.html.erb:19:in `block in _app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:46:05.393628+00:00 app[web.1]:   app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__1916007092755921857_70080886566600'
+2015-06-21T13:46:05.393626+00:00 app[web.1]:   app/helpers/application_helper.rb:6:in `hidden_div_if'
+2015-06-21T13:46:05.393629+00:00 app[web.1]: 
+2015-06-21T13:46:05.393630+00:00 app[web.1]: 
