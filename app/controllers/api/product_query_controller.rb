@@ -10,8 +10,7 @@ class Api::ProductQueryController < ApplicationController
 
 	def show
 		product = Product.find(params[:id])
-		#render json: product, status: :ok
-
+		
 		render_formatted product
 	end
 
