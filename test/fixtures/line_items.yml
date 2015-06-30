@@ -2,7 +2,7 @@
 
 one:
   product_id: ruby
-  order: one
+  order_id: one
 
 two:
   product_id: ruby
