@@ -13,6 +13,13 @@
   </div>
   <div id="columns">
     <div id="side">
+      <div id="welcome">
+        <ul>
+          <% if session[:user_id] %>
+            <h2>Welcome, <%= session[:user_name] %></h2>
+          <% end %>
+        </ul>
+      </div>
       <div id="cart">
         <% if @cart %>
           <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
