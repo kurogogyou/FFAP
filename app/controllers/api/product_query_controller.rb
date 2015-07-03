@@ -5,13 +5,15 @@ class Api::ProductQueryController < ApplicationController
 			products = products.where(title: title)
 		end
 
-		render_formatted products
+		#render_formatted products
+		render json: products, status: :ok 
 	end
 
 	def show
 		product = Product.find(params[:id])
 		
-		render_formatted product
+		render json: product, status: :ok 
+		#render_formatted product
 	end
 
 	private
