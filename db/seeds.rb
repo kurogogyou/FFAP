@@ -15,7 +15,7 @@ Product.create!(
 			Retrovisor Honda Civic 2007
 		</p>},
 	image_url: 'retro.jpg',
-	price: 12.5)
+	price: 12.67)
 Product.create!(
 	title: 'Luz Trasera',
 	description: 
