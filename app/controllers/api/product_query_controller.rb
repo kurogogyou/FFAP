@@ -1,4 +1,6 @@
 class Api::ProductQueryController < ApplicationController
+	skip_before_action :authorize
+	protect_from_forgery with: :null_session
 	def index
 		products = Product.all
 		if title = params[:title]
