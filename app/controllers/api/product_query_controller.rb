@@ -2,18 +2,25 @@ class Api::ProductQueryController < ApplicationController
 	skip_before_action :authorize
 	protect_from_forgery with: :null_session
 	def index
-		products = Product.all
+		product_list = Product.all
 		if title = params[:title]
-			products = products.where(title: title)
+			product_list = product_list.where(title: title)
 		end
 
-		render_formatted products
+		render locals: {
+			products: product_list
+		}
+
+		#render_formatted products
 	end
 
 	def show
-		product = Product.find(params[:id])
+		render locals: { #Renders the local variable 'product' into the view.
+			product: Product.find(params[:id])
+		}
+		#product = Product.find(params[:id])
 		
-		render_formatted product
+		#render_formatted product
 	end
 
 	private

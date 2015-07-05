@@ -18,7 +18,7 @@ Depot::Application.routes.draw do
   resources :carts
 
   namespace :api, path: '/' do
-    resources :product_query
+    resources :product_query, defaults:{format: :json}
   end
 
   get "store/index"
