@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  #act_as_authentic
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.order(:name)
+    @users = User.order(:username)
   end
 
   # GET /users/1
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url, notice: "User #{@user.name} was successfully created." }
+        format.html { redirect_to users_url, notice: "User #{@user.username} was successfully created." }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_url, notice: "User #{@user.name} was successfully updated." }
+        format.html { redirect_to users_url, notice: "User #{@user.username} was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +57,7 @@ class UsersController < ApplicationController
   def destroy
     begin
       @user.destroy
-      flash[:notice] = "User #{@user.name} deleted"
+      flash[:notice] = "User #{@user.username} deleted"
     rescue StandardError => e
       flash[:notice] = e.message
     end
@@ -69,11 +70,11 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 end

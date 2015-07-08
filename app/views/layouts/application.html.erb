@@ -10,13 +10,16 @@
   <div id="banner">
     <%= image_tag("logo.jpg") %>
     <%= @page_title || "Fast Find Auto Parts Catalog" %>
+    <% if current_user %>
+    <% session = Session.find %>
+    <% end %>
   </div>
   <div id="columns">
     <div id="side">
       <div id="welcome">
         <ul>
-          <% if session[:user_id] %>
-            <h2>Welcome, <%= session[:user_name] %></h2>
+          <% if session %>
+            <h2>Welcome, <%= current_user.username %></h2>
           <% end %>
         </ul>
       </div>
@@ -34,16 +37,20 @@
         <li><a href="http://www.../contact">Contact</a></li>
       </ul>
 
-      <% if session[:user_id] %>
+      <% if session %>
         <ul>
         <li><%= link_to 'Orders', orders_path %></li>
         <li><%= link_to 'Products', products_path %></li>
         <li><%= link_to 'Users', users_path %></li>
         <li><%= link_to 'Admin Page', admin_path %></li>
+        <li><%= link_to 'Edit user', edit_user_path(:current) %> | 
+        <%= link_to 'Logout', logout_path, method: :delete%></li>
         </ul>
-        <%= button_to 'Logout', logout_path, method: :delete %>
       <% else %>
-        <%= button_to 'Log in', login_path %>
+        <ul>
+        <li><%= link_to 'Register', new_user_path %> | 
+        <%= link_to 'Log in', login_path, method: :new%></li>
+        </ul>
       <%end%>
     </div>
     <div id="main">

@@ -57,3 +57,6 @@ gem 'rails_12factor'
 
 # ruby version
 ruby '2.0.0'
+
+#authentication handler
+gem 'authlogic'

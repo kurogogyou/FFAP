@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
-  validates :name, presence: true, uniqueness: true
-  has_secure_password
+  validates :username, presence: true, uniqueness: true
+  acts_as_authentic do |c|
+    c.validate_email_field = false
+    c.login_field = :username
+  end
+  #has_secure_password
   after_destroy :ensure_an_admin_remains
 
   private
