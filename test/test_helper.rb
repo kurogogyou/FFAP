@@ -1,6 +1,8 @@
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'authlogic/test_case'
+include Authlogic::TestCase
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
@@ -13,14 +15,15 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def login_as(user)
-  	session[:user_id] = users(user).id
+  	Session.create(users(user))
   end
 
   def logout
-  	session.delete :user_id
+  	Session.destroy
   end
 
   def setup
+    activate_authlogic
   	login_as :one if defined? session
   end
 end

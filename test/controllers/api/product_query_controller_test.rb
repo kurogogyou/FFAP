@@ -8,12 +8,12 @@ class Api::ProductQueryControllerTest < ActionDispatch::IntegrationTest
   	refute_empty response.body
   end
 
-  test 'should return list of products in XML' do
-  	get '/product_query', {}, {'Accept' => Mime::XML}
-  	assert_equal 200, response.status
-  	assert_equal Mime::XML, response.content_type
-  	refute_empty response.body
-  end
+  # test 'should return list of products in XML' do
+  # 	get '/product_query', {}, {'Accept' => Mime::XML}
+  # 	assert_equal 200, response.status
+  # 	assert_equal Mime::XML, response.content_type
+  # 	refute_empty response.body
+  # end
 
   test 'should return product by id' do
   	get "/product_query/#{products(:ruby).id}", {}, {'Accept' => Mime::JSON}

@@ -4,7 +4,11 @@ Depot::Application.routes.draw do
     get 'login'  => :new
     post 'login' => :create
     delete 'logout'  => :destroy
+    post 'mobile_login' => :create_mobile
+    delete 'mobile_logout' => :destroy_mobile
   end
+  #  post "mobile_login" => 'session#create_mobile', :as => "mobile_login"  
+  #  delete "mobile_logout" => 'session#destroy_mobile', :as => "mobile_logout"
 
   #get "sessions/new"
   #get "sessions/create"

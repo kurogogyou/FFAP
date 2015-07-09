@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
     c.validate_email_field = false
     c.login_field = :username
   end
-  #has_secure_password
   after_destroy :ensure_an_admin_remains
 
   private

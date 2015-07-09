@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
    skip_before_action :authorize
    skip_before_action :verify_authenticity_token
   
@@ -14,13 +13,6 @@ class SessionsController < ApplicationController
       redirect_to admin_url
     else
       redirect_to login_url, alert: "Invalid user/password combination"
-   #	user = User.find_by(name: params[:name])
-   #	if user and user.authenticate(params[:password])
-   #		session[:user_id] = user.id
-   #    session[:user_name] = user.name
-   	#	redirect_to admin_url
-   #	else
-   #		redirect_to login_url, alert: "Invalid user/password combination"
    	end
    end
 
@@ -29,8 +21,24 @@ class SessionsController < ApplicationController
     @user_session.destroy
     flash[:notice] = "Logged out."
     redirect_to store_url
-   #	session[:user_id] = nil
-   #  session[:user_name] = nil
-   #	redirect_to store_url, notice: "Logged out"
+   end
+
+   def create_mobile
+    @user_session = UserSession.new({:username => params[:username], :password => params[:password]})
+     respond_to do |format|
+     if @user_session.save
+       format.json { render :json => {:success => true} }
+     else
+       format.json { render :json => {:success => false, :message => 'incorrect username or password'}, :status => :unauthorized }
+     end
+    end
+   end
+
+   def destroy_mobile
+    @user_session = Session.find(params[:id])
+    @user_session.destroy
+    respond_to do |format|
+      format.json { render :json => {:success => true} }
+    end
    end
 end
