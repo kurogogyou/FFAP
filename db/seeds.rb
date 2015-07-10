@@ -61,6 +61,13 @@ Product.create!(
 	image_url: 'Bumper_Trasero.jpg',
 	price: 69.30)
 
+User.delete_all
+
+User.create(:username => "admin", 
+	:password => "1234", 
+	:password_confirmation => "1234", 
+	:email => "admin@example.com")
+
 #........
 #Product.create!(
 #	title: 'Programming Ruby 1.9 & 2.0',
