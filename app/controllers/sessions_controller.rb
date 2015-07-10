@@ -24,21 +24,27 @@ class SessionsController < ApplicationController
    end
 
    def create_mobile
-    @user_session = UserSession.new({:username => params[:username], :password => params[:password]})
-     respond_to do |format|
+    @user_session = Session.new({:username => params[:username], :password => params[:password]})
+    # respond_to do |format|
      if @user_session.save
-       format.json { render :json => {:success => true} }
+    #   format.json { 
+        render :json => {:success => true} 
+    #  }
      else
-       format.json { render :json => {:success => false, :message => 'incorrect username or password'}, :status => :unauthorized }
+     #  format.json { 
+        render :json => {:success => false, :message => 'incorrect username or password'}, :status => :unauthorized 
+    #  }
      end
-    end
+    #end
    end
 
    def destroy_mobile
     @user_session = Session.find(params[:id])
     @user_session.destroy
-    respond_to do |format|
-      format.json { render :json => {:success => true} }
-    end
+    #respond_to do |format|
+     # format.json { 
+        render :json => {:success => true} 
+     # }
+    #end
    end
 end

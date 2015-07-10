@@ -24,9 +24,18 @@ class SessionsControllerTest < ActionController::TestCase
     assert_redirected_to store_url
   end
 
+  #test "should login with JSON data" do
+  #  this_user = users(:one)
+   # post :create_mobile, '{"username" : "dave", "password" : "secret"}', "CONTENT_TYPE" => 'application/json'
+#
+ #   session_response = JSON.parse(response.body, symbolize_names: true)
+  #  assert_equal :true, session_response[:success]
+  #end
+
   test "should login with JSON data" do
     this_user = users(:one)
-    post :create_mobile, '{"username" : "dave", "password" : "secret"}', "CONTENT_TYPE" => 'application/json'
+    #jsonstr = '{"username": "Mario", "password": "1234"}'
+    post '/mobile_login', params:{username: this_user.username, password: this_user.password}#, {'Accept' => Mime::JSON}
 
     session_response = JSON.parse(response.body, symbolize_names: true)
     assert_equal :true, session_response[:success]
