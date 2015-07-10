@@ -4,6 +4,8 @@ class SessionsMobileTest < ActionDispatch::IntegrationTest
   test "should login with JSON data" do
     this_user = users(:one)
     #jsonstr = '{"username": "Mario", "password": "1234"}'
+    User.new({:username => this_user.username, :email => this_user.email, 
+      :password => this_user.crypted_password})
     post '/mobile_login', params:{username: this_user.username, password: "secret"}#, {'Accept' => Mime::JSON}
 
     session_response = JSON.parse(response.body, symbolize_names: true)

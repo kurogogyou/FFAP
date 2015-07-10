@@ -12,7 +12,7 @@ class Api::ProductQueryController < ApplicationController
 			products: product_list
 		}
 
-		#render_formatted products
+		#render_formatted products 
 	end
 
 	def show

@@ -28,11 +28,11 @@ class SessionsController < ApplicationController
     # respond_to do |format|
      if @user_session.save
     #   format.json { 
-        render :json => {:success => true} 
+        render :json => {:success => :true, :message => ''} 
     #  }
      else
      #  format.json { 
-        render :json => {:success => false, :message => 'incorrect username or password'}, :status => :unauthorized 
+        render :json => {:success => :false, :message => 'Usuario o clave incorrectos'}, :status => :unauthorized 
     #  }
      end
     #end
