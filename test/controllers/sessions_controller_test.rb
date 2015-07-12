@@ -36,7 +36,8 @@ class SessionsControllerTest < ActionController::TestCase
     assert_equal "true", session_response[:success]
   end
 
-  test "should logout with HTML form" do #note: this test is useless because it can't fail.
+#note: this test is useless because it can't fail.
+  test "should logout with HTML form" do 
     this_session = Session.create(:username => "dave", :password => "secret")
     delete :destroy_mobile, params:{ :id => this_session.id }
 
