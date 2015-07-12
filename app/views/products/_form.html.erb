@@ -27,6 +27,18 @@
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
+  <div class="field">
+    <%= f.label :brand %><br>
+    <%= f.select :brand, Product::CAR_MODEL.keys, prompt: 'Select a vehicle brand' %>
+  </div>
+  <div class="field">
+    <%= f.label :car_model %><br>
+    <%= f.select :car_model, Product::CAR_MODEL, prompt: 'Select a vehicle model' %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.select :year, Product::YEAR, prompt: 'Select a year' %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

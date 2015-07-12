@@ -26,6 +26,7 @@
             <dt> <%= product.title %> </dt>
             <dd> <%= truncate(strip_tags(product.description), length: 80)%> 
             </dd>
+            <dd><strong>Modelo: </strong><%= product.brand + " " + product.car_model + " " + product.year.to_s %></dd>
           </dl>
         </td>
 
