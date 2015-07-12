@@ -1,4 +1,9 @@
 Depot::Application.routes.draw do
+  get "drop_search/index"
+  resources :vehicle_models
+
+  resources :brands
+
   get 'admin' => 'admin#index'
   controller :sessions do
     get 'login'  => :new

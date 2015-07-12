@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708165600) do
+ActiveRecord::Schema.define(version: 20150712205931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brands", force: true do |t|
+    t.string   "brand_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
@@ -47,10 +53,15 @@ ActiveRecord::Schema.define(version: 20150708165600) do
     t.string   "title"
     t.text     "description"
     t.string   "image_url"
-    t.decimal  "price",       precision: 8, scale: 2
+    t.decimal  "price",            precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "brand_id"
+    t.integer  "vehicle_model_id"
   end
+
+  add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree
+  add_index "products", ["vehicle_model_id"], name: "index_products_on_vehicle_model_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
@@ -64,5 +75,15 @@ ActiveRecord::Schema.define(version: 20150708165600) do
     t.integer  "login_count",        default: 0
     t.integer  "failed_login_count", default: 0
   end
+
+  create_table "vehicle_models", force: true do |t|
+    t.string   "model_name"
+    t.integer  "year"
+    t.integer  "brand_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vehicle_models", ["brand_id"], name: "index_vehicle_models_on_brand_id", using: :btree
 
 end

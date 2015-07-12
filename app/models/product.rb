@@ -2,6 +2,8 @@ class Product < ActiveRecord::Base
 
 	has_many :line_items
 	has_many :orders, through: :line_items
+	belongs_to :brand
+	belongs_to :vehicle_model
 
 	before_destroy :ensure_not_referenced_by_any_line_item
 
@@ -14,6 +16,8 @@ class Product < ActiveRecord::Base
 		with:  %r{\.(gif|jpg|png)\Z}i,
 		message: 'must be a URL for GIF, JPG, or PNG image.' 
 	}
+	validates :brand_id, presence: true
+	validates :vehicle_model_id, presence: true
 	def self.latest
 		Product.order(:updated_at).last 
 	end
