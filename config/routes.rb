@@ -1,7 +1,4 @@
 Depot::Application.routes.draw do
-  get "info_query/index"
-  get "info_query/show"
-
   resources :vehicle_models
 
   resources :brands
@@ -14,12 +11,7 @@ Depot::Application.routes.draw do
     post 'mobile_login' => :create_mobile
     delete 'mobile_logout' => :destroy_mobile
   end
-  #  post "mobile_login" => 'session#create_mobile', :as => "mobile_login"  
-  #  delete "mobile_logout" => 'session#destroy_mobile', :as => "mobile_logout"
 
-  #get "sessions/new"
-  #get "sessions/create"
-  #get "sessions/destroy"
   resources :users
 
   resources :orders
@@ -28,8 +20,9 @@ Depot::Application.routes.draw do
 
   resources :carts
 
-  namespace :api, path: '/' do
-    resources :product_query, defaults:{format: :json}
+  namespace :api, path: '/', defaults:{format: :json} do
+    resources :product_query
+    resources :info_query
   end
 
   get "store/index"

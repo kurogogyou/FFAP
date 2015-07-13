@@ -1,5 +1,7 @@
 class StoreController < ApplicationController
+  include VehicleModelsHelper
   include StoreHelper
+  include BrandsHelper
   skip_before_action :authorize
 
   include CurrentCart
