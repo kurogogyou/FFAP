@@ -1,12 +1,14 @@
+<% default_year_for_model_representation = 2000 %>
+<% model_years = (2000..2015).to_a%>
 <%= form_tag store_path, :method => 'get' do %>
   <p> 
     <%= text_field_tag :search, params[:search] %>
     
-    <%= select_tag(:brand, options_for_select(Product::CAR_MODEL.keys), prompt: 'Select brand') %>
+    <%= select_tag(:brand_id, options_for_select(Brand.all.map{|h| [h.brand_name, h.id]}), prompt: 'Select brand') %>
     
-    <%= select_tag(:model_name,  options_for_select(Product::CAR_MODEL), prompt: 'Select model')%>
+    <%= select_tag(:model_id, options_for_select(VehicleModel.where(:year => default_year_for_model_representation).map{ |h| [h.model_name, h.id]}), prompt: 'Select model')%>
     
-    <%= select_tag :year,  options_for_select((2000..2015).to_a), prompt: 'Select year' %>
+    <%= select_tag :year, options_for_select(model_years), prompt: 'Select year' %>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
