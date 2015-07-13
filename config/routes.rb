@@ -1,5 +1,7 @@
 Depot::Application.routes.draw do
-  get "drop_search/index"
+  get "info_query/index"
+  get "info_query/show"
+
   resources :vehicle_models
 
   resources :brands
