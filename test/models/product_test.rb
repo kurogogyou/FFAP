@@ -15,9 +15,13 @@ class ProductTest < ActiveSupport::TestCase
 	end
 
 	test "product price must be positive" do
+		marca = brands(:honda)
+		modelo = vehicle_models(:civic)
 		product = Product.new(title: 		"My little book",
 							description: 	"description",
-							image_url: 		"ph.jpg")
+							image_url: 		"ph.jpg",
+							brand_id:       marca.id,
+							vehicle_model_id:  modelo.id)
 		product.price = -1
 		assert product.invalid?
 		assert_equal ["must be greater than or equal to 0.01"],
@@ -33,10 +37,14 @@ class ProductTest < ActiveSupport::TestCase
 	end
 
 	def new_product(image_url)
+		marca = brands(:honda)
+		modelo = vehicle_models(:civic)
 		Product.new(title: 		"My little book",
 					description: 	"description",
 					price: 			1,
-					image_url: 		image_url)
+					image_url: 		image_url,
+					brand_id:       marca.id,
+					vehicle_model_id:  modelo.id)
 	end
 
 	test "image_url" do
@@ -54,10 +62,14 @@ class ProductTest < ActiveSupport::TestCase
 	fixtures :products
 
 	test "product is not valid without a unique title - i18n" do
+		marca = brands(:honda)
+		modelo = vehicle_models(:civic)
 		product = Product.new(title: products(:ruby).title,
 					description: "description",
 					price: 1,
-					image_url: "fred.gif")
+					image_url: "fred.gif",
+					brand_id:       marca.id,
+					vehicle_model_id:  modelo.id)
 
         assert product.invalid?
 		# assert_equal ["has already been taken"], product.errors[:title]

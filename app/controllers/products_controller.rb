@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   # include CurrentCart
   # before_action :set_cart
+  include VehicleModelsHelper
+  include StoreHelper
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
@@ -26,6 +28,10 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    if !is_empty(params[:year]) and !is_empty(params[:model])
+      params[:product][:vehicle_model_id] = get_true_model(params[:model], params[:year]).id
+    end
+
     @product = Product.new(product_params)
 
     respond_to do |format|
@@ -82,6 +88,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :image_url, :price)
+      params.require(:product).permit(:title, :description, :image_url, :price, 
+        :brand_id, :vehicle_model_id, :model, :year)
     end
 end

@@ -2,12 +2,16 @@ require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
   setup do
+    marca = brands(:honda)
+    modelo = vehicle_models(:civic)
     @product = products(:one)
     @update = {
       title:        'Lorem Ipsum',
       description:  'plain description',
       image_url:    'lorem.jpg',
-      price:        19.95
+      price:        19.95,
+      brand_id:     marca.id,
+      vehicle_model_id: modelo.id
     }
   end
 
@@ -25,7 +29,6 @@ class ProductsControllerTest < ActionController::TestCase
   test "should create product" do
     assert_difference('Product.count') do
       post :create, product: @update
-   #   post :create, product: { description: @product.description, image_url: @product.image_url, price: @product.price, title: @product.title }
     end
 
     assert_redirected_to product_path(assigns(:product))
@@ -42,7 +45,6 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should update product" do
-  #  patch :update, id: @product, product: { description: @product.description, image_url: @product.image_url, price: @product.price, title: @product.title }
     patch :update, id: @product, product: @update
     assert_redirected_to product_path(assigns(:product))
   end

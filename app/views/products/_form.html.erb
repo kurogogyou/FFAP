@@ -1,3 +1,5 @@
+<% default_year_for_model_representation = 2000 %>
+<% model_years = (2000..2015).to_a%>
 <%= form_for(@product) do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
@@ -26,6 +28,19 @@
   <div class="field">
     <%= f.label :price %><br>
     <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :brand_id %><br>
+    <%= f.select :brand_id, Brand.all.map{|h| [h.brand_name, h.id]}, prompt: 'Select brand' %>
+  </div>
+  <%= f.label :vehicle_model_id%>
+  <div class="field">
+    <%= label_tag :model %><br>
+    <%= select_tag :model, options_for_select(VehicleModel.where(:year => default_year_for_model_representation).map{ |h| [h.model_name]}), prompt: 'Select model'%>
+  </div>
+  <div class="field">
+    <%= label_tag :year %><br>
+    <%= select_tag :year, options_for_select(model_years), prompt: 'Select year'%>
   </div>
   <div class="actions">
     <%= f.submit %>

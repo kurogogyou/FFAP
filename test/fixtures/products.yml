@@ -5,18 +5,26 @@ one:
   image_url: MyString
   price: 9.99
   title: MyString
+  brand: honda
+  vehicle_model: civic
 pieza: 
   description: "Retrovisor Honda Civic 2007"
   image_url: retro.jpg
   price: 12.5
   title: Retrovisor
+  brand: honda
+  vehicle_model: civic
 ruby: 
   description: "Ruby is the fastest growing and most exciting dynamic language out there, If you need to get working programs delivered fast, you should add Ruby to your toolbox."
   image_url: ruby.png
   price: 49.5
   title: "Programming Ruby 1.9"
+  brand: honda
+  vehicle_model: civic
 two: 
   description: MyText
   image_url: MyString
   price: 9.99
   title: MyString
+  brand: honda
+  vehicle_model: civic
