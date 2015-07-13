@@ -1,0 +1,12 @@
+<%= form_tag store_path, :method => 'get' do %>
+  <p> 
+    <%= text_field_tag :search, params[:search] %>
+    
+    <%= select_tag(:brand, options_for_select(Product::CAR_MODEL.keys), prompt: 'Select brand') %>
+    
+    <%= select_tag(:model_name,  options_for_select(Product::CAR_MODEL), prompt: 'Select model')%>
+    
+    <%= select_tag :year,  options_for_select((2000..2015).to_a), prompt: 'Select year' %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
