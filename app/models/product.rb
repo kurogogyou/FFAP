@@ -7,12 +7,6 @@ class Product < ActiveRecord::Base
 
 	before_destroy :ensure_not_referenced_by_any_line_item
 
-	CAR_MODEL = {"Honda" => ["Civic", "Accord"], 
-		"Toyota" => ["Corolla", "Camry"], 
-		"Lexus" => ["IS", "GS", "ES", "LS"], 
-		"Mitsubishi" => ["Lancer", "Eclipse"],
-		"Volkswagen" => ["Jetta", "Golf", "Bora", "Gol"]}
-
 	validates :title, :description, :image_url, presence:true
 	validates :title, uniqueness: true #, format: {message: 'Title field data must be unique.'}
 	validates :title, length: {minimum: 4}
