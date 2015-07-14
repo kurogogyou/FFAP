@@ -21,7 +21,11 @@ Depot::Application.routes.draw do
   resources :carts
 
   namespace :api, path: '/', defaults:{format: :json} do
-    resources :product_query
+    resources :product_query do
+      collection do
+        post 'search'
+      end
+    end
     resources :info_query
   end
 

@@ -6,9 +6,14 @@
 #
 civic:
   model_name: Civic
+  year: 2002
   brand: honda
 # column: value
 #
+library:
+  model_name: Library
+  year: 2002
+  brand: prag
 one: {}
 two: {}
 #  column: value

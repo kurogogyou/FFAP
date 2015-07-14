@@ -19,8 +19,8 @@ ruby:
   image_url: ruby.png
   price: 49.5
   title: "Programming Ruby 1.9"
-  brand: honda
-  vehicle_model: civic
+  brand: prag
+  vehicle_model: library
 two: 
   description: MyText
   image_url: MyString

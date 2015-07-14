@@ -8,6 +8,10 @@ honda:
   brand_name: Honda
 # column: value
 #
+
+prag:
+  brand_name: Pragmatic
+
 one: {}
 two: {}
 #  column: value

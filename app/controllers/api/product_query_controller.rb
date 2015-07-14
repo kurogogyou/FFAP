@@ -1,6 +1,8 @@
 class Api::ProductQueryController < ApplicationController
 	skip_before_action :authorize
 	protect_from_forgery with: :null_session
+	include StoreHelper
+
 	def index
 		product_list = Product.all
 		if title = params[:title]
@@ -21,10 +23,18 @@ class Api::ProductQueryController < ApplicationController
 		}
 		#product = Product.find(params[:id])
 		
-
 		#render json: product, status: :ok 
 		#render_formatted product
 	end
+
+	def search
+		products = search_helper(params[:qstring], params[:brand_id], 
+			params[:model_id], params[:year])
+
+		render locals:{
+			products: products
+		}
+    end
 
 	private
 	def render_formatted (info)
