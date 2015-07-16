@@ -8,7 +8,13 @@ module BrandsHelper
 	end
 
 	def get_brand_model_map
-		brand_model_map = Brand.all.map { |e| [e.brand_name, 
-			e.vehicle_models.where(:year => 2002).map { |m| m.model_name }] }
+		hash = {}
+
+		Brand.all.each do |brand|
+			models = brand.vehicle_models.where(:year => 2002).map { |m| m.model_name}
+			hash[brand.brand_name.to_sym] = models
+		end
+
+		hash
 	end
 end

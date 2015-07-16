@@ -1,3 +1,4 @@
-json.(brands)
-json.(brand_model)
-json.(years)
+json.call(brands)
+json.call(years)
+json.call brand_model.each do |j|
+  json.()

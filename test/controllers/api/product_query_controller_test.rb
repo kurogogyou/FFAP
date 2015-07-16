@@ -57,7 +57,7 @@ class Api::ProductQueryControllerTest < ActionDispatch::IntegrationTest
 
   test 'should return products by model and year' do
     model = vehicle_models(:civic)
-    post '/product_query/search', :model_id => model.id, :year => model.year #, {'Accept' => Mime::JSON}
+    post '/product_query/search', :model => model.model_name, :year => model.year #, {'Accept' => Mime::JSON}
     assert_equal 200, response.status
 
     product_response = JSON.parse(response.body, symbolize_names: true)
@@ -69,12 +69,12 @@ class Api::ProductQueryControllerTest < ActionDispatch::IntegrationTest
   test 'full product search' do
     model = vehicle_models(:civic)
     brand = brands(:honda)
-    post '/product_query/search', :model_id => model.id, :year => model.year, 
+    post '/product_query/search', :model => model.model_name, :year => model.year, 
         :brand_id => brand.id, :qstring => "Retro" #, {'Accept' => Mime::JSON}
     assert_equal 200, response.status
 
     product_response = JSON.parse(response.body, symbolize_names: true).collect { |e| e[:product]}
- #   byebug
+    #byebug
     assert_equal product_response.collect{ |p| p[:title]}.first, 'Retrovisor'
   end
 end

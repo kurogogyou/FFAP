@@ -12,6 +12,10 @@ honda:
 prag:
   brand_name: Pragmatic
 
-one: {}
-two: {}
+one:
+  brand_name: One
+
+two:
+  brand_name: Two
+  
 #  column: value

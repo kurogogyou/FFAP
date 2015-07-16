@@ -7,8 +7,8 @@ class Api::InfoQueryControllerTest < ActionController::TestCase
     assert_response :success
     info_response = JSON.parse(response.body, symbolize_names: true)
     brands = info_response[:brands]
-   #byebug
-    brand_model = info_response[:brand_model][0][1] #strange
+    #byebug
+    brand_model = info_response[:brand_model][:Honda] #strange
     years = info_response[:years]
 
     assert_includes brands, 'Honda'
