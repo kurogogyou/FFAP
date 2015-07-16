@@ -29,7 +29,7 @@ class Api::ProductQueryController < ApplicationController
 
 	def search
 		products = search_helper(params[:qstring], params[:brand_id], 
-			params[:model_id], params[:year])
+			params[:model], params[:year])
 
 		render locals:{
 			products: products
