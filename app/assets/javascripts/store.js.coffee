@@ -14,17 +14,19 @@ $(document).on "ready, page:change", ->
       $('#model_id').removeAttr('disabled')
       $('#year').removeAttr('disabled')
 
+      for option in $('#model_id').children()
+        do ->
+          $(option).css('display', 'none')
+
       brand = $('#brand_id option:selected').val()
-      console.log(brand)
-      
       options = $('#model_id').children("[brand='"+brand+"']")
-      console.log(options)
 
       for option in options
         do ->
-          console.log(option)
-          console.log($(option).css('display', 'block'))
+          $(option).css('display', 'block')
 
     else
       $('#model_id').attr('disabled', 'disabled')
+      $('#model_id').val('not')
       $('#year').attr('disabled', 'disabled')
+      $('#year').val('')
