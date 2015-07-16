@@ -4,7 +4,7 @@
     
     <%= select_tag(:brand_id, options_for_select(get_all_brand_names_ids), prompt: 'Select brand') %>
     
-    <select id="model_id" prompt="Select model">
+    <select id="model_id" name="model_id" prompt="Select model">
     	<option value="not">Select model</option>
     	<% models_with_brands = get_all_model_names_with_brand %>
     	<%= models_with_brands.each do |model| %>
