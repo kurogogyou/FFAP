@@ -14,5 +14,6 @@ class StoreController < ApplicationController
   	else
   		@products = Product.order(:title)
   	end
+    params = nil
   end
 end

@@ -18,7 +18,7 @@ module StoreHelper
   		  query_string = "%#{qstring}%"
   		  product_list = product_list.where("title ILIKE ?", query_string)
   		end
-
+      
   		return product_list
 	end
 
