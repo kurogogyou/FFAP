@@ -28,7 +28,10 @@ class Api::ProductQueryController < ApplicationController
 	end
 
 	def search
-		products = search_helper(params[:qstring], params[:brand_id], 
+		if(!is_empty(params[:brand]))
+			brand_id = Brand.where(:brand_name => params[:brand]).take.id
+		end
+		products = search_helper(params[:qstring], brand_id, 
 			params[:model], params[:year])
 
 		render locals:{
