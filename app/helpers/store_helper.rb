@@ -7,16 +7,18 @@ module StoreHelper
 		   product_list = product_list.where(:brand_id => brand_id)
   		end
   		if (!is_empty(model) and !model == ("not")) and !is_empty(year)
-        byebug
+        #byebug
 
   		  true_model = get_true_model(model, year) #VehicleModel.find(model_id).model_name
 
   		  product_list = product_list.where(:vehicle_model_id => true_model.id)
-      elsif !is_empty(year)
+      else 
+        if !is_empty(year) and is_empty(model)
         product_list = product_list.where(:vehicle_model_id => 0)
-      else
-        product_list = product_list.joins(:vehicle_model)
+        else
+          product_list = product_list.joins(:vehicle_model)
                   .merge(VehicleModel.where(:model_name => model))
+        end
   		end
   		if !is_empty(qstring)
   		  query_string = "%#{qstring}%"

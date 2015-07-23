@@ -13,8 +13,8 @@
       <div class="entry">
         <%= image_tag(product.image_url) %>
         <h3><%= product.title %></h3>
-        <%= sanitize(product.description) %>
         <div class="desc">
+          <li><%= product.description %></li>
   	      <strong>Model: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %>
         </div>
         <div class="price_line">
