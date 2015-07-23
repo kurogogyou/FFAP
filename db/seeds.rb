@@ -131,63 +131,63 @@ acc09.products.create!(
 	title: 'Honda Accord 08 Aros',
 	description: 
 		'Honda Accord Aros 2008',
-	image_url: 'Honda Civic 01/Honda Accord 08 Aros.PNG',
+	image_url: 'Honda Accord 09/Honda Accord 08 Aros.PNG',
 	price: 9000,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Bonete',
 	description: 
 		'Honda Accord Bonete 2008',
-	image_url: 'Honda Civic 01/Honda Accord 08 Bonete.PNG',
+	image_url: 'Honda Accord 09/Honda Accord 08 Bonete.PNG',
 	price: 6100,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Bumper Delantero',
 	description: 
 		'Honda Accord Bumper Delantero 2008',
-	image_url: 'Honda Civic 01/Honda Accord 08 Bumper Delantero.PNG',
+	image_url: 'Honda Accord 09/Honda Accord 08 Bumper Delantero.PNG',
 	price: 4200,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Bumper Trasero',
 	description: 
 		'Honda Accord Bumper Trasero 2008',
-	image_url: 'Honda Civic 01/Honda Accord 08 Bumper Trasero.PNG',
+	image_url: 'Honda Accord 09/Honda Accord 08 Bumper Trasero.PNG',
 	price: 5900,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Halogenos',
 	description: 
 		'Honda Accord Halogenos 2008',
-	image_url: 'Honda Civic 01/Honda Accord 08 Halogenos.PNG',
+	image_url: 'Honda Accord 09/Honda Accord 08 Halogenos.PNG',
 	price: 3600,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Luz Delantera',
 	description: 
 		'Honda Accord Luz Delantera 2008',
-	image_url: 'Honda Civic 01/Honda Accord 08 Luz Delantera.PNG',
+	image_url: 'Honda Accord 09/Honda Accord 08 Luz Delantera.PNG',
 	price: 5700,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Luz Trasera',
 	description: 
 		'Honda Accord Luz Trasera 2008',
-	image_url: 'Honda Civic 01/Honda Accord 08 Luz Trasera.PNG',
+	image_url: 'Honda Accord 09/Honda Accord 08 Luz Trasera.PNG',
 	price: 3700,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Parrilla',
 	description: 
 		'Honda Accord Parrilla 2008',
-	image_url: 'Honda Civic 01/Honda Accord 08 Parrilla.PNG',
+	image_url: 'Honda Accord 09/Honda Accord 08 Parrilla.PNG',
 	price: 2500,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Retrovisor',
 	description: 
 		'Honda Accord Retrovisor 2008',
-	image_url: 'Honda Civic 01/Honda Accord 08 Retrovisor.PNG',
+	image_url: 'Honda Accord 09/Honda Accord 08 Retrovisor.PNG',
 	price: 2900,
 	brand_id: honda.id)
 
@@ -200,66 +200,206 @@ coro03 = toyo.vehicle_models.where(
 ).first
 
 coro03.products.create!(
-	title: 'Luz Trasera',
+	title: 'Corolla 2003 Luz trasera',
 	description: 
-		%{<p>
-			Luz trasera Toyota Corolla 2003
-		</p>},
-	image_url: 'Luz trasera.jpg',
-	price: 25.0,
+		'Corolla 2003 Luz trasera',
+	image_url: 'Toyota Corolla 03/Corolla 2003 Luz trasera.PNG',
+	price: 2800,
+	brand_id: toyo.id)
+coro03.products.create!(
+	title: 'Corolla 2003 Aros',
+	description: 
+		'Corolla 2003 Aros',
+	image_url: 'Toyota Corolla 03/Corolla 2003 Aros.PNG',
+	price: 7500,
+	brand_id: toyo.id)
+coro03.products.create!(
+	title: 'Corolla 2003 Bonete',
+	description: 
+		'Corolla 2003 Bonete',
+	image_url: 'Toyota Corolla 03/Corolla 2003 Bonete.PNG',
+	price: 7500,
+	brand_id: toyo.id)
+coro03.products.create!(
+	title: 'Corolla 2003 Bumper Delantero',
+	description: 
+		'Corolla 2003 Bumper Delantero',
+	image_url: 'Toyota Corolla 03/Corolla 2003 Bumper Delantero.PNG',
+	price: 4800,
+	brand_id: toyo.id)
+coro03.products.create!(
+	title: 'Corolla 2003 Bumper Trasero',
+	description: 
+		'Corolla 2003 Bumper Trasero',
+	image_url: 'Toyota Corolla 03/Corolla 2003 Bumper Trasero.PNG',
+	price: 6300,
+	brand_id: toyo.id)
+coro03.products.create!(
+	title: 'Corolla 2003 Halogenos',
+	description: 
+		'Corolla 2003 Halogenos',
+	image_url: 'Toyota Corolla 03/Corolla 2003 Halogenos.PNG',
+	price: 1400,
+	brand_id: toyo.id)
+coro03.products.create!(
+	title: 'Corolla 2003 Luz delantera',
+	description: 
+		'Corolla 2003 Luz delantera',
+	image_url: 'Toyota Corolla 03/Corolla 2003 Luz delantera.PNG',
+	price: 2200,
+	brand_id: toyo.id)
+coro03.products.create!(
+	title: 'Corolla 2003 Parrilla',
+	description: 
+		'Corolla 2003 Parrilla',
+	image_url: 'Toyota Corolla 03/Corolla 2003 Parrilla.PNG',
+	price: 3200,
+	brand_id: toyo.id)
+coro03.products.create!(
+	title: 'Corolla 2003 Retrovisor',
+	description: 
+		'Corolla 2003 Retrovisor',
+	image_url: 'Toyota Corolla 03/Corolla 2003 Retrovisor.PNG',
+	price: 2500,
 	brand_id: toyo.id)
 
-lex.vehicle_models.where(
-	:model_name => 'IS',
-	 :year => 2009
-).first.products.create!(
-	title: 'Bumper frontal',
-	description: 
-		%{<p>
-			Bumper Frontal Lexus IS 250 2009
-		</p>},
-	image_url: 'Bumper_Delantero.jpg',
-	price: 81.73,
-	brand_id: lex.id)
-
-mitsu.vehicle_models.where(
-	:model_name => 'Lancer',
-	 :year => 2008
-).first.products.create!(
-	title: 'Luz Delantera',
-	description: 
-		%{<p>
-			Luz Delantera Mitsubishi Lancer 2008
-		</p>},
-	image_url: 'luz_delan.jpg',
-	price: 355.17,
-	brand_id: mitsu.id)
-
-volk.vehicle_models.where(
-	:model_name => 'Jetta',
-	 :year => 2011
-).first.products.create!(
-	title: 'Halogenos',
-	description: 
-		%{<p>
-			Halogenos Volkswagen Jetta 2011
-		</p>},
-	image_url: 'Halogenos.jpg',
-	price: 122.79,
-	brand_id: volk.id)
-
-toyo.vehicle_models.where(
+cam07 = toyo.vehicle_models.where(
 	:model_name => 'Camry',
-	 :year => 2012
-).first.products.create!(
-	title: 'Bumper Trasero',
+	 :year => 2007
+).first
+
+cam07.products.create!(
+	title: 'Aros Camry 07',
 	description: 
-		%{<p>
-			Bumper Trasero Toyota Camry 2012
-		</p>},
-	image_url: 'Bumper_Trasero.jpg',
-	price: 69.30,
+		'Aros Camry 2007',
+	image_url: 'Toyota Camry 07/Aros Camry 07.PNG',
+	price: 8500,
 	brand_id: toyo.id)
+cam07.products.create!(
+	title: 'Bonete Camry 07',
+	description: 
+		'Bonete Camry 2007',
+	image_url: 'Toyota Camry 07/Bonete Camry 07.PNG',
+	price: 9700,
+	brand_id: toyo.id)
+cam07.products.create!(
+	title: 'Bumper Delantero Camry 07',
+	description: 
+		'Bumper Delantero 2007',
+	image_url: 'Toyota Camry 07/Bumper Delantero Camry 07.PNG',
+	price: 4700,
+	brand_id: toyo.id)
+cam07.products.create!(
+	title: 'Bumper Trasero Camry 07',
+	description: 
+		'Bumper Trasero Camry 2007',
+	image_url: 'Toyota Camry 07/Bumper Trasero Camry 07.PNG',
+	price: 6300,
+	brand_id: toyo.id)
+cam07.products.create!(
+	title: 'Halogenos Camry 07',
+	description: 
+		'Halogenos Camry 2007',
+	image_url: 'Toyota Camry 07/Halogenos Camry 07.PNG',
+	price: 2200,
+	brand_id: toyo.id)
+cam07.products.create!(
+	title: 'Luz Delantera Camry 07',
+	description: 
+		'Luz Delantera Camry 2007',
+	image_url: 'Toyota Camry 07/Luz Delantera Camry 07.PNG',
+	price: 3900,
+	brand_id: toyo.id)
+cam07.products.create!(
+	title: 'Luz Trasera Camry 07',
+	description: 
+		'Luz Trasera Camry 2007',
+	image_url: 'Toyota Camry 07/Luz Trasera Camry 07.PNG',
+	price: 3100,
+	brand_id: toyo.id)
+cam07.products.create!(
+	title: 'Parrilla Camry 07',
+	description: 
+		'Parrilla Camry 2007',
+	image_url: 'Toyota Camry 07/Parrilla Camry 07.PNG',
+	price: 3400,
+	brand_id: toyo.id)
+cam07.products.create!(
+	title: 'Retrovisor Camry 07',
+	description: 
+		'Retrovisor Camry 2007',
+	image_url: 'Toyota Camry 07/Retrovisor Camry 07.PNG',
+	price: 2800,
+	brand_id: toyo.id)
+
+is06 = lex.vehicle_models.where(
+	:model_name => 'IS',
+	 :year => 2006
+).first
+
+is06.products.create!(
+	title: 'Lexus IS 2006 Aros',
+	description: 
+		'Lexus IS 2006 Aros',
+	image_url: 'Lexus IS 06/Lexus 2006 Aros.PNG',
+	price: 10000,
+	brand_id: lex.id)
+is06.products.create!(
+	title: 'Lexus IS 2006 Bonete',
+	description: 
+		'Lexus IS 2006 Bonete',
+	image_url: 'Lexus IS 06/Lexus 2006 Bumper Bonete.PNG',
+	price: 11700,
+	brand_id: lex.id)
+is06.products.create!(
+	title: 'Lexus IS 2006 Bumper Delantero',
+	description: 
+		'Lexus IS 2006 Bumper Delantero',
+	image_url: 'Lexus IS 06/Lexus 2006 Bumper Delantero.PNG',
+	price: 4900,
+	brand_id: lex.id)
+is06.products.create!(
+	title: 'Lexus IS 2006 Halogenos',
+	description: 
+		'Lexus IS 2006 Halogenos',
+	image_url: 'Lexus IS 06/Lexus 2006 Bumper Halogenos.PNG',
+	price: 3700,
+	brand_id: lex.id)
+is06.products.create!(
+	title: 'Lexus IS 2006 Parrilla',
+	description: 
+		'Lexus IS 2006 Parrilla',
+	image_url: 'Lexus IS 06/Lexus 2006 Bumper Parrilla.PNG',
+	price: 5000,
+	brand_id: lex.id)
+is06.products.create!(
+	title: 'Lexus IS 2006 Bumper Trasero',
+	description: 
+		'Lexus IS 2006 Bumper Trasero',
+	image_url: 'Lexus IS 06/Lexus 2006 Bumper Trasero.PNG',
+	price: 6600,
+	brand_id: lex.id)
+is06.products.create!(
+	title: 'Lexus IS 2006 Luz Delantera',
+	description: 
+		'Lexus IS 2006 Luz Delantera',
+	image_url: 'Lexus IS 06/Lexus 2006 Luz Delantera.PNG',
+	price: 9400,
+	brand_id: lex.id)
+is06.products.create!(
+	title: 'Lexus IS 2006 Luz Trasera',
+	description: 
+		'Lexus IS 2006 Luz Trasera',
+	image_url: 'Lexus IS 06/Lexus 2006 Luz Trasera.PNG',
+	price: 7300,
+	brand_id: lex.id)
+is06.products.create!(
+	title: 'Lexus IS 2006 Retrovisor',
+	description: 
+		'Lexus IS 2006 Retrovisor',
+	image_url: 'Lexus IS 06/Lexus 2006 Retrovisor.PNG',
+	price: 5200,
+	brand_id: lex.id)
 
 User.delete_all
 
@@ -267,5 +407,9 @@ User.create(:username => "admin",
 	:password => "1234", 
 	:password_confirmation => "1234", 
 	:email => "admin@example.com")
+User.create(:username => "Mario", 
+	:password => "1234", 
+	:password_confirmation => "1234", 
+	:email => "vizard.fs@gmail.com")
 
 #........
