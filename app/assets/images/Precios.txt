@@ -1,0 +1,179 @@
+Ford Focus 2002
+
+Bumper Delantero 5700$
+Bumper Trasero	 6500$
+Retrovisor	 1800$
+Bonete		 9500$
+Parrilla	 2000$
+Aro		 7100$
+Luz Delantera	 3200$
+Luz Trasera	 2700$
+Halogenos	 1200$
+
+Ford Mustang 2010
+
+Bumper Delantero   6300$	
+Bumper Trasero     9600$		
+Retrovisor	   2500$
+Bonete		   15000$			
+Parrilla	   2600$	
+Aro		   8700$	
+Luz Delantera	   6300$
+Luz Trasera	   12800$ 	
+Halogenos	   2100$
+
+Honda Accord 2009
+
+Bumper Delantero   4200$
+Bumper Trasero	   5900$
+Retrovisor	   2900$ 
+Bonete		   6100$
+Parrilla	   2500$
+Aro		   9000$
+Luz Delantera	   5700$	
+Luz Trasera	   3700$
+Halogenos	   3600$
+
+Honda Civic 2001
+
+Bumper Delantero   3800$
+Bumper Trasero	   4400$
+Retrovisor	   2100$ 	
+Bonete		   6600$	
+Parrilla	   1800$
+Aro		   7300$	
+Luz Delantera	   2000$
+Luz Trasera	   2100$	
+Halogenos	   1500$
+
+Lexus GS 2014
+
+Bumper Delantero   11500$
+Bumper Trasero	   13700$
+Parrilla	   9800$			   	
+Aro		   12300$ 
+Halogenos	   5700$
+
+Lexus IS 2006
+
+Bumper Delantero   4900$
+Bumper Trasero	   6600$
+Retrovisor	   5200$ 	
+Bonete		   11700$ 	
+Parrilla	   5000$
+Aro		   10000$	
+Luz Delantera	   9400$
+Luz Trasera	   7300$	
+Halogenos	   3700$
+
+Mazda 3 2013
+
+Bumper Delantero   3700$
+Bumper Trasero	   8890$
+Retrovisor	   2100$ 		
+Parrilla	   2500$
+Aro		   7850$	
+Luz Delantera	   5100$
+Luz Trasera	   4500$
+Halogenos	   3800$
+
+Mazda 6 2015
+
+Bumper Delantero   4900$
+Bumper Trasero	   6600$
+Retrovisor	   5200$ 	
+Bonete		   14300$ 	
+Parrilla	   5000$
+Aro		   10000$	
+Luz Delantera	   9400$
+Luz Trasera	   7300$	
+Halogenos	   3700$
+
+Mitsubishi Eclipse 2000
+
+Bumper Delantero   4700$
+Bumper Trasero	   5900$
+Retrovisor	   3000$ 		
+Aro		   6700$	
+Luz Delantera	   1900$
+Luz Trasera	   3200$	
+Halogenos	   1700$
+
+Mitsubishi Lancer 2008
+
+Bumper Delantero   5400$
+Retrovisor	   2900$ 	
+Bonete		   7300$ 	
+Parrilla	   3100$
+Aro		   7900$	
+Luz Delantera	   7000$
+Luz Trasera	   4900$	
+Halogenos	   2800$
+
+Nissan Maxima 2012
+
+Bumper Delantero   7200$
+Bumper Trasero	   9200$
+Retrovisor	   3900$ 	
+Bonete		   9600$ 	
+Aro		   8800$	
+Luz Delantera	   7400$
+Luz Trasera	   5300$	
+Halogenos	   3200$
+
+Nissan Sentra 2004
+
+Bumper Delantero   4100$
+Bumper Trasero	   6400$
+Retrovisor	   2300$ 	
+Bonete		   8600$ 	
+Parrilla	   1900$
+Aro		   7200$	
+Luz Delantera	   3000$
+Luz Trasera	   2400$	
+Halogenos	   1700$
+
+Toyota Camry 2007
+
+Bumper Delantero   4700$
+Bumper Trasero	   6300$
+Retrovisor	   2800$ 	
+Bonete		   9700$ 	
+Parrilla	   3400$
+Aro		   8500$	
+Luz Delantera	   3900$
+Luz Trasera	   3100$	
+Halogenos	   2200$
+
+Toyota Corolla 2003
+
+Bumper Delantero   4800$
+Bumper Trasero	   6300$
+Retrovisor	   2500$ 	
+Bonete		   7500$ 	
+Parrilla	   3200$
+Aro		   7500$	
+Luz Delantera	   2200$
+Luz Trasera	   2800$	
+Halogenos	   1400$
+
+Volkswaggen Golf 2011
+
+Bumper Delantero   8200$
+Retrovisor	   4100$ 	
+Aro		   6900$	
+Luz Delantera	   6000$
+Luz Trasera	   3800$	
+Halogenos	   2600$
+
+Volskwaggen Jetta 2005
+
+Bumper Delantero   5800$
+Bumper Trasero	   3800$
+Retrovisor	   3400$ 	
+Bonete		   9300$ 	
+Parrilla	   1900$
+Aro		   8300$	
+Luz Delantera	   6800$
+Luz Trasera	   4300$	
+Halogenos	   3100$
