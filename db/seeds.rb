@@ -124,7 +124,7 @@ civ01.products.create!(
 
 acc09 = honda.vehicle_models.where(
 	:model_name => 'Accord',
-	 :year => 2009
+	 :year => 2008
 ).first
 
 acc09.products.create!(
