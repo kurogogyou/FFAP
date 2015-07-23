@@ -12,11 +12,11 @@ Brand.delete_all
 honda = Brand.create!(brand_name: 'Honda')
 toyo = Brand.create!(brand_name: 'Toyota')
 lex = Brand.create!(brand_name: 'Lexus')
-volk = Brand.create!(brand_name: 'Volkswaggen')
-mitsu = Brand.create!(brand_name: 'Mitsubishi')
-mazda = Brand.create!(brand_name: 'Mazda')
-ford = Brand.create!(brand_name: 'Ford')
-niss = Brand.create!(brand_name: 'Nissan')
+#volk = Brand.create!(brand_name: 'Volkswaggen')
+#mitsu = Brand.create!(brand_name: 'Mitsubishi')
+#mazda = Brand.create!(brand_name: 'Mazda')
+#ford = Brand.create!(brand_name: 'Ford')
+#niss = Brand.create!(brand_name: 'Nissan')
 
 #modelo = VehicleModel.create!(model_name: 'Civic', year: 2007)
 #modelo.brand = honda
@@ -34,22 +34,22 @@ niss = Brand.create!(brand_name: 'Nissan')
 	#lex.vehicle_models.create!(model_name: 'LS', year: year)
 	#lex.vehicle_models.create!(model_name: 'ES', year: year)
 
-	volk.vehicle_models.create!(model_name: 'Jetta', year: year)
-	volk.vehicle_models.create!(model_name: 'Golf', year: year)
+#	volk.vehicle_models.create!(model_name: 'Jetta', year: year)
+#	volk.vehicle_models.create!(model_name: 'Golf', year: year)
 	#volk.vehicle_models.create!(model_name: 'Gol', year: year)
 	#volk.vehicle_models.create!(model_name: 'Bora', year: year)
 
-	mitsu.vehicle_models.create!(model_name: 'Lancer', year: year)
-	mitsu.vehicle_models.create!(model_name: 'Eclipse', year: year)
+#	mitsu.vehicle_models.create!(model_name: 'Lancer', year: year)
+#	mitsu.vehicle_models.create!(model_name: 'Eclipse', year: year)
 
-	ford.vehicle_models.create!(model_name: 'Focus', year: year)
-	ford.vehicle_models.create!(model_name: 'Mustang', year: year)
+#	ford.vehicle_models.create!(model_name: 'Focus', year: year)
+#	ford.vehicle_models.create!(model_name: 'Mustang', year: year)
 
-	mazda.vehicle_models.create!(model_name: '3', year: year)
-	mazda.vehicle_models.create!(model_name: '6', year: year)
+#	mazda.vehicle_models.create!(model_name: '3', year: year)
+#	mazda.vehicle_models.create!(model_name: '6', year: year)
 
-	niss.vehicle_models.create!(model_name: 'Maxima', year: year)
-	niss.vehicle_models.create!(model_name: 'Sentra', year: year)
+#	niss.vehicle_models.create!(model_name: 'Maxima', year: year)
+#	niss.vehicle_models.create!(model_name: 'Sentra', year: year)
 end
 #...
 
