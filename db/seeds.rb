@@ -12,16 +12,12 @@ Brand.delete_all
 honda = Brand.create!(brand_name: 'Honda')
 toyo = Brand.create!(brand_name: 'Toyota')
 lex = Brand.create!(brand_name: 'Lexus')
-#volk = Brand.create!(brand_name: 'Volkswaggen')
-#mitsu = Brand.create!(brand_name: 'Mitsubishi')
-#mazda = Brand.create!(brand_name: 'Mazda')
-#ford = Brand.create!(brand_name: 'Ford')
-#niss = Brand.create!(brand_name: 'Nissan')
+volk = Brand.create!(brand_name: 'Volkswaggen')
+mitsu = Brand.create!(brand_name: 'Mitsubishi')
+mazda = Brand.create!(brand_name: 'Mazda')
+ford = Brand.create!(brand_name: 'Ford')
+niss = Brand.create!(brand_name: 'Nissan')
 
-#modelo = VehicleModel.create!(model_name: 'Civic', year: 2007)
-#modelo.brand = honda
-
-#VehicleModel.create!()
 (2000..2015).each do |year|
 	honda.vehicle_models.create!(model_name: 'Civic', year: year)
 	honda.vehicle_models.create!(model_name: 'Accord', year: year)
@@ -34,22 +30,22 @@ lex = Brand.create!(brand_name: 'Lexus')
 	#lex.vehicle_models.create!(model_name: 'LS', year: year)
 	#lex.vehicle_models.create!(model_name: 'ES', year: year)
 
-#	volk.vehicle_models.create!(model_name: 'Jetta', year: year)
-#	volk.vehicle_models.create!(model_name: 'Golf', year: year)
+	volk.vehicle_models.create!(model_name: 'Jetta', year: year)
+	volk.vehicle_models.create!(model_name: 'Golf', year: year)
 	#volk.vehicle_models.create!(model_name: 'Gol', year: year)
 	#volk.vehicle_models.create!(model_name: 'Bora', year: year)
 
-#	mitsu.vehicle_models.create!(model_name: 'Lancer', year: year)
-#	mitsu.vehicle_models.create!(model_name: 'Eclipse', year: year)
+	mitsu.vehicle_models.create!(model_name: 'Lancer', year: year)
+	mitsu.vehicle_models.create!(model_name: 'Eclipse', year: year)
 
-#	ford.vehicle_models.create!(model_name: 'Focus', year: year)
-#	ford.vehicle_models.create!(model_name: 'Mustang', year: year)
+	ford.vehicle_models.create!(model_name: 'Focus', year: year)
+	ford.vehicle_models.create!(model_name: 'Mustang', year: year)
 
-#	mazda.vehicle_models.create!(model_name: '3', year: year)
-#	mazda.vehicle_models.create!(model_name: '6', year: year)
+	mazda.vehicle_models.create!(model_name: '3', year: year)
+	mazda.vehicle_models.create!(model_name: '6', year: year)
 
-#	niss.vehicle_models.create!(model_name: 'Maxima', year: year)
-#	niss.vehicle_models.create!(model_name: 'Sentra', year: year)
+	niss.vehicle_models.create!(model_name: 'Maxima', year: year)
+	niss.vehicle_models.create!(model_name: 'Sentra', year: year)
 end
 #...
 
@@ -131,67 +127,67 @@ acc09.products.create!(
 	title: 'Honda Accord 08 Aros',
 	description: 
 		'Honda Accord Aros 2008',
-	image_url: 'Honda Accord 09/Honda Accord 08 Aros.PNG',
+	image_url: 'Honda Accord 08/Honda Accord 08 Aros.PNG',
 	price: 9000,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Bonete',
 	description: 
 		'Honda Accord Bonete 2008',
-	image_url: 'Honda Accord 09/Honda Accord 08 Bonete.PNG',
+	image_url: 'Honda Accord 08/Honda Accord 08 Bonete.PNG',
 	price: 6100,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Bumper Delantero',
 	description: 
 		'Honda Accord Bumper Delantero 2008',
-	image_url: 'Honda Accord 09/Honda Accord 08 Bumper Delantero.PNG',
+	image_url: 'Honda Accord 08/Honda Accord 08 Bumper Delantero.PNG',
 	price: 4200,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Bumper Trasero',
 	description: 
 		'Honda Accord Bumper Trasero 2008',
-	image_url: 'Honda Accord 09/Honda Accord 08 Bumper Trasero.PNG',
+	image_url: 'Honda Accord 08/Honda Accord 08 Bumper Trasero.PNG',
 	price: 5900,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Halogenos',
 	description: 
 		'Honda Accord Halogenos 2008',
-	image_url: 'Honda Accord 09/Honda Accord 08 Halogenos.PNG',
+	image_url: 'Honda Accord 08/Honda Accord 08 Halogenos.PNG',
 	price: 3600,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Luz Delantera',
 	description: 
 		'Honda Accord Luz Delantera 2008',
-	image_url: 'Honda Accord 09/Honda Accord 08 Luz Delantera.PNG',
+	image_url: 'Honda Accord 08/Honda Accord 08 Luz Delantera.PNG',
 	price: 5700,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Luz Trasera',
 	description: 
 		'Honda Accord Luz Trasera 2008',
-	image_url: 'Honda Accord 09/Honda Accord 08 Luz Trasera.PNG',
+	image_url: 'Honda Accord 08/Honda Accord 08 Luz Trasera.PNG',
 	price: 3700,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Parrilla',
 	description: 
 		'Honda Accord Parrilla 2008',
-	image_url: 'Honda Accord 09/Honda Accord 08 Parrilla.PNG',
+	image_url: 'Honda Accord 08/Honda Accord 08 Parrilla.PNG',
 	price: 2500,
 	brand_id: honda.id)
 acc09.products.create!(
 	title: 'Honda Accord 08 Retrovisor',
 	description: 
 		'Honda Accord Retrovisor 2008',
-	image_url: 'Honda Accord 09/Honda Accord 08 Retrovisor.PNG',
+	image_url: 'Honda Accord 08/Honda Accord 08 Retrovisor.PNG',
 	price: 2900,
 	brand_id: honda.id)
 
-#######################################
+#######################################################################
 #Toyota
 
 coro03 = toyo.vehicle_models.where(
@@ -332,6 +328,9 @@ cam07.products.create!(
 	price: 2800,
 	brand_id: toyo.id)
 
+#######################################################################
+#Lexus
+
 is06 = lex.vehicle_models.where(
 	:model_name => 'IS',
 	 :year => 2006
@@ -399,6 +398,183 @@ is06.products.create!(
 		'Lexus IS 2006 Retrovisor',
 	image_url: 'Lexus IS 06/Lexus 2006 Retrovisor.PNG',
 	price: 5200,
+	brand_id: lex.id)
+
+gs14 = lex.vehicle_models.where(
+	:model_name => 'GS',
+	 :year => 2014
+).first
+
+gs14.products.create!(
+	title: 'Lexus GS 2014 Aro',
+	description: 
+		'Lexus GS 2014 Aro',
+	image_url: 'Lexus GS 14/Lexus GS 2014 Aro.PNG',
+	price: 12300,
+	brand_id: lex.id)
+gs14.products.create!(
+	title: 'Lexus GS 2014 Bumper Delantero',
+	description: 
+		'Lexus GS 2014 Bumper Delantero',
+	image_url: 'Lexus GS 14/Lexus GS 2014 Bumper Delantero.PNG',
+	price: 11500,
+	brand_id: lex.id)
+gs14.products.create!(
+	title: 'Lexus GS 2014 Bumper Trasero',
+	description: 
+		'Lexus GS 2014 Bumper Trasero',
+	image_url: 'Lexus GS 14/Lexus GS 2014 Bumper Trasero.PNG',
+	price: 13700,
+	brand_id: lex.id)
+gs14.products.create!(
+	title: 'Lexus GS 2014 Halogenos',
+	description: 
+		'Lexus GS 2014 Halogenos',
+	image_url: 'Lexus GS 14/Lexus GS 2014 Halogenos.PNG',
+	price: 5700,
+	brand_id: lex.id)
+gs14.products.create!(
+	title: 'Lexus GS 2014 Parrilla',
+	description: 
+		'Lexus GS 2014 Parrilla',
+	image_url: 'Lexus GS 14/Lexus GS 2014 Parrilla.PNG',
+	price: 9800,
+	brand_id: lex.id)
+
+golf11 = volk.vehicle_models.where(
+	:model_name => 'Golf',
+	 :year => 2011
+).first
+
+#######################################################################
+#Volkswaggen
+
+golf11.products.create!(
+	title: 'Vokswaggen Golf 2011 Aro',
+	description: 
+		'Vokswaggen Golf 2011 Aro',
+	image_url: 'Volkswaggen Golf 11/Vokswaggen Golf 2011 Aro.PNG',
+	price: 6900,
+	brand_id: lex.id)
+golf11.products.create!(
+	title: 'Vokswaggen Golf 2011 Bumper Delantero',
+	description: 
+		'Vokswaggen Golf 2011 Bumper Delantero',
+	image_url: 'Volkswaggen Golf 11/Vokswaggen Golf 2011 Bumper Delantero.PNG',
+	price: 8200,
+	brand_id: lex.id)
+golf11.products.create!(
+	title: 'Vokswaggen Golf 2011 Halogenos',
+	description: 
+		'Vokswaggen Golf 2011 Halogenos',
+	image_url: 'Volkswaggen Golf 11/Vokswaggen Golf 2011 Halogenos.PNG',
+	price: 2600,
+	brand_id: lex.id)
+golf11.products.create!(
+	title: 'Vokswaggen Golf 2011 Luz Delantera',
+	description: 
+		'Vokswaggen Golf 2011 Luz Delantera',
+	image_url: 'Volkswaggen Golf 11/Vokswaggen Golf 2011 Luz Delantera.PNG',
+	price: 6000,
+	brand_id: lex.id)
+golf11.products.create!(
+	title: 'Vokswaggen Golf 2011 Luz Trasera',
+	description: 
+		'Vokswaggen Golf 2011 Luz Trasera',
+	image_url: 'Volkswaggen Golf 11/Vokswaggen Golf 2011 Luz Trasera.PNG',
+	price: 3800,
+	brand_id: lex.id)
+golf11.products.create!(
+	title: 'Vokswaggen Golf 2011 Parrilla',
+	description: 
+		'Vokswaggen Golf 2011 Aro',
+	image_url: 'Volkswaggen Golf 11/Vokswaggen Golf 2011 Parrilla.PNG',
+	price: 2000,
+	brand_id: lex.id)
+golf11.products.create!(
+	title: 'Vokswaggen Golf 2011 Retrovisor',
+	description: 
+		'Vokswaggen Golf 2011 Retrovisor',
+	image_url: 'Volkswaggen Golf 11/Vokswaggen Golf 2011 Retrovisor.PNG',
+	price: 4100,
+	brand_id: lex.id)
+
+jett05 = volk.vehicle_models.where(
+	:model_name => 'Jetta',
+	 :year => 2005
+).first
+
+jett05.products.create!(
+	title: 'Vokswaggen Jetta 2005 Bumper Delantero',
+	description: 
+		'Vokswaggen Jetta 2005 Bumper Delantero',
+	image_url: 'Volkswaggen Jetta 05/Vokswaggen Jetta 2005 Bumper Delantero.PNG',
+	price: 5800,
+	brand_id: lex.id)
+jett05.products.create!(
+	title: 'Vokswaggen Jetta 2005 Luz Delantera',
+	description: 
+		'Vokswaggen Jetta 2005 Luz Delantera',
+	image_url: 'Volkswaggen Jetta 05/Vokswaggen Jetta 2005 Luz Delantera.PNG',
+	price: 6800,
+	brand_id: lex.id)
+jett05.products.create!(
+	title: 'Volkswaggen Jetta 2005 Aro',
+	description: 
+		'Volkswaggen Jetta 2005 Aro',
+	image_url: 'Volkswaggen Jetta 05/Volkswaggen Jetta 2005 Aro.PNG',
+	price: 8300,
+	brand_id: lex.id)
+jett05.products.create!(
+	title: 'Volkswaggen Jetta 2005 Bumper Trasero',
+	description: 
+		'Volkswaggen Jetta 2005 Bumper Trasero',
+	image_url: 'Volkswaggen Jetta 05/Volkswaggen Jetta 2005 Bumper Trasero.PNG',
+	price: 3800,
+	brand_id: lex.id)
+jett05.products.create!(
+	title: 'Volkswaggen Jetta 2005 Halogenos',
+	description: 
+		'Volkswaggen Jetta 2005 Halogenos',
+	image_url: 'Volkswaggen Jetta 05/Volkswaggen Jetta 2005 Halogenos.PNG',
+	price: 3100,
+	brand_id: lex.id)
+jett05.products.create!(
+	title: 'Volkswaggen Jetta 2005 Luz Trasera',
+	description: 
+		'Volkswaggen Jetta 2005 Luz Trasera',
+	image_url: 'Volkswaggen Jetta 05/Volkswaggen Jetta 2005 Luz Trasera.PNG',
+	price: 4300,
+	brand_id: lex.id)
+jett05.products.create!(
+	title: 'Volkswaggen Jetta 2005 Parrilla',
+	description: 
+		'Volkswaggen Jetta 2005 Parrilla',
+	image_url: 'Volkswaggen Jetta 05/Volkswaggen Jetta 2005 Parrilla.PNG',
+	price: 1900,
+	brand_id: lex.id)
+jett05.products.create!(
+	title: 'Volkswaggen Jetta 2005 Retrovisor',
+	description: 
+		'Volkswaggen Jetta 2005 Retrovisor',
+	image_url: 'Volkswaggen Jetta 05/Volkswaggen Jetta 2005 Retrovisor.PNG',
+	price: 3400,
+	brand_id: lex.id)
+
+#######################################################################
+#Mitsubishi
+
+ec00 = mitsu.vehicle_models.where(
+	:model_name => 'Eclipse',
+	 :year => 2000
+).first
+
+jett05.products.create!(
+	title: 'Mitsubishi Eclipse 2000 Aros',
+	description: 
+		'Mitsubishi Eclipse 2000 Aros',
+	image_url: 'Mitsubishi Eclipse 00/Mitsubishi Eclipse 2000 Aros.PNG',
+	price: 3400,
 	brand_id: lex.id)
 
 User.delete_all
