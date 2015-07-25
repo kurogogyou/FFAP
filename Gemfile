@@ -42,6 +42,9 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Use unicorn as the app server
 # gem 'unicorn'
 
+# App Server Phusion Passenger
+gem 'passenger'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
@@ -51,6 +54,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Debugger
 group :test, :development do
 	gem 'byebug'
+	gem 'rspec-rails'
 end
 
 # for heroku
@@ -59,5 +63,7 @@ gem 'rails_12factor'
 # ruby version
 ruby '2.0.0'
 
-#authentication handler
+#authentication and authorization handler
 gem 'authlogic'
+gem 'assignable_values'
+gem 'consul'
