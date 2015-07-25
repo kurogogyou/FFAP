@@ -564,18 +564,18 @@ jett05.products.create!(
 #######################################################################
 #Mitsubishi
 
-ec00 = mitsu.vehicle_models.where(
-	:model_name => 'Eclipse',
-	 :year => 2000
-).first
+# ec00 = mitsu.vehicle_models.where(
+# 	:model_name => 'Eclipse',
+# 	 :year => 2000
+# ).first
 
-jett05.products.create!(
-	title: 'Mitsubishi Eclipse 2000 Aros',
-	description: 
-		'Mitsubishi Eclipse 2000 Aros',
-	image_url: 'Mitsubishi Eclipse 00/Mitsubishi Eclipse 2000 Aros.PNG',
-	price: 3400,
-	brand_id: lex.id)
+# jett05.products.create!(
+# 	title: 'Mitsubishi Eclipse 2000 Aros',
+# 	description: 
+# 		'Mitsubishi Eclipse 2000 Aros',
+# 	image_url: 'Mitsubishi Eclipse 00/Mitsubishi Eclipse 2000 Aros.PNG',
+# 	price: 3400,
+# 	brand_id: lex.id)
 
 User.delete_all
 
