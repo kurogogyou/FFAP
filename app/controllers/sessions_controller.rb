@@ -23,18 +23,22 @@ class SessionsController < ApplicationController
     redirect_to store_url
    end
 
-   #Only checks if user exists. Creates a temporary session to validate.
+   #Only checks if user exists and is client. Creates a temporary session to validate.
    #REST indicates that the session details should be in the device
    #To-Do: include session details in JSON
    def create_mobile
     @user_session = Session.new({:username => params[:username], :password => params[:password]})
     @user_session.save
-     if current_user
-        render :json => {:success => :true, :message => ''} 
-     else
+      if current_user
+        if current_user.role == 'client'
+          render :json => {:success => :true, :message => ''} 
+        else
+          render :json => {:success => :false, :message => 'Usuario no es cliente'}, :status => :unauthorized
+        end 
+      else
         render :json => {:success => :false, :message => 'Usuario o clave incorrectos'}, :status => :unauthorized 
-     end
-     @user_session.destroy
+      end 
+      @user_session.destroy
    end
 
    def destroy_mobile
