@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     c.login_field = :username
   end
   after_destroy :ensure_an_admin_remains
+  has_one :cart, dependent: :destroy
 
   private
   def ensure_an_admin_remains
