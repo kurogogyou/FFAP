@@ -10,7 +10,11 @@ class SessionsController < ApplicationController
     @user_session = Session.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Login successful."
-      redirect_to admin_url
+      if current_user.role == 'admin'
+        redirect_to admin_url
+      else
+        redirect_to store_url
+      end
     else
       redirect_to login_url, alert: "Invalid user/password combination"
    	end
