@@ -10,6 +10,16 @@ class SessionsController < ApplicationController
     @user_session = Session.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Login successful."
+      
+      #Remove guest cart if it exists. Probably temporary behavior
+      if session[:cart_id]
+        Cart.find(session[:cart_id]).destroy 
+        session[:cart_id] = nil
+      end
+      if current_user.cart 
+        session[:cart_id] = current_user.cart.id
+      end
+
       if current_user.role == 'admin'
         redirect_to admin_url
       else
@@ -24,6 +34,7 @@ class SessionsController < ApplicationController
     @user_session = Session.find(params[:id])
     @user_session.destroy
     flash[:notice] = "Logged out."
+    session[:cart_id] = nil
     redirect_to store_url
    end
 

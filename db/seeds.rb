@@ -579,10 +579,12 @@ jett05.products.create!(
 
 User.delete_all
 
-User.create(:username => "admin", 
+admin = User.create(:username => "admin", 
 	:password => "1234", 
 	:password_confirmation => "1234", 
 	:email => "admin@example.com")
+admin.update(:role => "admin")
+
 User.create(:username => "Mario", 
 	:password => "1234", 
 	:password_confirmation => "1234", 

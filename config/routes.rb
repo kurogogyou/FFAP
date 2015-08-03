@@ -26,6 +26,11 @@ Depot::Application.routes.draw do
         post 'search'
       end
     end
+    controller :cart_query do
+      post 'cart_query' => :display
+      post 'cart_add' => :add_product
+      post 'cart_destroy' => :destroy
+    end
     resources :info_query
   end
 
