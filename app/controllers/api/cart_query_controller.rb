@@ -47,7 +47,7 @@ class Api::CartQueryController < ApplicationController
 		cart = Cart.where(:user_id => user.id).take
 
 		if !cart
-			render :json {:success => :false, :message => 'Usuario no tiene carrito.'}
+			render :json => {:success => :false, :message => 'Usuario no tiene carrito.'}
 			return
 		end
 
