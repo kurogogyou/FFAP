@@ -42,6 +42,26 @@ class Api::CartQueryController < ApplicationController
 		end
 	end
 
+	def remove_product
+		user = User.where(:username => params[:username]).take
+		cart = Cart.where(:user_id => user.id).take
+
+		if !cart
+			render :json {:success => :false, :message => 'Usuario no tiene carrito.'}
+			return
+		end
+
+		begin
+		  line_item = cart.line_items.find(params[:line_item_id])
+	  rescue ActiveRecord::RecordNotFound
+			render :json => {:success => :false, :message => 'Pieza no esta en el carrito'}
+			return
+	  end
+
+		line_item.destroy
+		render :json => {:success => :true, :message => ''}
+	end
+
 	def destroy
 		user = User.where(:username => params[:username]).take
 		cart = Cart.where(:user_id => user.id).take
@@ -49,4 +69,5 @@ class Api::CartQueryController < ApplicationController
 		cart ? cart.destroy : cart #2nd option does nothing
 		render :json => {:success => :true, :message => ''}
 	end
+
 end
