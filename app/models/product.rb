@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
 
 	has_many :line_items
+	has_many :stocks
 	has_many :orders, through: :line_items
 	belongs_to :brand
 	belongs_to :vehicle_model

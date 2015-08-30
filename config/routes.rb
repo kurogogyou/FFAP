@@ -1,4 +1,10 @@
 Depot::Application.routes.draw do
+  resources :stocks
+
+  resources :negocios
+
+  get "home/index"
+  #get "home/show"
   resources :vehicle_models
 
   resources :brands
@@ -30,11 +36,16 @@ Depot::Application.routes.draw do
       post 'cart_query' => :display
       post 'cart_add' => :add_product
       post 'cart_destroy' => :destroy
+      post 'cart_remove' => :remove_product
     end
     resources :info_query
   end
 
-  get "store/index"
+  #get "store/index"
+  controller :store do
+    get 'store' => :index
+  end
+
   resources :products do
     get :who_bought, on: :member
   end
@@ -43,7 +54,7 @@ Depot::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'store#index', as: 'store'
+  root 'home#index', as: 'home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
