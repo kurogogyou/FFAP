@@ -1,4 +1,6 @@
 Depot::Application.routes.draw do
+  resources :sellers
+
   resources :stocks
 
   resources :negocios

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "negocios/show", type: :view do
+RSpec.describe "sellers/show", type: :view do
   before(:each) do
-    @negocio = assign(:negocio, Negocio.create!())
+    @seller = assign(:seller, Seller.create!())
   end
 
   it "renders attributes in <p>" do

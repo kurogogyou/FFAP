@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
 	belongs_to :brand
 	belongs_to :vehicle_model
 
-	before_destroy :ensure_not_referenced_by_any_line_item
+	before_destroy :ensure_not_referenced_by_anything
 
 	validates :title, :description, :image_url, presence:true
 	validates :title, uniqueness: true #, format: {message: 'Title field data must be unique.'}
@@ -25,8 +25,8 @@ class Product < ActiveRecord::Base
 	private
 
 	# ensure that there are no line items referencing this product
-	def ensure_not_referenced_by_any_line_item
-		if line_items.empty?
+	def ensure_not_referenced_by_anything
+		if line_items.empty? and stocks.empty?
 			return true
 		else
 			errors.add(:base, 'Line Items present')
