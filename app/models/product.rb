@@ -18,8 +18,23 @@ class Product < ActiveRecord::Base
 	}
 	validates :brand_id, presence: true
 	validates :vehicle_model_id, presence: true
+	
 	def self.latest
 		Product.order(:updated_at).last 
+	end
+
+	def in_stock?
+		if stocks.empty?
+			return false 
+		end
+		sum = 0
+		stocks.each do |stock|
+			sum += stock.quantity
+		end
+		if sum > 0
+			return true
+		end
+		return false
 	end
 
 	private

@@ -7,7 +7,9 @@ class CreatePowers < ActiveRecord::Migration
     add_column :users, :role, :string, :default => "client", :null => false
     reversible do |direction|
     	direction.up do
-    		User.where(:username => "admin").take.update(:role => "admin")
+        if !User.all.empty?
+    		  User.where(:username => "admin").take.update(:role => "admin")
+        end
     	end
     end
   end
