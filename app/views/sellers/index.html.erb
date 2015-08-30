@@ -4,7 +4,7 @@
   <tbody>
     <% @sellers.each do |seller| %>
       <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
-        <td> <%= "logo" %> </td>
+        <td> <%= image_tag(seller.logo_url, class: 'list_image') %> </td>
         <td class="list_description"> 
           <dl>
             <dt> <%= seller.name %> </dt>
