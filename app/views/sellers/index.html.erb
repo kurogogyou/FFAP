@@ -1,21 +1,23 @@
 <h1>Listing sellers</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @sellers.each do |seller| %>
-      <tr>
-        <td><%= link_to 'Show', seller %></td>
-        <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
-        <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
+        <td> <%= "logo" %> </td>
+        <td class="list_description"> 
+          <dl>
+            <dt> <%= seller.name %> </dt>
+            <dd> <%= seller.address%> </dd>
+            <dd> <strong>Tel.: </strong> <%= seller.phone%> </dd>
+          </dl>
+        </td>
+        <td>
+          <%= link_to 'Show', seller %><br/>
+          <%= link_to 'Edit', edit_seller_path(seller) %><br/>
+          <%= link_to 'Remove', seller, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+
     <% end %>
   </tbody>
 </table>
