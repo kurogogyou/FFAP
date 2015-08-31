@@ -590,4 +590,16 @@ User.create(:username => "Mario",
 	:password_confirmation => "1234", 
 	:email => "vizard.fs@gmail.com")
 
+frank = User.create(:username => "Frank", 
+	:password => "1234", 
+	:password_confirmation => "1234", 
+	:email => "frank@autoparts.com")
+frank.update(:role => "seller")
+
+ap = Seller.create(:name => "Auto Parts",
+	:address => "Av. Maximo Gomez esq. Pedro Livio",
+	:phone => "809-250-1717",
+	:logo_url => "autoparts_logo.png")
+ap.update(:user_id => frank.id)
+
 #........

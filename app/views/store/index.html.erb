@@ -12,10 +12,16 @@
     <% cache ['entry', product] do %>
       <div class="entry">
         <%= image_tag(product.image_url) %>
-        <h3><%= product.title %></h3>
+        <h3><%= link_to product.title, product %></h3>
         <div class="desc">
           <li><%= product.description %></li>
   	      <strong>Model: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %>
+          <% if product.in_stock? %>
+          <li>In Stock</li>
+          <% else %>
+          <li>Out of Stock</li>
+          <% end %>
+
         </div>
         <div class="price_line">
           <span class="price"><%= number_to_currency(product.price) %></span>
