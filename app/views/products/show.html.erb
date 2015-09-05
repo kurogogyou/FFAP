@@ -34,10 +34,32 @@
 
 <% if @product.in_stock? %>
 <p>In Stock</p>
+<h3>Stores:</h3>
+<table>
+  <tbody>
+    <% @sellers.each do |seller| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
+        <td> <%= image_tag(seller.logo_url, class: 'list_image') %> </td>
+        <td class="list_description"> 
+          <dl>
+            <dt> <%= seller.name %> </dt>
+            <dd> <%= seller.address%> </dd>
+            <dd> <strong>Tel.: </strong> <%= seller.phone%> </dd>
+          </dl>
+        </td>
+        <td>
+          <dt> <strong>Stock:</strong> <%= seller.stocks.where(:product_id => @product.id).take.quantity %> </dt>
+          <%= link_to 'Show', seller %><br/>
+        </td>
+
+    <% end %>
+  </tbody>
+</table>
+
 <% else %>
 <p>Out of Stock</p>
 <% end %>
 
-
+<p></p>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

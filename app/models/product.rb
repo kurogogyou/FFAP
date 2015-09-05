@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
 
 	has_many :line_items
 	has_many :stocks
+	#has_many :sellers, through: :stocks
 	has_many :orders, through: :line_items
 	belongs_to :brand
 	belongs_to :vehicle_model
@@ -35,6 +36,17 @@ class Product < ActiveRecord::Base
 			return true
 		end
 		return false
+	end
+
+	def sellers
+		sellers_list = []
+		if stocks.empty?
+	      return sellers_list
+	    end
+	    stocks.each do |stock|
+	    	sellers_list << stock.seller
+	    end
+	    return sellers_list
 	end
 
 	private

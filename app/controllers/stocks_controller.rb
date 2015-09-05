@@ -1,4 +1,5 @@
 class StocksController < ApplicationController
+  skip_before_action :authorize
   before_action :set_stock, only: [:show, :edit, :update, :destroy]
 
   # GET /stocks

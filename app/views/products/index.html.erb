@@ -19,6 +19,9 @@
           <%= link_to 'Show', product %><br/>
           <%= link_to 'Edit', edit_product_path(product) %><br/>
           <%= link_to 'Remove', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% if current_user.role == "seller" %>
+          <br/><%= link_to 'Modify Stock', edit_stock_path(Seller.find(current_user.seller_id).stocks.where(:product_id => product.id).first) %>
+          <% end %>
         </td>
         <td>
           <%= "US$" + product.price.to_s %>
