@@ -5,7 +5,12 @@ class StocksController < ApplicationController
   # GET /stocks
   # GET /stocks.json
   def index
-    @stocks = Stock.all
+    if current_user.role == "seller"
+      @stocks = Stock.where(:seller_id => current_user.seller.id)
+    end
+    if current_user.role == "admin"
+      @stocks = Stock.all
+    end
   end
 
   # GET /stocks/1

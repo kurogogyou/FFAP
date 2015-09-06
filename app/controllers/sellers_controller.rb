@@ -61,6 +61,10 @@ class SellersController < ApplicationController
     end
   end
 
+  def manage
+    @seller = Seller.find(current_user.seller.id) 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_seller

@@ -10,6 +10,7 @@ Depot::Application.routes.draw do
   resources :brands
 
   post 'mod_stock' => "stocks#mod_stock", as: :mod_stock 
+  get 'manage_seller' => "sellers#manage", as: :manage_seller
 
   get 'admin' => 'admin#index'
   controller :sessions do
