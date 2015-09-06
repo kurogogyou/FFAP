@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  #include UsersHelper
   ROLES = ["client", "admin", "seller"]
   validates :username, presence: true, uniqueness: true
   acts_as_authentic do |c|

@@ -1,5 +1,6 @@
 class SellersController < ApplicationController
   before_action :set_seller, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize, only: [:show]
 
   # GET /sellers
   # GET /sellers.json

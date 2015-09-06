@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   include VehicleModelsHelper
   include StoreHelper
   include BrandsHelper
+  skip_before_action :authorize, only: [:show]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
