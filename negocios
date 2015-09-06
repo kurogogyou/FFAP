@@ -4,3 +4,5 @@ productos en stock
 asociado a un solo usuario especial
 vistas de lista de piezas y feedback
 capaz de crear stocks de productos
+
+<br/><%= link_to 'Modify Stock', product.stocks.where(:seller_id => current_user.seller.id, :product_id => product.id), params[:stock] => {:seller_id => current_user.seller.id, :product_id => product.id} %>

@@ -1,4 +1,9 @@
+<% if notice %>
 <p id="notice"><%= notice %></p>
+<% end %>
+
+<p> Stocks for <%= @stock.product.description %> </p>
+<p> Quantity <%= @stock.quantity %> </p>
 
 <%= link_to 'Edit', edit_stock_path(@stock) %> |
 <%= link_to 'Back', stocks_path %>

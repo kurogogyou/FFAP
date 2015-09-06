@@ -38,6 +38,18 @@ class StocksController < ApplicationController
     end
   end
 
+  def mod_stock
+#    begin
+      @stock = Stock.where(:seller_id => params[:seller_id], :product_id => params[:product_id]).take
+#    rescue ActiveRecord::RecordNotFound
+#      @stock = Stock.create!(:seller_id => params[:seller_id], :product_id => params[:product_id])
+#    end
+    if @stock == nil
+      @stock = Stock.create!(:seller_id => params[:seller_id], :product_id => params[:product_id])
+    end
+    render action: 'edit'
+  end
+
   # PATCH/PUT /stocks/1
   # PATCH/PUT /stocks/1.json
   def update
@@ -70,6 +82,6 @@ class StocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params
-      params[:stock]
+      params.require(:stock).permit(:seller_id, :product_id, :quantity)
     end
 end

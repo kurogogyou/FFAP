@@ -27,11 +27,11 @@ class Api::CartQueryController < ApplicationController
 
 		begin
 		  product = Product.find(params[:product_id])
-	  rescue ActiveRecord::RecordNotFound
+	    rescue ActiveRecord::RecordNotFound
 	   	product = nil
 			render :json => {:success => :false, :message => 'Pieza inexistente'}
 			return
-	  end
+	    end
 
     line_item = cart.add_product(product.id)
 

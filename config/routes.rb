@@ -3,13 +3,13 @@ Depot::Application.routes.draw do
 
   resources :stocks
 
-  resources :negocios
-
   get "home/index"
   #get "home/show"
   resources :vehicle_models
 
   resources :brands
+
+  post 'mod_stock' => "stocks#mod_stock", as: :mod_stock 
 
   get 'admin' => 'admin#index'
   controller :sessions do
