@@ -18,7 +18,7 @@ class Api::ProductQueryController < ApplicationController
 	end
 
 	def show
-		render locals: { #Renders the local variable 'product' into the view.
+		render locals: { #Renders the local variables into the view.
 			product: Product.find(params[:id])
 		}
 		#product = Product.find(params[:id])
