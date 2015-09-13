@@ -26,14 +26,15 @@ class Api::CartQueryController < ApplicationController
 		cart ? cart : cart = Cart.create!(:user_id => user.id)
 
 		begin
-		  product = Product.find(params[:product_id])
+		  stock = Stock.find(params[:stock_id])
+		  product = stock.product
 	    rescue ActiveRecord::RecordNotFound
-	   	product = nil
-			render :json => {:success => :false, :message => 'Pieza inexistente'}
-			return
+	   	  product = nil
+		  render :json => {:success => :false, :message => 'Pieza inexistente'}
+		  return
 	    end
 
-    line_item = cart.add_product(product.id)
+    line_item = cart.add_product(product.id, stock.id)
 
 		if line_item.save
 			render :json => {:success => :true, :message => ''}
@@ -53,10 +54,10 @@ class Api::CartQueryController < ApplicationController
 
 		begin
 		  line_item = cart.line_items.find(params[:line_item_id])
-	  rescue ActiveRecord::RecordNotFound
-			render :json => {:success => :false, :message => 'Pieza no esta en el carrito'}
-			return
-	  end
+	    rescue ActiveRecord::RecordNotFound
+		  render :json => {:success => :false, :message => 'Pieza no esta en el carrito'}
+		  return
+	    end
 
 		line_item.destroy
 		render :json => {:success => :true, :message => ''}
