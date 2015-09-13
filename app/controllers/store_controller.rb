@@ -2,6 +2,7 @@ class StoreController < ApplicationController
   include VehicleModelsHelper
   include StoreHelper
   include BrandsHelper
+  include StocksHelper
   skip_before_action :authorize
 
   include CurrentCart

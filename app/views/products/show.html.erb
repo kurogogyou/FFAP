@@ -2,6 +2,8 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
+<td> <%= image_tag(@product.image_url, class:'image') %> </td>
+
 <p>
   <strong>Title:</strong>
   <%= @product.title %>
@@ -10,16 +12,6 @@
 <p>
   <strong>Description:</strong>
   <%= @product.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
 </p>
 
 <p>
@@ -48,8 +40,13 @@
           </dl>
         </td>
         <td>
-          <dt> <strong>Stock:</strong> <%= seller.stocks.where(:product_id => @product.id).take.quantity %> </dt>
+          <% stock = seller.stocks.where(:product_id => @product.id).take %>
+          <dt> <strong>Stock:</strong> <%= stock.quantity %> </dt>
           <%= link_to 'Show', seller %><br/>
+          <%= button_to 'Add to Cart', line_items_path(product_id: @product, stock_id: stock) %>
+        </td>
+        <td>
+          <%= number_to_currency(stock.price) %>
         </td>
 
     <% end %>

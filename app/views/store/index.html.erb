@@ -17,16 +17,23 @@
           <li><%= product.description %></li>
   	      <strong>Model: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %>
           <% if product.in_stock? %>
-          <li>In Stock</li>
+            <li>In Stock</li>
           <% else %>
-          <li>Out of Stock</li>
+            <li>Out of Stock</li>
           <% end %>
           
         </div>
         <div class="price_line">
-          <span class="price"><%= number_to_currency(product.price) %></span>
+          <span class="price">
+          <% if product.in_stock? %>
+            <%= "From " + number_to_currency(lowest_priced(product.stocks).price) %>
+          <% else %>
+            <%= "Unavailable" %>
+          <% end %>
+          </span>
           <% if current_user %>
-          <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+          <%= button_to 'Add to Cart', line_items_path(product_id: product,
+           stock_id: lowest_priced(product.stocks)), remote: true, :disabled => !product.in_stock? %>
           <% end %>
         </div>
       </div>
