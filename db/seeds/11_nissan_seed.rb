@@ -4,8 +4,8 @@
 nissan = Brand.create!(brand_name: 'Nissan') 
  
 (2000..2015).each do |year| 
-	mazda.vehicle_models.create!(model_name: 'Maxima', year: year) 
-	mazda.vehicle_models.create!(model_name: 'Sentra', year: year) 
+	nissan.vehicle_models.create!(model_name: 'Maxima', year: year) 
+	nissan.vehicle_models.create!(model_name: 'Sentra', year: year) 
 end 
  
 max12 = nissan.vehicle_models.where( 

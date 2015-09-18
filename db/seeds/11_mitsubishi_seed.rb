@@ -4,8 +4,8 @@
 mitsubishi = Brand.create!(brand_name: 'Mitsubishi') 
  
 (2000..2015).each do |year| 
-	mazda.vehicle_models.create!(model_name: 'Eclipse', year: year) 
-	mazda.vehicle_models.create!(model_name: 'Lancer', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'Eclipse', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'Lancer', year: year) 
 end 
  
 ecl00 = mitsubishi.vehicle_models.where( 
