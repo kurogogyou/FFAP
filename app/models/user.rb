@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   after_destroy :ensure_an_admin_remains
   has_one :cart, dependent: :destroy
   has_one :seller
+  #next line is subject to change if reviews could be displayed anonymous.
+  has_many :reviews, dependent: :destroy
   validates :role, inclusion: ROLES
 
   private

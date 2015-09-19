@@ -11,6 +11,7 @@ class SellersController < ApplicationController
   # GET /sellers/1
   # GET /sellers/1.json
   def show
+    @review = Review.new
   end
 
   # GET /sellers/new

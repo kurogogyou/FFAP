@@ -6,5 +6,7 @@ class CreateReviews < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_reference :reviews, :seller, index: true
+    add_reference :reviews, :user, index: true
   end
 end
