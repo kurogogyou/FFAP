@@ -11,7 +11,7 @@ coro03 = toyo.vehicle_models.where(
 ).first
 
 coro03.products.create!(
-	title: 'Corolla 2003 Luz trasera',
+	title: 'Corolla 2003 Luz Trasera',
 	description: 
 		'Corolla 2003 Luz trasera',
 	image_url: 'Toyota Corolla 03/Corolla 2003 Luz trasera.PNG',
@@ -53,7 +53,7 @@ coro03.products.create!(
 	# price: 1400,
 	brand_id: toyo.id)
 coro03.products.create!(
-	title: 'Corolla 2003 Luz delantera',
+	title: 'Corolla 2003 Luz Delantera',
 	description: 
 		'Corolla 2003 Luz delantera',
 	image_url: 'Toyota Corolla 03/Corolla 2003 Luz delantera.PNG',
