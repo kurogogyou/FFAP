@@ -12,10 +12,14 @@ class SessionsController < ApplicationController
       flash[:notice] = "Login successful."
       
       #Remove guest cart if it exists. Probably temporary behavior
-      if session[:cart_id]
-        Cart.find(session[:cart_id]).destroy 
-        session[:cart_id] = nil
-      end
+       if session[:cart_id]
+        begin
+          Cart.find(session[:cart_id]).destroy 
+          session[:cart_id] = nil
+        rescue ActiveRecord::RecordNotFound
+          session[:cart_id] = nil
+        end
+       end
       if current_user.cart 
         session[:cart_id] = current_user.cart.id
       end
