@@ -19,10 +19,10 @@ class Cart < ActiveRecord::Base
 			if current_item.quantity < 1
 				current_item.destroy
 			end
-			return true
+			return current_item
 		end
 		
-		return false
+		return nil
 	end
 
 	def remove_product(product_id)

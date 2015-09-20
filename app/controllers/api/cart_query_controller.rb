@@ -34,7 +34,7 @@ class Api::CartQueryController < ApplicationController
 		  return
 	    end
 
-    line_item = cart.add_product(product.id, stock.id)
+    	line_item = cart.add_product(product.id, stock.id)
 
 		if line_item.save
 			render :json => {:success => :true, :message => ''}
@@ -61,7 +61,11 @@ class Api::CartQueryController < ApplicationController
 
 		#line_item.destroy
 		line_item = cart.reduce_product(line_item.product.id)
-		render :json => {:success => :true, :message => ''}
+		if line_item.save
+			render :json => {:success => :true, :message => ''}
+		else
+			render :json => {:success => :false, :message => 'Error al reducir pieza.'}
+		end
 	end
 
 	def destroy
