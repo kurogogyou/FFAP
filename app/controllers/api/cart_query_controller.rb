@@ -55,11 +55,12 @@ class Api::CartQueryController < ApplicationController
 		begin
 		  line_item = cart.line_items.find(params[:line_item_id])
 	    rescue ActiveRecord::RecordNotFound
-		  render :json => {:success => :false, :message => 'Pieza no esta en el carrito'}
+		  render :json => {:success => :false, :message => 'No se ecuentra el item indicado.'}
 		  return
 	    end
 
-		line_item.destroy
+		#line_item.destroy
+		line_item = cart.reduce_product(line_item.product.id)
 		render :json => {:success => :true, :message => ''}
 	end
 
