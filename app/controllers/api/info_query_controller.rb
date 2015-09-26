@@ -7,6 +7,7 @@ class Api::InfoQueryController < ApplicationController
   include BrandsHelper
   
   #for populating search spinners on android app
+  #needs some changes to reflect current availability
   def index
   	brands = get_all_brand_names
   	brand_model = get_brand_model_map
