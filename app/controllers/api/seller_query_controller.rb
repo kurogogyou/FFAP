@@ -20,4 +20,20 @@ class Api::SellerQueryController < ApplicationController
 		}
 	end
 
+	def comment
+		user = User.where(:username => params[:username]).take
+		review = Review.create!(
+			:seller_id => params[:seller_id],
+			:user_id => user.id,
+			:title => params[:title],
+			:body => params[:body]
+			)
+
+		if review.save
+			render :json => {:success => :true, :message => ''}
+		else
+			render :json => {:success => :false, :message => 'Error al crear resena'}
+		end
+	end
+
 end

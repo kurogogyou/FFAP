@@ -44,7 +44,11 @@ Depot::Application.routes.draw do
       post 'cart_remove' => :remove_product
     end
     resources :info_query
-    resources :seller_query
+    resources :seller_query do
+      collection do 
+        post 'comment' => :comment
+      end
+    end
   end
 
   #get "store/index"
