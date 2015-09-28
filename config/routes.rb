@@ -30,6 +30,7 @@ Depot::Application.routes.draw do
   resources :line_items
 
   resources :carts
+  resources :mapa
 
   namespace :api, path: '/', defaults:{format: :json} do
     resources :product_query do
@@ -45,6 +46,12 @@ Depot::Application.routes.draw do
     end
     resources :info_query
     resources :seller_query
+    resources :tracking do
+      collection do 
+        post 'track' => :update
+        post 'get_id' => :get_id
+      end
+    end
   end
 
   #get "store/index"

@@ -64,11 +64,15 @@ class DeliveriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_delivery
-      @delivery = Delivery.find(params[:id])
+      begin
+        @delivery = Delivery.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        @delivery = Delivery.new
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def delivery_params
-      params.require(:delivery).permit(:index, :show)
+      params.require(:delivery).permit(:latitude, :longitude)
     end
 end
