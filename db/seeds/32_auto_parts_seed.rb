@@ -14,6 +14,11 @@ ap = Seller.create(:name => "Auto Parts",
  
 frank = User.where(:username => "Frank").take 
 ap.update(:user_id => frank.id) 
+
+location = Location.create!(
+	:latitude => 18.4929774,
+	:longitude => -69.9128489,
+	:seller_id => ap.id)
  
 #Seller stocks: 
  
