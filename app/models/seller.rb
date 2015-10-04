@@ -9,4 +9,12 @@ class Seller < ActiveRecord::Base
 		with:  %r{\.(gif|jpg|png)\Z}i,
 		message: 'must be a URL for GIF, JPG, or PNG image.' 
 	}
+
+	def average_rating
+		sum = 0
+		self.reviews.each do |review|
+			sum += review.rating
+		end
+		avg = sum / self.reviews.count
+	end
 end
