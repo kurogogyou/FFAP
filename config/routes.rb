@@ -45,11 +45,15 @@ Depot::Application.routes.draw do
       post 'cart_remove' => :remove_product
     end
     resources :info_query
-    resources :seller_query
     resources :tracking do
       collection do 
         post 'track' => :update
         post 'get_id' => :get_id
+      end
+    end
+    resources :seller_query do
+      collection do 
+        post 'comment' => :comment
       end
     end
   end
