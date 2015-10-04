@@ -1,6 +1,7 @@
 class Api::TrackingController < ApplicationController
 	skip_before_action :authorize
 	protect_from_forgery with: :null_session
+	before_action :set_delivery, only: [:show]
 
 	def get_id
 		begin
@@ -26,5 +27,16 @@ class Api::TrackingController < ApplicationController
 		else
 			render :json => {:success => :false, :message => 'Posicion no actualizada'}
 		end
+	end
+
+	def show
+		render :json => {:lat => @delivery.latitude, :long => @delivery.longitude, 
+			:id => @delivery.id}
+	end
+
+	private
+
+	def set_delivery
+		@delivery = Delivery.find(params[:id])
 	end
 end
