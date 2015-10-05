@@ -67,3 +67,6 @@ ruby '2.0.0'
 gem 'authlogic'
 gem 'assignable_values'
 gem 'consul'
+
+#to handle paypal requests
+gem 'paypal-sdk-rest'
