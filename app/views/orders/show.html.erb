@@ -1,4 +1,6 @@
+<% if notice %>
 <p id="notice"><%= notice %></p>
+<% end %>
 
 <p>
   <strong>Name:</strong>
@@ -20,5 +22,11 @@
   <%= @order.pay_type %>
 </p>
 
+<p>
+  <strong>Items bought:</strong>
+</p>
+
+<%= render(@order.line_items) %>
+<p></p>
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
