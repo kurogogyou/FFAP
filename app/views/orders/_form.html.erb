@@ -28,6 +28,6 @@
     <%= f.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>
   </div>
   <div class="actions">
-    <%= f.submit 'Place Order'%>
+    <%= f.submit "", :type => :image, :src => "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" %>
   </div>
 <% end %>
