@@ -42,7 +42,13 @@
       margin-left: 100px
     }
 
-    p, div.price_line {
+    p{
+      margin-left: 0px;
+      margin-top: 0em;
+      margin-bottom: 0em;
+    } 
+    
+    div.price_line {
       margin-left: 100px;
       margin-top: 0.5em;
       margin-bottom: 0.8em;
@@ -57,6 +63,7 @@
     }  
 
   .price {
+  //  margin-left: 100px;
     color: #44a;
     font-weight: bold;
     margin-right: 3em;

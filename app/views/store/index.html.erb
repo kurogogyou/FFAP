@@ -14,12 +14,12 @@
         <%= image_tag(product.image_url) %>
         <h3><%= link_to product.title, product %></h3>
         <div class="desc">
-          <li><%= product.description %></li>
-  	      <strong>Model: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %>
+          <p><%= product.description %></p>
+  	      <p><strong>Model: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %></p>
           <% if product.in_stock? %>
-            <li>In Stock</li>
+            <p>In Stock</p>
           <% else %>
-            <li>Out of Stock</li>
+            <p>Out of Stock</p>
           <% end %>
           
         </div>
