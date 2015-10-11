@@ -22,8 +22,7 @@
     <%= hidden_field_tag 'order[email]', user.email %>
   </div>
   <div class="field">
-    <%= f.label :pay_type %><br>
-    <%= f.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>
+    <%= hidden_field_tag 'order[user_id]', user.id %>
   </div>
   <div class="actions">
     <%= f.submit "", :type => :image, :src => "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004202454) do
+ActiveRecord::Schema.define(version: 20151011004849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,10 +59,16 @@ ActiveRecord::Schema.define(version: 20151004202454) do
     t.string   "name"
     t.text     "address"
     t.string   "email"
-    t.string   "pay_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "notification_params"
+    t.string   "status",              default: "Incomplete"
+    t.string   "transaction_id"
+    t.datetime "purchased_at"
+    t.integer  "user_id"
   end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "powers", force: true do |t|
     t.datetime "created_at"

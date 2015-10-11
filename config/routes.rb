@@ -53,6 +53,8 @@ Depot::Application.routes.draw do
     end
   end
 
+  post "/hook" => "orders#hook"
+
   #get "store/index"
   controller :store do
     get 'store' => :index
