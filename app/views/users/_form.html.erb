@@ -43,8 +43,20 @@
       </div>
     <% end %>
   <% end %>
-  <div>
+  <p>Please select your location on map</p>
+   <div id="mapa"></div>
+  <div class="field">
+    <%= hidden_field_tag :latitude %>
   </div>
+  <div class="field">
+    <%= hidden_field_tag :longitude %>
+  </div>
+
+   <script>
+      var lat = marker.getPosition().lat();
+      var lng = marker.getPosition().lng();
+   </script>
+
   <div class="actions">
     <%= f.submit %>
   </div>
