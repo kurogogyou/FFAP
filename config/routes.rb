@@ -32,6 +32,8 @@ Depot::Application.routes.draw do
   resources :line_items
 
   resources :carts
+  resources :deliveries
+  resources :mapa
 
   namespace :api, path: '/', defaults:{format: :json} do
     resources :product_query do
@@ -46,10 +48,20 @@ Depot::Application.routes.draw do
       post 'cart_remove' => :remove_product
     end
     resources :info_query
+    resources :tracking do
+      collection do 
+        post 'track' => :update
+        post 'get_id' => :get_id
+      end
+    end
     resources :seller_query do
       collection do 
         post 'comment' => :comment
       end
+    end
+    controller :delivery_query do
+      post 'delivery_list' => :list
+      post 'delivery_display' => :display
     end
   end
 

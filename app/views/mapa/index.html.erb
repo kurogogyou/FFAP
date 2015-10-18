@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        width: 500px;
+        height: 400px;
+      }
+    </style>
+    <script src="http://maps.googleapis.com/maps/api/js">
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+var map;
+
+function initialize() {
+  var mapCanvas = document.getElementById('map');
+  var mapOptions = {
+      center: new google.maps.LatLng(18.497254, -69.892279),
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+  map = new google.maps.Map(mapCanvas, mapOptions);
+}
+
+var INTERVAL = 5000;
+
+function getMarkers() {
+    $.get('/tracking/5', {}, function(res,resp) {
+        var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(res.lat, res.long),
+                map:map
+            });
+        window.setTimeout(getMarkers,INTERVAL);
+        moveToLocation(res.lat, res.long);
+    }, "json");
+}
+
+function moveToLocation(lat, lng){
+    var center = new google.maps.LatLng(lat, lng);
+    // using global variable:
+    map.panTo(center);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+getMarkers();
+
+</script>
+
+  </body>
+</html>

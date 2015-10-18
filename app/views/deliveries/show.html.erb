@@ -1,0 +1,21 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<p>
+  <strong>Assigned User:</strong>
+  <%= @delivery.user.username %>
+</p>
+
+<p>
+  <strong>Order id:</strong>
+  <%= @delivery.order.id %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @delivery.order.name %>
+</p>
+
+<%= link_to 'Edit', edit_delivery_path(@delivery) %> |
+<%= link_to 'Back', deliveries_path %>

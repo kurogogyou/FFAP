@@ -9,7 +9,7 @@ def create_product_stock(seller, product, price, quantity)
 end
 
 ap = Seller.create(:name => "Auto Parts Supply", 
-	:address => "Autopista Duarte Km 11 ", 
+	:address => "Av. 27 de Febrero, Esq Av. Ortega Y Gasset", 
 	:phone => "809-480-0050", 
 	:logo_url => "auto-parts-supply-logo.jpg") 
  

@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
   has_many :line_items, dependent: :destroy
   belongs_to :user
+  has_one :delivery
   # ...
   validates :name, :address, :email, presence: true
   serialize :notification_params, Hash

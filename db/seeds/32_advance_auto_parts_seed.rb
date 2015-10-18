@@ -16,8 +16,8 @@ jason = User.where(:username => "Jason").take
 ap.update(:user_id => jason.id) 
 
 location = Location.create!(
-	:latitude => 18.4879055,
-	:longitude => -69.9770948,
+	:latitude => 18.4882230,
+	:longitude => -69.9799100,
 	:seller_id => ap.id)
  
 #Seller stocks: 
