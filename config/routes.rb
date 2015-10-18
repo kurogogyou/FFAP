@@ -48,12 +48,6 @@ Depot::Application.routes.draw do
       post 'cart_remove' => :remove_product
     end
     resources :info_query
-    resources :tracking do
-      collection do 
-        post 'track' => :update
-        post 'get_id' => :get_id
-      end
-    end
     resources :seller_query do
       collection do 
         post 'comment' => :comment
@@ -62,6 +56,7 @@ Depot::Application.routes.draw do
     controller :delivery_query do
       post 'delivery_list' => :list
       post 'delivery_display' => :display
+      post 'delivery_track' => :update
     end
   end
 

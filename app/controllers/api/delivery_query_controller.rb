@@ -15,4 +15,21 @@ class Api::DeliveryQueryController < ApplicationController
   def display
   	@delivery = Delivery.find(params[:delivery_id])
   end
+
+  def update
+		begin
+		  @delivery = Delivery.find(params[:delivery_id])
+		rescue ActiveRecord::RecordNotFound
+		  render :json => {:success => :false, :message => 'No se ecuentra el delivery indicado.'}
+		  return
+		end
+
+		@delivery.location.update(:latitude => params[:latitude], :longitude => params[:longitude])
+		if @delivery.location.save
+		  render :json => {:success => :true, :latitude => @delivery.location.latitude, 
+		  	:longitude => @delivery.location.longitude, :message => ''}
+		else
+			render :json => {:success => :false, :message => 'Posicion no actualizada'}
+		end
+	end
 end

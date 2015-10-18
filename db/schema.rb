@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20151018150424) do
     t.string   "transaction_id"
     t.datetime "purchased_at"
     t.integer  "user_id"
-    t.boolean  "delivered",  default: false
+    t.boolean  "delivered",           default: false
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
