@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to @review.seller }
         format.json { render action: 'show', status: :created, location: @review }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to @review.seller, notice: 'Comment title can\'t be blank' }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
@@ -72,6 +72,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:title, :body, :seller_id, :user_id)
+      params.require(:review).permit(:title, :body, :seller_id, :user_id, :rating)
     end
 end

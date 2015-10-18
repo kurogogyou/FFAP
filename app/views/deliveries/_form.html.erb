@@ -12,14 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :index %><br>
-    <%= f.text_field :index %>
+    <%= f.label :user_id %><br>
+    <%= f.select :user_id, delivery_users, prompt: 'Select delivery user' %>
   </div>
-  <div class="field">
-    <%= f.label :show %><br>
-    <%= f.text_field :show %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <% begin %>
+    <% if order %>
+    <div class="field">
+      <%= hidden_field_tag 'delivery[order_id]', order.id %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Assign Delivery" %>
+    </div>
+    <% end %>
+  <% rescue NameError %>
+    <div class="field">
+      <%= f.label :order_id %><br>
+      <%= f.text_field :order_id %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
 <% end %>

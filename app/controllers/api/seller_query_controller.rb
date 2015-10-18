@@ -26,7 +26,8 @@ class Api::SellerQueryController < ApplicationController
 			:seller_id => params[:seller_id],
 			:user_id => user.id,
 			:title => params[:title],
-			:body => params[:body]
+			:body => params[:body],
+			:rating => params[:rating]
 			)
 
 		if review.save
@@ -35,5 +36,4 @@ class Api::SellerQueryController < ApplicationController
 			render :json => {:success => :false, :message => 'Error al crear resena'}
 		end
 	end
-
 end

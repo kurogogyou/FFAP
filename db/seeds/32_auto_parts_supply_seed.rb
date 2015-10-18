@@ -9,12 +9,17 @@ def create_product_stock(seller, product, price, quantity)
 end
 
 ap = Seller.create(:name => "Auto Parts Supply", 
-	:address => "Autopista Duarte Km 11 ", 
+	:address => "Av. 27 de Febrero, Esq Av. Ortega Y Gasset", 
 	:phone => "809-480-0050", 
-	:logo_url => "autopartssupply_logo.png") 
+	:logo_url => "auto-parts-supply-logo.jpg") 
  
 tommy = User.where(:username => "Tommy").take 
 ap.update(:user_id => tommy.id) 
+
+location = Location.create!(
+	:latitude => 18.4723771,
+	:longitude => -69.9200161,
+	:seller_id => ap.id)
  
 #Seller stocks: 
  

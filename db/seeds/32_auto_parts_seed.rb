@@ -14,6 +14,11 @@ ap = Seller.create(:name => "Auto Parts",
  
 frank = User.where(:username => "Frank").take 
 ap.update(:user_id => frank.id) 
+
+location = Location.create!(
+	:latitude => 18.4940960,
+	:longitude => -69.9152200,
+	:seller_id => ap.id)
  
 #Seller stocks: 
  
@@ -83,7 +88,7 @@ create_product_stock(ap, product, 2100, 150)
  product = Product.where(:title => "Corolla 2003 Luz Delantera").take 
  create_product_stock(ap, product, 2200, 300) 
  
- product = Product.where(:title => "Corolla 2003 Parrilla").take 
+ product = Product.where(:title => "Corolla 2003 Parrilla").take
  create_product_stock(ap, product, 3200, 200) 
  
  product = Product.where(:title => "Corolla 2003 Bonete").take 

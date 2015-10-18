@@ -142,4 +142,3 @@ cam07.products.create!(
 	image_url: 'Toyota Camry 07/Retrovisor Camry 07.PNG',
 	# price: 2800,
 	brand_id: toyo.id)
-

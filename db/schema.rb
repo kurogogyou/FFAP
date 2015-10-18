@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921002609) do
+ActiveRecord::Schema.define(version: 20151018150424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,14 @@ ActiveRecord::Schema.define(version: 20150921002609) do
   add_index "carts", ["user_id"], name: "index_carts_on_user_id", using: :btree
 
   create_table "deliveries", force: true do |t|
-    t.decimal  "latitude",   precision: 10, scale: 7
-    t.decimal  "longitude",  precision: 10, scale: 7
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order_id"
+    t.integer  "user_id"
   end
+
+  add_index "deliveries", ["order_id"], name: "index_deliveries_on_order_id", using: :btree
+  add_index "deliveries", ["user_id"], name: "index_deliveries_on_user_id", using: :btree
 
   create_table "line_items", force: true do |t|
     t.integer  "product_id"
@@ -52,6 +55,20 @@ ActiveRecord::Schema.define(version: 20150921002609) do
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
   add_index "line_items", ["stock_id"], name: "index_line_items_on_stock_id", using: :btree
 
+  create_table "locations", force: true do |t|
+    t.decimal  "latitude",    precision: 10, scale: 7
+    t.decimal  "longitude",   precision: 10, scale: 7
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "seller_id"
+    t.integer  "user_id"
+    t.integer  "delivery_id"
+  end
+
+  add_index "locations", ["delivery_id"], name: "index_locations_on_delivery_id", using: :btree
+  add_index "locations", ["seller_id"], name: "index_locations_on_seller_id", using: :btree
+  add_index "locations", ["user_id"], name: "index_locations_on_user_id", using: :btree
+
   create_table "orders", force: true do |t|
     t.string   "name"
     t.text     "address"
@@ -59,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150921002609) do
     t.string   "pay_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "delivered",  default: false
   end
 
   create_table "powers", force: true do |t|
@@ -86,6 +104,7 @@ ActiveRecord::Schema.define(version: 20150921002609) do
     t.datetime "updated_at"
     t.integer  "seller_id"
     t.integer  "user_id"
+    t.float    "rating"
   end
 
   add_index "reviews", ["seller_id"], name: "index_reviews_on_seller_id", using: :btree
@@ -127,6 +146,7 @@ ActiveRecord::Schema.define(version: 20150921002609) do
     t.integer  "login_count",        default: 0
     t.integer  "failed_login_count", default: 0
     t.string   "role",               default: "client", null: false
+    t.text     "address"
   end
 
   create_table "vehicle_models", force: true do |t|

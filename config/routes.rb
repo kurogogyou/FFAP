@@ -1,4 +1,6 @@
 Depot::Application.routes.draw do
+  resources :locations
+
   resources :reviews
 
   resources :sellers
@@ -30,6 +32,7 @@ Depot::Application.routes.draw do
   resources :line_items
 
   resources :carts
+  resources :deliveries
   resources :mapa
 
   namespace :api, path: '/', defaults:{format: :json} do
@@ -55,6 +58,10 @@ Depot::Application.routes.draw do
       collection do 
         post 'comment' => :comment
       end
+    end
+    controller :delivery_query do
+      post 'delivery_list' => :list
+      post 'delivery_display' => :display
     end
   end
 
