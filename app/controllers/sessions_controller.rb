@@ -49,7 +49,7 @@ class SessionsController < ApplicationController
     @user_session = Session.new({:username => params[:username], :password => params[:password]})
     @user_session.save
       if current_user
-        if current_user.role == 'client'
+        if current_user.role == 'client' or current_user.role == 'delivery'
           render :json => {:success => :true, :message => ''} 
         else
           render :json => {:success => :false, :message => 'Usuario no es cliente'}, :status => :unauthorized

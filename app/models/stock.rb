@@ -8,11 +8,11 @@ class Stock < ActiveRecord::Base
 	#validates :quantity >= 0
 
 	def add(quant)
-		quantity += quant
+		self.quantity += quant
 	end
 
 	def remove(quant)
-		quantity += quant
+		self.quantity -= quant
 		if quantity < 0
 			quantity = 0
 		end
