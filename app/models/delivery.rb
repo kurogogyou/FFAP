@@ -26,7 +26,9 @@ class Delivery < ActiveRecord::Base
 	def list_sellers
 		sellers = []
 		order.line_items.each do |line_item|
-			sellers << line_item.stock.seller
+			unless sellers.include? line_item.stock.seller
+			  sellers << line_item.stock.seller
+			end
 		end
 		sellers
 	end

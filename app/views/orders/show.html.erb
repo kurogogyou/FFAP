@@ -18,11 +18,6 @@
 </p>
 
 <p>
-  <strong>Pay type:</strong>
-  <%= @order.pay_type %>
-</p>
-
-<p>
   <strong>Items bought:</strong>
 </p>
 
@@ -30,16 +25,17 @@
 <p></p>
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
-<% if current_user.role == "admin" and !@order.delivery %>
-<p></p>
-<h2><strong>Assign order to delivery</strong></h2>
+<% if current_user.role == "admin" %>
+  <% if !@order.delivery %>
+  <p></p>
+  <h2><strong>Assign order to delivery</strong></h2>
+ 
+  <%= render :partial => 'deliveries/form', :locals => { :order => @order } %>
+ 
+  <% else %>
+  <p></p>
+  <p>Delivery is assigned to <%= @order.delivery.user.username %>.</p>
 
-<%= render :partial => 'deliveries/form', :locals => { :order => @order } %>
-
-<% else %>
-<p></p>
-<p>Delivery is assigned to <%= @order.delivery.user.username %>.</p>
-
-<%= link_to 'Reassign', edit_delivery_path(@order.delivery)%>
-
+  <%= link_to 'Reassign', edit_delivery_path(@order.delivery)%>
+  <% end %>
 <% end %>
