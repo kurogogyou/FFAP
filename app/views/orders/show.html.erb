@@ -18,6 +18,15 @@
 </p>
 
 <p>
+  <strong>Status:</strong>
+  <% if @order.delivered %>
+    <p>Delivered</p>
+  <% else %>
+    <p>On the way</p>
+  <% end %>
+</p>
+
+<p>
   <strong>Items bought:</strong>
 </p>
 

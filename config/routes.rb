@@ -34,6 +34,7 @@ Depot::Application.routes.draw do
   resources :carts
   resources :deliveries
   resources :mapa
+  get "/tracking/:id" => "deliveries#track"
 
   namespace :api, path: '/', defaults:{format: :json} do
     resources :product_query do
@@ -57,6 +58,7 @@ Depot::Application.routes.draw do
       post 'delivery_list' => :list
       post 'delivery_display' => :display
       post 'delivery_track' => :update
+      post 'delivery_finish' => :complete
     end
   end
 

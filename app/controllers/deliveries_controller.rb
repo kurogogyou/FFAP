@@ -1,6 +1,6 @@
 class DeliveriesController < ApplicationController
   before_action :validate_admin
-  before_action :set_delivery, only: [:show, :edit]#, :update, :destroy]
+  before_action :set_delivery, only: [:show, :edit, :track]#, :update, :destroy]
   skip_before_action :authorize, only: [:show]
 
   # GET /deliveries
@@ -52,6 +52,11 @@ class DeliveriesController < ApplicationController
         format.json { render json: @delivery.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def track
+    render :json => {:lat => @delivery.location.latitude, :long => @delivery.location.longitude, 
+      :id => @delivery.id}
   end
 
   # PATCH/PUT /deliveries/1

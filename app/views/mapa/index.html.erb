@@ -33,10 +33,11 @@ function initialize() {
   map = new google.maps.Map(mapCanvas, mapOptions);
 }
 
+var id = "5";
 var INTERVAL = 5000;
 
 function getMarkers() {
-    $.get('/tracking/5', {}, function(res,resp) {
+    $.get('/tracking/' + id, {}, function(res,resp) {
         var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(res.lat, res.long),
                 map:map

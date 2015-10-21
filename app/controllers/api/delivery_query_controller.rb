@@ -32,4 +32,14 @@ class Api::DeliveryQueryController < ApplicationController
 			render :json => {:success => :false, :message => 'Posicion no actualizada'}
 		end
 	end
+
+	def complete
+		begin
+			@delivery = Delivery.find(params[:delivery_id])
+			@delivery.destroy
+			render :json => {:success => :true, :message => ''}
+	    rescue ActiveRecord::RecordNotFound
+	    	render :json => {:success => :false, :message => 'No se ecuentra el delivery indicado.'}
+	    end
+	end
 end

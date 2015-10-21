@@ -2,6 +2,7 @@ class Delivery < ActiveRecord::Base
 	before_destroy :reduce_stocks
 	belongs_to :user
 	belongs_to :order
+	has_one :location
 
 	validates :order_id, presence: true
 	validates :user_id, presence: true
@@ -10,7 +11,8 @@ class Delivery < ActiveRecord::Base
 		order.line_items.each do |line_item|
 			line_item.stock.remove(line_item.quantity)
 		end
-		order.delivered = true
+		order.update(:delivered => true)
+		order.save
 	end
 
 	def by_seller(seller)
