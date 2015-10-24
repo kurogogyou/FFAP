@@ -1,4 +1,5 @@
 Depot::Application.routes.draw do
+  resources :vehicles
   resources :locations
 
   resources :reviews

@@ -5,6 +5,7 @@
 <% end %>
 <div class="sform">
   <%= render 'form' %>
+  <p style="font-size: 0.8em">Showing <%= @products.length %> results </p>
 </div>
 <h1> Catalog </h1>
 <% cache ['store', Product.latest] do %>

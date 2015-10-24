@@ -17,4 +17,13 @@ class StoreController < ApplicationController
   	end
   end
 
+  def by_vin
+    if params[:search] or params[:brand_id] or params[:model_id] or params[:year]
+      @products = search_helper(params[:search], params[:brand_id], 
+        params[:model_id], params[:year])
+    else
+      @products = []
+    end
+  end
+
 end

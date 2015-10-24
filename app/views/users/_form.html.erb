@@ -20,8 +20,20 @@
     <%= f.text_field :username %>
   </div>
   <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :names %><br>
+    <%= f.text_field :names %>
+  </div>
+  <div class="field">
+    <%= f.label :last_names %><br>
+    <%= f.text_field :last_names %>
   </div>
   <div class="field">
     <%= f.label :address %><br>
@@ -36,8 +48,9 @@
     <%= f.password_field :password_confirmation %>
   </div>
   <% if current_user %>
-    <% if current_user.role.equals("admin") %>
-      <div>
+    <% if current_user.role == "admin" %>
+    <p style="padding-top: 0.1em"> </p>
+      <div class="field">
         <%= f.label :role %><br>
         <%= f.select :role, options_for_select(role_list), prompt: "Select Role for User" %>
       </div>
