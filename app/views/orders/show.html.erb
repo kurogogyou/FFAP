@@ -43,7 +43,7 @@
  
   <% else %>
   <p></p>
-  <p>Delivery is assigned to <%= @order.delivery.user.username %>.</p>
+  <p>Delivery is assigned to <%= @order.delivery.user.username %>, Delivery ID: <%= @order.delivery.id%></p>
 
   <%= link_to 'Reassign', edit_delivery_path(@order.delivery)%>
   <% end %>
