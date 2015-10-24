@@ -1,0 +1,1 @@
+json.call @order, :id, :name, :address, :email, :user_id

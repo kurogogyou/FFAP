@@ -14,15 +14,22 @@
   <div class="field">
     <%= hidden_field_tag 'order[name]', user.username %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_area :address, rows: 3, cols: 50 %>
+<div class="field">
+    <%= hidden_field_tag 'order[address]', user.address %>
   </div>
   <div class="field">
     <%= hidden_field_tag 'order[email]', user.email %>
   </div>
   <div class="field">
     <%= hidden_field_tag 'order[user_id]', user.id %>
+  </div>
+  <div class="confirmation">
+    <ul>
+      <% @cart.line_items.each do |line_item| %>
+      <li> <%= line_item.product.title %>, <%= line_item.product.brand.brand_name %> <%= line_item.product.vehicle_model.model_name %>, <%= line_item.product.vehicle_model.year %></li>
+      <% end %>
+    </ul>
+    <p>Total Price: <%= @cart.total_price %></p>
   </div>
   <div class="actions">
     <%= f.submit "", :type => :image, :src => "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" %>

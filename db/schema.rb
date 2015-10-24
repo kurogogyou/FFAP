@@ -151,8 +151,8 @@ ActiveRecord::Schema.define(version: 20151018150424) do
     t.string   "perishable_token"
     t.integer  "login_count",        default: 0
     t.integer  "failed_login_count", default: 0
-    t.string   "role",               default: "client", null: false
-    t.text     "address"
+    t.string   "role",               default: "client",     null: false
+    t.text     "address",            default: "Somewhere."
   end
 
   create_table "vehicle_models", force: true do |t|

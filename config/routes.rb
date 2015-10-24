@@ -60,6 +60,10 @@ Depot::Application.routes.draw do
       post 'delivery_track' => :update
       post 'delivery_finish' => :complete
     end
+    controller :order_api do
+      get 'order_api/:id' => :show
+      post 'order_api/create' => :create
+    end
   end
 
   post "/hook" => "orders#hook"
