@@ -12,6 +12,7 @@
     <%= @page_title || "Fast Find Auto Parts" %>
     <% if current_user %>
     <% session = Session.find %>
+    <% user = current_user %>
     <% end %>
   </div>
   <div id="columns">
@@ -41,16 +42,19 @@
       <% if session %>
         <ul>
         <li><%= link_to 'Orders', orders_path %></li>
-        <% if current_user.role == 'admin' %>
+        <% if user.role == 'admin' %>
           <li><%= link_to 'Deliveries', deliveries_path %></li>
           <li><%= link_to 'Products', products_path %></li>
           <li><%= link_to 'Users', users_path %></li>
           <li><%= link_to 'Admin Page', admin_path %></li>
           <li><%= link_to 'Sellers', sellers_path %></li>
         <% end %>
-        <% if current_user.role == 'seller' %>
+        <% if user.role == 'seller' %>
           <li><%= link_to 'Products', products_path %></li>
           <li><%= link_to 'Manage Seller', manage_seller_path %></li>
+        <% end %>
+        <% if user.role == 'client' %>
+          <li><%= link_to 'Register Vehicle', new_vehicle_path %></li>
         <% end %>
         <li><%= link_to 'Edit user', edit_user_path(:current) %> | 
         <%= link_to 'Logout', logout_path, method: :delete%></li>

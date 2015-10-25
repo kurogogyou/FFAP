@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018150424) do
+ActiveRecord::Schema.define(version: 20151024230812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,6 +153,9 @@ ActiveRecord::Schema.define(version: 20151018150424) do
     t.integer  "failed_login_count", default: 0
     t.string   "role",               default: "client",     null: false
     t.text     "address",            default: "Somewhere."
+    t.string   "phone"
+    t.string   "names"
+    t.string   "last_names"
   end
 
   create_table "vehicle_models", force: true do |t|
@@ -164,5 +167,17 @@ ActiveRecord::Schema.define(version: 20151018150424) do
   end
 
   add_index "vehicle_models", ["brand_id"], name: "index_vehicle_models_on_brand_id", using: :btree
+
+  create_table "vehicles", force: true do |t|
+    t.string   "chassis_number"
+    t.string   "brand"
+    t.string   "model"
+    t.integer  "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "vehicles", ["user_id"], name: "index_vehicles_on_user_id", using: :btree
 
 end

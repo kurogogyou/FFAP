@@ -1,5 +1,5 @@
 <%= form_tag store_path, :method => 'get' do %>
-  <p> 
+  <div id="query_search"> 
     <%= text_field_tag :search, params[:search] %>
     
     <%= select_tag(:brand_id, options_for_select(get_all_brand_names_ids), prompt: 'Select brand') %>
@@ -14,5 +14,83 @@
     
     <%= select_tag :year, options_for_select(model_years), prompt: 'Select year' %>
     <%= submit_tag "Search", :name => nil %>
-  </p>
+    <div style="padding-top: 1em"> </div>
+  </div>
+
+  <div id="chassis_search" style="display: none;">
+    <%= text_field_tag :vehicle_chassis_number %>
+    <label for="checkVIN"> Please verify Chassis number before searching:  </label> 
+    <input type="button" id="checkVIN" value="Verify Chassis Number" onclick="getVINdata()"> 
+    <%= submit_tag "Search", :name => nil %>
+    <div id="results-body" style="padding-top: 1em"> </div> 
+  </div>
+
+  <%if current_user %>
+    <%if current_user.role == "client"%>
+      <div id="vehicle_search" style="display: none;">
+        <%= select_tag :vehicle, options_from_collection_for_select(current_user.vehicles, 'id', 'description'), prompt: 'Select vehicle' %>
+        <%= submit_tag "Search", :name => nil %>
+        <div style="padding-top: 1em"> </div> 
+      </div>
+    <% end %>
+  <% end %>  
+
+  <input type="button" id="byQuery" value="Search Queries" onclick="showQuerySearch()"> |
+  <input type="button" id="byChassis" value="Search by Chassis Number" onclick="showChassisSearch()">
+  <%if current_user %>
+    <%if current_user.role == "client"%>
+      | <input type="button" id="byVehicle" value="Search by Registered Vehicles" onclick="showVehicleSearch()">
+    <% end %>
+  <% end %>
+
+  <script>
+     var link
+     var display = document.getElementById('results-body');
+     function getVINdata(){
+       var vin = document.getElementById("vehicle_chassis_number").value;
+       link = "https://api.edmunds.com/api/vehicle/v2/vins/"+ vin +"?&fmt=json&api_key=cpes64w9wyy4yd8anrvqz74t";
+       console.log(link);
+       getVINJSON();
+     }
+
+     function getVINJSON() {
+      $.get(link, {}, function(res,resp) {
+          display.innerHTML = "Brand: " + res.make.name + "<br>"+ "Model: " + res.model.name +"<br>" + "Year: " + res.years[0].year;
+          document.getElementById("vehicle_brand").value = res.make.name;
+          document.getElementById("vehicle_model").value = res.model.name;
+          document.getElementById("vehicle_year").value = res.years[0].year;
+      }, "json").fail(function() {
+          alert('Error, vehicle model not found.');
+          display.innerHTML= ""; 
+      });
+   }
+
+    function showChassisSearch(){
+      var element = document.getElementById("chassis_search");
+      element.style.display='block';
+      element = document.getElementById("vehicle_search");
+      element.style.display='none';
+      element = document.getElementById("query_search");
+      element.style.display='none';
+    }
+
+    function showVehicleSearch(){
+      var element = document.getElementById("chassis_search");
+      element.style.display='none';
+      element = document.getElementById("vehicle_search");
+      element.style.display='block';
+      element = document.getElementById("query_search");
+      element.style.display='none';
+    }
+
+    function showQuerySearch(){
+      var element = document.getElementById("chassis_search");
+      element.style.display='none';
+      element = document.getElementById("vehicle_search");
+      element.style.display='none';
+      element = document.getElementById("query_search");
+      element.style.display='block';
+    }
+   </script>
+
 <% end %>

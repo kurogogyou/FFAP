@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_one :location, dependent: :destroy
   #next line is subject to change if reviews could be displayed anonymous.
   has_many :reviews, dependent: :destroy
+  has_many :vehicles, dependent: :destroy
   validates :role, inclusion: ROLES
 
   private

@@ -1,0 +1,60 @@
+<%= form_for(@vehicle) do |f| %>
+  <% if @vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+
+      <ul>
+      <% @vehicle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :chassis_number %><br>
+    <%= f.text_field :chassis_number %>
+  </div>
+  <div class="field">
+    <%= hidden_field_tag 'vehicle[brand]' %>
+  </div>
+  <div class="field">
+    <%= hidden_field_tag 'vehicle[model]' %>
+  </div>
+  <div class="field">
+    <%= hidden_field_tag 'vehicle[year]' %>
+  </div>
+  <div class="field">
+    <%= hidden_field_tag 'vehicle[user_id]', @user.id %>
+  </div>
+
+  <label for="checkVIN">Please verify Chassis number before submitting:</label> <br>
+  <input type="button" id="checkVIN" value="Verify Chassis Number" onclick="getVINdata()"> 
+  <div id="results-body" style="padding-top: 1em"> </div>
+  <script>
+     var link
+     var display = document.getElementById('results-body');
+     function getVINdata(){
+       var vin = document.getElementById("vehicle_chassis_number").value;
+       link = "https://api.edmunds.com/api/vehicle/v2/vins/"+ vin +"?&fmt=json&api_key=cpes64w9wyy4yd8anrvqz74t";
+       console.log(link);
+       getVINJSON();
+     }
+
+     function getVINJSON() {
+      $.get(link, {}, function(res,resp) {
+          display.innerHTML = "Brand: " + res.make.name + "<br>"+ "Model: " + res.model.name +"<br>" + "Year: " + res.years[0].year;
+          document.getElementById("vehicle_brand").value = res.make.name;
+          document.getElementById("vehicle_model").value = res.model.name;
+          document.getElementById("vehicle_year").value = res.years[0].year;
+      }, "json").fail(function() {
+          alert('Error, vehicle model not found.');
+          display.innerHTML= ""; 
+      });
+   }
+   </script>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
