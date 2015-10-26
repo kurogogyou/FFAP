@@ -8,6 +8,9 @@
   <p style="font-size: 0.8em">Showing <%= @products.length %> results </p>
 </div>
 <h1> Catalog </h1>
+<% if @products.empty? %>
+<h3>No results to show</h3>
+<% else %>
 <% cache ['store', Product.latest] do %>
   <% @products.each do |product| %>
     <% cache ['entry', product] do %>
@@ -40,4 +43,5 @@
       </div>
     <% end %>
   <% end %>
+<% end %>
 <% end %>

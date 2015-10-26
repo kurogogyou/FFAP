@@ -1,5 +1,5 @@
-<%= form_tag store_path, :method => 'get' do %>
-  <div id="query_search"> 
+<%= form_tag store_path, :id => 'store_form', :method => 'get' do %>
+  <div id="query_search" > 
     <%= text_field_tag :search, params[:search] %>
     
     <%= select_tag(:brand_id, options_for_select(get_all_brand_names_ids), prompt: 'Select brand') %>
@@ -21,6 +21,9 @@
     <%= text_field_tag :vehicle_chassis_number %>
     <label for="checkVIN"> Please verify Chassis number before searching:  </label> 
     <input type="button" id="checkVIN" value="Verify Chassis Number" onclick="getVINdata()"> 
+    <%= hidden_field_tag :chassis_brand %>
+    <%= hidden_field_tag :chassis_model %>
+    <%= hidden_field_tag :chassis_year %>
     <%= submit_tag "Search", :name => nil %>
     <div id="results-body" style="padding-top: 1em"> </div> 
   </div>
@@ -33,6 +36,8 @@
         <div style="padding-top: 1em"> </div> 
       </div>
     <% end %>
+  <% else %>
+    <div id="vehicle_search" style="display: none" ></div>
   <% end %>  
 
   <input type="button" id="byQuery" value="Search Queries" onclick="showQuerySearch()"> |
@@ -49,21 +54,26 @@
      function getVINdata(){
        var vin = document.getElementById("vehicle_chassis_number").value;
        link = "https://api.edmunds.com/api/vehicle/v2/vins/"+ vin +"?&fmt=json&api_key=cpes64w9wyy4yd8anrvqz74t";
-       console.log(link);
+     //  console.log(link);
        getVINJSON();
      }
 
      function getVINJSON() {
       $.get(link, {}, function(res,resp) {
           display.innerHTML = "Brand: " + res.make.name + "<br>"+ "Model: " + res.model.name +"<br>" + "Year: " + res.years[0].year;
-          document.getElementById("vehicle_brand").value = res.make.name;
-          document.getElementById("vehicle_model").value = res.model.name;
-          document.getElementById("vehicle_year").value = res.years[0].year;
+          selectValues(res);
       }, "json").fail(function() {
           alert('Error, vehicle model not found.');
           display.innerHTML= ""; 
       });
-   }
+    }
+
+    function selectValues(jsonres){
+      console.log(jsonres.model.name);
+      document.getElementById("chassis_brand").value = jsonres.make.name;
+      document.getElementById("chassis_model").value = jsonres.model.name;
+      document.getElementById("chassis_year").value = jsonres.years[0].year;
+    }
 
     function showChassisSearch(){
       var element = document.getElementById("chassis_search");
@@ -91,6 +101,7 @@
       element = document.getElementById("query_search");
       element.style.display='block';
     }
+
    </script>
 
 <% end %>
