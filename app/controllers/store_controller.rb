@@ -29,4 +29,13 @@ class StoreController < ApplicationController
   	end
   end
 
+  def about
+  end
+
+  def faq
+  end
+
+  def docs
+  end
+
 end

@@ -10,6 +10,14 @@ Depot::Application.routes.draw do
 
   get "home/index"
   #get "home/show"
+  #get "store/index"
+  controller :store do
+    get 'store' => :index
+    get 'about' => :about
+    get 'faq' => :faq
+    get 'docs' => :docs
+  end
+  
   resources :vehicle_models
 
   resources :brands
@@ -69,10 +77,6 @@ Depot::Application.routes.draw do
 
   post "/hook" => "orders#hook"
 
-  #get "store/index"
-  controller :store do
-    get 'store' => :index
-  end
 
   resources :products do
     get :who_bought, on: :member
