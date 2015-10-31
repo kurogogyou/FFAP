@@ -20,7 +20,7 @@ class Api::VehicleQueryController < ApplicationController
   		:year => params[:year],
   		:user_id => @user.id)
   	rescue ActiveRecord::RecordInvalid
-  		render :json => {:success => :false, :message => 'Vehiculo ya ha sido registrado.'}
+  		render :json => {:success => :false, :message => 'Vehiculo ya ha sido registrado o chasis invalido.'}
   		return
   	end
   	render :json => {:success => :true, :message => ''}
