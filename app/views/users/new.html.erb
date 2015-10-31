@@ -31,11 +31,13 @@ function initialize() {
 		position: new google.maps.LatLng(18.497254, -69.892279),
 		map: map,
 		draggable: true
-	});
+  });
+  google.maps.event.addListener(marker, 'dragend', place(result));
 }
 
-latin = document.getElementById('latitude');
-lngin = document.getElementById('longitude');
+function place(param){
+    console.log(param.LatLng);
+}
 
 google.maps.event.addDomListener(window, 'load', initialize);
 

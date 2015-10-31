@@ -10,5 +10,16 @@
   <%= @review.body %>
 </p>
 
+<p>
+  <strong>Rating:</strong>
+  <%= @review.rating %> out of 5
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @review.created_at %>
+</p>
+
+
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>

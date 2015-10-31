@@ -29,7 +29,16 @@
   <strong>Seller reviews</strong>
 </h2>
 
-<% @seller.reviews.each do |review| %>
+<p> Store has <%= @reviews.count %> comments. </p>
+
+<% 5.downto(0) do |rating| %>
+<% subdiv = reviews_per_rating(@reviews, rating) %>  on Seller Helper
+<p><%= subdiv.count %> reviews rated <%= rating %></p>
+<% end %>
+
+<p>.............................................</p>
+
+<% @reviews.each do |review| %>
    <p><%= review.title %></p>
    <p><%= review.body %></p>
    <p><%= review.user.username %><p>

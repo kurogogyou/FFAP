@@ -14,8 +14,8 @@ Depot::Application.routes.draw do
   controller :store do
     get 'store' => :index
     get 'about' => :about
-    get 'faq' => :faq
-    get 'docs' => :docs
+ #   get 'faq' => :faq
+ #   get 'docs' => :docs
   end
   
   resources :vehicle_models
