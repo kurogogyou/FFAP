@@ -2,6 +2,7 @@ class Vehicle < ActiveRecord::Base
 	belongs_to :user
 
 	validates :chassis_number, :brand, :model, :year, presence: :true
+	validates :chassis_number, uniqueness: :true
 	#add validations for field values.
 	def description
 		description = self.brand + " " + self.model + " " + self.year.to_s

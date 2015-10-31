@@ -73,6 +73,12 @@ Depot::Application.routes.draw do
       get 'order_api/:id' => :show
       post 'order_api/create' => :create
     end
+    controller :vehicle_query do
+      post 'list_vehicles' => :list
+      get 'show_vehicle/:id' => :show
+      post 'register_vehicle' => :register
+      post 'destroy_vehicle' => :destroy
+    end
   end
 
   post "/hook" => "orders#hook"
