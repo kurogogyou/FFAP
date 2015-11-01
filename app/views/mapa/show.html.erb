@@ -20,6 +20,30 @@
   </head>
   <body>
     <div id="map"></div>
+    <div id="line_item_list"> 
+    <p><strong>Items carried in this delivery:</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th></th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @delivery.by_seller(@seller).each do |line_item| %>
+            <tr>
+              <td><%= line_item.product.title %></td>
+              <td><%= line_item.product.description %></td>
+              <td><%= line_item.quantity %></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
     <script>
 var map;
 
@@ -57,6 +81,5 @@ google.maps.event.addDomListener(window, 'load', initialize);
 getMarkers();
 
 </script>
-
   </body>
 </html>

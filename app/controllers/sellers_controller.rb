@@ -66,6 +66,7 @@ class SellersController < ApplicationController
 
   def manage
     @seller = Seller.find(current_user.seller.id) 
+    @deliveries = deliveries_by_carried_stock
   end
 
   private
@@ -77,5 +78,15 @@ class SellersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def seller_params
       params.require(:seller).permit(:name, :address, :phone, :logo_url, :user_id)
+    end
+
+    def deliveries_by_carried_stock
+      collection = []
+      Delivery.all.each do |delivery|
+        if !delivery.by_seller(@seller).empty?
+          collection << delivery
+        end
+      end
+      collection
     end
 end

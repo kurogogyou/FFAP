@@ -23,3 +23,34 @@
 <%= link_to 'Edit Seller Information', edit_seller_path(@seller) %> |
 <%= link_to 'Back', home_path %> | 
 <%= link_to 'List Stocks', stocks_path%>
+
+<p>
+  <strong>Deliveries carrying our stocks:</strong>
+</p>
+<% if @deliveries.empty? %>
+<p>Nothing to show.</p>
+<% else %>
+<table>
+  <thead>
+    <tr>
+      <th>Invoice</th>
+      <th>Customer</th>
+      <th>Address</th>
+      <th>Personnel</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @deliveries.each do |delivery| %>
+      <tr>
+        <td><%= delivery.order.invoice %></td>
+        <td><%= delivery.order.name %></td>
+        <td><%= delivery.order.address %></td>
+        <td><%= delivery.user.username %></td>
+        <td><%= link_to 'Track', mapa_path(:id => delivery.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

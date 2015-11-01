@@ -6,8 +6,8 @@
   <td><%= line_item.quantity %>&times;</td>
   <td><%= line_item.product.title %></td>
   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
-  <% if @order %>
-  <td></td>
+  <% if @order or @delivery %>
+  <td></td><br>
   <% else %>
   <td><%= button_to 'X', line_item, method: :delete, data: {confirm: 'Really remove?'} %></td>
   <% end %>

@@ -1,5 +1,5 @@
 class DeliveriesController < ApplicationController
-  before_action :validate_admin
+  before_action :validate_admin, except: [:track]
   before_action :set_delivery, only: [:show, :edit, :track]#, :update, :destroy]
   skip_before_action :authorize, only: [:show]
 
