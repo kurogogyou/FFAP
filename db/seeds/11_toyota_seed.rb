@@ -1,6 +1,6 @@
 toyo = Brand.create!(brand_name: 'Toyota')
 
-(2000..2015).each do |year|
+(2000..2016).each do |year|
 	toyo.vehicle_models.create!(model_name: 'Corolla', year: year)
 	toyo.vehicle_models.create!(model_name: 'Camry', year: year)
 end

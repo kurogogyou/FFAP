@@ -1,6 +1,6 @@
 lex = Brand.create!(brand_name: 'Lexus')
 
-(2000..2015).each do |year|
+(2000..2016).each do |year|
 	lex.vehicle_models.create!(model_name: 'IS', year: year)
 	lex.vehicle_models.create!(model_name: 'GS', year: year)
 	#lex.vehicle_models.create!(model_name: 'LS', year: year)

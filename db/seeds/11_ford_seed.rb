@@ -3,7 +3,7 @@
 
 ford = Brand.create!(brand_name: 'Ford') 
  
-(2000..2015).each do |year| 
+(2000..2016).each do |year| 
 	ford.vehicle_models.create!(model_name: 'Focus', year: year) 
 	ford.vehicle_models.create!(model_name: 'Mustang', year: year) 
 end 
