@@ -2,7 +2,7 @@ class VehicleModel < ActiveRecord::Base
 	belongs_to :brand
 	has_many :products
 
-	YEAR = (2000..2015).to_a
+	YEAR = (2000..2016).to_a
 	validates :model_name, presence: true
 	#validates :model_name, uniqueness: true
 	validates :year, presence: true, inclusion: { :in => YEAR }

@@ -16,9 +16,9 @@ mario = User.create(:username => "Mario",
 	:password_confirmation => "1234", 
 	:email => "vizard.fs@gmail.com",
 	:address => "Jimenez Moya, esq Jose Contreras. Ensanche La Fe")
-
-location = Location.create(:latitude => 18.467208,
-	:longitude => -69.911963,
+ 
+location = Location.create(:latitude => 18.483255,
+	:longitude => -69.939677,
 	:user_id => mario.id)
 
 frank = User.create(:username => "Frank", 

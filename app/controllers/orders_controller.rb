@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   skip_before_action :authorize, only: [:hook]
   protect_from_forgery except: [:hook]
   include CurrentCart
+  include OrdersHelper
   before_action :set_cart, only: [:new, :create]
   before_action :set_order, only: [:show]
 
@@ -32,10 +33,14 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
+    location = current_user.location
+    olocation = Location.create!(
+      :latitude => location.latitude,
+      :longitude => location.longitude)
 
     respond_to do |format|
       if @order.save
-     
+        olocation.update(:order_id => @order.id)
         format.html { redirect_to @order.paypal_url(store_url) }#, notice: 'Thank you for your order.' }
       #  format.json { render action: 'show', status: :created, location: @order }
       else
@@ -49,7 +54,7 @@ class OrdersController < ApplicationController
     params.permit! # Permit all Paypal input params
     status = params[:payment_status]
     if status == "Completed"
-      @order = Order.find params[:invoice]
+      @order = Order.find get_order_id_from_invoice(params[:invoice]) #in orders helper
       #Cart.destroy(session[:cart_id])
       Cart.where(:user_id => @order.user_id).take.destroy
      # session[:cart_id] = nil

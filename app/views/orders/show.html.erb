@@ -27,12 +27,26 @@
 </p>
 
 <p>
+  <strong>Date ordered:</strong>
+  <%= @order.created_at %>
+</p>
+
+<p>
+  <strong>Delivery Location:</strong>
+  <%= @order.location.latitude %>, <%= @order.location.longitude %>
+</p>
+
+<p>
+  <strong>Tracking number:</strong>
+  <%= @order.invoice %>
+</p>
+
+<p>
   <strong>Items bought:</strong>
 </p>
 
 <%= render(@order.line_items) %>
 <p></p>
-<%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
 <% if current_user.role == "admin" %>
   <% if !@order.delivery %>

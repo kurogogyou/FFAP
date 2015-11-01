@@ -1,11 +1,14 @@
 class Order < ActiveRecord::Base
+  include OrdersHelper
   has_many :line_items, dependent: :destroy
   belongs_to :user
   has_one :delivery
+  has_one :location
   # ...
   validates :name, :address, :email, presence: true
   serialize :notification_params, Hash
   
+
   def add_line_items_from_cart(cart)
     cart.line_items.each do |item|
       item.cart_id = nil
@@ -19,9 +22,9 @@ class Order < ActiveRecord::Base
         cmd: "_xclick",
         upload: 1,
         return: "#{Rails.application.secrets.app_host}#{return_path}",
-        invoice: self.id,
+        invoice: self.invoice,
         amount: self.dollar_price,
-        item_name: "Order no. " + self.id.to_s,
+        item_name: "Order " + self.invoice,
         item_number: self.id,
         quantity: '1',
         notify_url: "#{Rails.application.secrets.app_host}/hook"
@@ -37,6 +40,13 @@ class Order < ActiveRecord::Base
     #Note: this is a test value forcer!
     0.01.round(2)
     #(self.total_price/45.2).round(2)
+  end
+
+  def invoice
+    ids = self.id.to_s
+    date = self.created_at.to_i
+    date = date.to_s
+    date + invoice_separator + ids #invoice_separator in orders helper
   end
 
 end

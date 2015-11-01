@@ -2,7 +2,7 @@ class Delivery < ActiveRecord::Base
 	before_destroy :reduce_stocks
 	belongs_to :user
 	belongs_to :order
-	has_one :location
+	has_one :location, dependent: :destroy
 
 	validates :order_id, presence: true
 	validates :user_id, presence: true
