@@ -48,12 +48,12 @@ class Api::DeliveryQueryController < ApplicationController
 		begin
 			@delivery = Delivery.find(params[:id])
 			if @delivery.estimated_time == "Unknown."
-				render :json => {:status => "STANDBY", :eta => @delivery.estimated_time}
+				render :json => {:status => "STANDBY", :eta => @delivery.estimated_time + " Try again later."}
 			else
 				render :json => {:status => "OK", :eta => @delivery.estimated_time}
 			end
 		rescue ActiveRecord::RecordNotFound
-			render :json => {:status => "Unassigned", :eta => "Order not yet assigned. Try again later."}
+			render :json => {:status => "UNASSIGNED", :eta => "Order not yet assigned. Try again later."}
 		end
 	end
 end
