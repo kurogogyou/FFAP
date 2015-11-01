@@ -40,7 +40,9 @@
   <strong>Tracking number:</strong>
   <%= @order.invoice %>
 </p>
-
+<% if !@order.delivered %>
+<input type="button" id="ETA" value="Get Estimated Delivery Time" onclick="getETA()">
+<% end %>
 <p>
   <strong>Items bought:</strong>
 </p>
@@ -62,3 +64,24 @@
   <%= link_to 'Reassign', edit_delivery_path(@order.delivery)%>
   <% end %>
 <% end %>
+  
+<% if @order.delivery %>
+  <%= hidden_field_tag :delivery_id, @order.delivery.id %>
+<% else %>
+  <%= hidden_field_tag :delivery_id, "-1" %>
+<% end %>
+
+<script type="text/javascript">
+  var id = document.getElementById("delivery_id").value;
+
+  function getETA(){
+    $.get('/delivery_eta/' + id, {}, function(res,resp) {
+      if(res.status == "OK"){
+        alert(res.eta + " minutes");
+      }
+      else{
+        alert(res.eta);
+      }
+    });
+  }
+</script>

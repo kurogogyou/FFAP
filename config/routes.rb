@@ -68,6 +68,7 @@ Depot::Application.routes.draw do
       post 'delivery_display' => :display
       post 'delivery_track' => :update
       post 'delivery_finish' => :complete
+      get 'delivery_eta/:id' => :delivery_eta
     end
     controller :order_api do
       get 'order_api/:id' => :show

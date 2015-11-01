@@ -25,9 +25,10 @@ class Api::DeliveryQueryController < ApplicationController
 		end
 
 		@delivery.location.update(:latitude => params[:latitude], :longitude => params[:longitude])
+		@delivery.update(:estimated_time => params[:estimated_time])
 		if @delivery.location.save
 		  render :json => {:success => :true, :latitude => @delivery.location.latitude, 
-		  	:longitude => @delivery.location.longitude, :message => ''}
+		  	:longitude => @delivery.location.longitude, :estimated_time => @delivery.estimated_time, :message => ''}
 		else
 			render :json => {:success => :false, :message => 'Posicion no actualizada'}
 		end
@@ -41,5 +42,18 @@ class Api::DeliveryQueryController < ApplicationController
 	    rescue ActiveRecord::RecordNotFound
 	    	render :json => {:success => :false, :message => 'No se ecuentra el delivery indicado.'}
 	    end
+	end
+
+	def delivery_eta
+		begin
+			@delivery = Delivery.find(params[:id])
+			if @delivery.estimated_time == "Unknown."
+				render :json => {:status => "STANDBY", :eta => @delivery.estimated_time}
+			else
+				render :json => {:status => "OK", :eta => @delivery.estimated_time}
+			end
+		rescue ActiveRecord::RecordNotFound
+			render :json => {:status => "Unassigned", :eta => "Order not yet assigned. Try again later."}
+		end
 	end
 end
