@@ -5,12 +5,17 @@
 <% end %>
 <div class="sform">
   <%= render 'form' %>
-  <p style="font-size: 0.8em">Showing <%= @products.length %> results </p>
+  <% if @products.length < @products.total_count %>
+    <p style="font-size: 0.8em">Showing <%= @products.length %> out of <%= @products.total_count %> results </p>
+  <% else %>
+    <p style="font-size: 0.8em">Showing <%= @products.length %> results </p>
+  <% end %>
 </div>
 <h1> Catalog </h1>
 <% if @products.empty? %>
 <h3>No results to show</h3>
 <% else %>
+<%= paginate @products %>
 <% cache ['store', Product.latest] do %>
   <% @products.each do |product| %>
     <% cache ['entry', product] do %>

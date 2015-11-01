@@ -6,10 +6,10 @@ class StocksController < ApplicationController
   # GET /stocks.json
   def index
     if current_user.role == "seller"
-      @stocks = Stock.where(:seller_id => current_user.seller.id)
+      @stocks = Stock.where(:seller_id => current_user.seller.id).page params[:page]
     end
     if current_user.role == "admin"
-      @stocks = Stock.all
+      @stocks = Stock.all.page params[:page]
     end
   end
 
@@ -87,6 +87,6 @@ class StocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params
-      params.require(:stock).permit(:seller_id, :product_id, :quantity)
+      params.require(:stock).permit(:seller_id, :product_id, :quantity, :page)
     end
 end

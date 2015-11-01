@@ -70,3 +70,6 @@ gem 'consul'
 
 #to handle paypal requests
 gem 'paypal-sdk-rest'
+
+#for paging!
+gem 'kaminari'
