@@ -71,6 +71,7 @@ Depot::Application.routes.draw do
     end
     controller :order_api do
       get 'order_api/:id' => :show
+      post 'order_api/list' => :list
       post 'order_api/create' => :create
     end
     controller :vehicle_query do
