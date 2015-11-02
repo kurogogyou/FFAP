@@ -3,6 +3,10 @@ class Api::OrderApiController < ApplicationController
 	protect_from_forgery with: :null_session
 
 	def list
+		if !params[:username]
+			render :json => {:success => :false, :message => 'Usuario no existe o no encontrado'}
+			return
+		end
 		begin
 		@user = User.where(:username => params[:username]).take
 		rescue ActiveRecord::RecordNotFound
