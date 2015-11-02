@@ -4,7 +4,8 @@ class Seller < ActiveRecord::Base
 	has_one :location, dependent: :destroy
 	validates :name, presence: true, uniqueness: true
 	validates :address, presence: true
-	belongs_to :user, -> { where :role => seller}
+	has_many :managers
+	has_many :users, :through => :managers
 
 	validates :logo_url, allow_blank: true, format: {
 		with:  %r{\.(gif|jpg|png)\Z}i,

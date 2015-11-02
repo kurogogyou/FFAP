@@ -13,7 +13,9 @@ ap = Seller.create!(:name => "Advance Auto Parts",
 	:logo_url => "advance_autoparts_logo.jpg") 
  
 jason = User.where(:username => "Jason").take 
-ap.update(:user_id => jason.id) 
+Manager.create!(
+	:user_id => jason.id,
+	:seller_id => ap.id)
 
 location = Location.create!(
 	:latitude => 18.4882230,

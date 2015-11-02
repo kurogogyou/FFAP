@@ -13,8 +13,11 @@ ap = Seller.create(:name => "Auto Parts Plus",
 	:phone => "809-720-1221", 
 	:logo_url => "auto_parts_plus_logo.jpg") 
  
-John = User.where(:username => "John").take 
-ap.update(:user_id => John.id) 
+john = User.where(:username => "John").take 
+Manager.create!(
+	:user_id => john.id,
+	:seller_id => ap.id)
+
 
 location = Location.create!(
 	:latitude => 18.5052552,

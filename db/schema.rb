@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101194748) do
+ActiveRecord::Schema.define(version: 20151101235603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,16 @@ ActiveRecord::Schema.define(version: 20151101194748) do
   add_index "locations", ["seller_id"], name: "index_locations_on_seller_id", using: :btree
   add_index "locations", ["user_id"], name: "index_locations_on_user_id", using: :btree
 
+  create_table "managers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "seller_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "managers", ["seller_id"], name: "index_managers_on_seller_id", using: :btree
+  add_index "managers", ["user_id"], name: "index_managers_on_user_id", using: :btree
+
   create_table "orders", force: true do |t|
     t.string   "name"
     t.text     "address"
@@ -126,10 +136,7 @@ ActiveRecord::Schema.define(version: 20151101194748) do
     t.string   "logo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
-
-  add_index "sellers", ["user_id"], name: "index_sellers_on_user_id", using: :btree
 
   create_table "stocks", force: true do |t|
     t.integer  "quantity",                           default: 0

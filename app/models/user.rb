@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   end
   after_destroy :ensure_an_admin_remains
   has_one :cart, dependent: :destroy
-  has_one :seller
+  has_one :manager
+  has_one :seller, :through => :manager
   has_one :delivery
   has_one :location, dependent: :destroy
   #next line is subject to change if reviews could be displayed anonymous.
