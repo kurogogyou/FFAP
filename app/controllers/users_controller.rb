@@ -41,8 +41,13 @@ class UsersController < ApplicationController
       end
     end
 
+    location = Location.create!(
+      :latitude => params[:latitude],
+      :longitude => params[:longitude])
+
     respond_to do |format|
       if @user.save
+        location.update(:user_id => @user.id)
         if @authenticated
           format.html { redirect_to users_url, notice: "User #{@user.username} was successfully created." }
         else
@@ -98,6 +103,6 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :role, :address, 
-        :phone, :names, :last_names)
+        :phone, :names, :last_names, :latitude, :longitude)
     end
 end
