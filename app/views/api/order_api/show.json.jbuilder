@@ -1,5 +1,10 @@
-json.call @order, :id, :name, :address, :email, :user_id, :invoice, :created_at
-json.call @order.line_items.each do |i|
+json.extract! @order, :id, :name, :address, :email, :user_id, :invoice, :delivered, :created_at
+if @order.delivery != nil
+	json.delivery_id order.delivery.id
+else
+	json.delivery_id "-1"
+end
+json.line_items @order.line_items.each do |i|
 	json.item(i, :quantity, :id)
 	json.product i.product, :id, :title, :description
 	json.image_url edit_image_url(i.product)
