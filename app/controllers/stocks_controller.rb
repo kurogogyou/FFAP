@@ -50,7 +50,7 @@ class StocksController < ApplicationController
 #      @stock = Stock.create!(:seller_id => params[:seller_id], :product_id => params[:product_id])
 #    end
     if @stock == nil
-      @stock = Stock.create!(:seller_id => params[:seller_id], :product_id => params[:product_id])
+      @stock = Stock.create!(:seller_id => params[:seller_id], :product_id => params[:product_id], :price => 0.01)
     end
     render action: 'edit'
   end
@@ -87,6 +87,6 @@ class StocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params
-      params.require(:stock).permit(:seller_id, :product_id, :quantity, :page)
+      params.require(:stock).permit(:seller_id, :product_id, :quantity, :page, :price)
     end
 end

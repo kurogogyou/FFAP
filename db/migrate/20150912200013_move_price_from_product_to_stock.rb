@@ -3,7 +3,7 @@ class MovePriceFromProductToStock < ActiveRecord::Migration
   #backup tables when executing migrations like these.
   def change
   	remove_column :products, :price, :decimal
-  	add_column :stocks, :price, :decimal, precision: 8, scale: 2
+  	add_column :stocks, :price, :decimal, precision: 8, scale: 2, default: 0.01
 
   	#this enables line items to see stock prices and the code to reduce stocks when order is
   	#shipped.

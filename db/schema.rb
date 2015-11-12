@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 20151101194748) do
     t.datetime "updated_at"
     t.integer  "product_id"
     t.integer  "seller_id"
-    t.decimal  "price",      precision: 8, scale: 2
+    t.decimal  "price",      precision: 8, scale: 2,           default: 0.01
   end
 
   add_index "stocks", ["product_id"], name: "index_stocks_on_product_id", using: :btree
