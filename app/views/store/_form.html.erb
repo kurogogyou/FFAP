@@ -18,6 +18,7 @@
   </div>
 
   <div id="chassis_search" style="display: none;">
+    <%= text_field_tag :search, params[:search] %>
     <%= text_field_tag :vehicle_chassis_number %>
     <label for="checkVIN"> Please verify Chassis number before searching:  </label> 
     <input type="button" id="checkVIN" value="Verify Chassis Number" onclick="getVINdata()"> 
@@ -31,6 +32,7 @@
   <%if current_user %>
     <%if current_user.role == "client"%>
       <div id="vehicle_search" style="display: none;">
+      <%= text_field_tag :search, params[:search] %>
         <%= select_tag :vehicle, options_from_collection_for_select(current_user.vehicles, 'id', 'description'), prompt: 'Select vehicle' %>
         <%= submit_tag "Search", :name => nil %>
         <div style="padding-top: 1em"> </div> 

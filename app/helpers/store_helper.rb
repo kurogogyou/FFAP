@@ -9,7 +9,11 @@ module StoreHelper
 
   		  true_model = get_true_model(model, year) #helper
         
-  		  product_list = product_list.where(:vehicle_model_id => true_model.id)
+        if true_model
+  		    product_list = product_list.where(:vehicle_model_id => true_model.id)
+        else
+          product_list = product_list.where(:vehicle_model_id => -1)
+        end
       else
         if !is_empty(year) and (is_empty(model) or model == "not")
         product_list = product_list.where(:vehicle_model_id => 0)

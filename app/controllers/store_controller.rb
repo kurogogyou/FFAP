@@ -16,11 +16,11 @@ class StoreController < ApplicationController
         @products = Product.where(:title => "n/a").page params[:page]
         return
       end
-      @products = search_helper("", brand.id, params[:chassis_model], params[:chassis_year]).page params[:page]
+      @products = search_helper(params[:search], brand.id, params[:chassis_model], params[:chassis_year]).page params[:page]
     
     elsif !is_empty(params[:vehicle]) and current_user and current_user.role == 'client'
       vehicle = current_user.vehicles.find(params[:vehicle])
-      @products = search_helper("", vehicle.get_brand_id, 
+      @products = search_helper(params[:search], vehicle.get_brand_id, 
         vehicle.check_model, vehicle.year).page params[:page]
 
     elsif params[:search] or params[:brand_id] or params[:model_id] or params[:year]
