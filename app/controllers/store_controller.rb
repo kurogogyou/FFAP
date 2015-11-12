@@ -13,7 +13,7 @@ class StoreController < ApplicationController
       brand = Brand.where(:brand_name => params[:chassis_brand]).take
       model = VehicleModel.where(:model_name => params[:chassis_model]).take
       if brand == nil or model == nil
-        @products = []
+        @products = Product.where(:title => "n/a").page params[:page]
         return
       end
       @products = search_helper("", brand.id, params[:chassis_model], params[:chassis_year]).page params[:page]
