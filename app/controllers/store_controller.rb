@@ -35,10 +35,4 @@ class StoreController < ApplicationController
   def about
   end
 
-  def faq
-  end
-
-  def docs
-  end
-
 end
