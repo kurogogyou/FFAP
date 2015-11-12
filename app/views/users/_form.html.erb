@@ -54,7 +54,16 @@
         <%= f.label :role %><br>
         <%= f.select :role, options_for_select(role_list), prompt: "Select Role for User" %>
       </div>
+    <% elsif current_user.role == "seller" %>
+      <div class="field">
+        <%= hidden_field_tag 'user[role]', "seller" %>
+      </div>
     <% end %>
+  <% end %>
+  <% if params[:srole] %>
+    <div class="field">
+      <%= hidden_field_tag 'user[role]', "seller" %>
+    </div>
   <% end %>
   <p>Please select your location on map</p>
    <div id="mapa"></div>

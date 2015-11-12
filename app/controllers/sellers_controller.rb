@@ -1,6 +1,7 @@
 class SellersController < ApplicationController
-  before_action :set_seller, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize, only: [:show]
+  before_action :usercheck, except: [:show, :new, :create]
+  before_action :set_seller, only: [:show, :edit, :update, :destroy]
 
   # GET /sellers
   # GET /sellers.json
@@ -31,7 +32,10 @@ class SellersController < ApplicationController
 
     respond_to do |format|
       if @seller.save
-        format.html { redirect_to @seller, notice: 'Seller was successfully created.' }
+        current_user.location.update(
+          :seller_id => @seller.id)
+        @seller.update(:user_id => current_user.id)
+        format.html { redirect_to manage_seller_path, notice: 'Seller was successfully registered.' }
         format.json { render action: 'show', status: :created, location: @seller }
       else
         format.html { render action: 'new' }
@@ -70,6 +74,15 @@ class SellersController < ApplicationController
   end
 
   private
+    def usercheck
+      if current_user.role == "seller"
+        if current_user.seller == nil
+          redirect_to new_seller_path, notice: 'Please register your store.'
+        end
+      else
+        redirect_to home_path, notice: 'You need to be a store administrator to perform this action.'
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_seller
       @seller = Seller.find(params[:id])

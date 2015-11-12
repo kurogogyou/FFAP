@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: [:new, :create] 
+  skip_before_action :authorize, only: [:new, :create, :register] 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   include UsersHelper
   #act_as_authentic
@@ -92,6 +92,9 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
+  end
+
+  def register
   end
 
   private

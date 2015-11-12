@@ -35,6 +35,9 @@ Depot::Application.routes.draw do
   end
 
   resources :users
+  controller :users do
+    get 'register' => :register
+  end
 
   resources :orders
 
