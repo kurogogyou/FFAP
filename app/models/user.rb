@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   #next line is subject to change if reviews could be displayed anonymous.
   has_many :reviews, dependent: :destroy
   has_many :vehicles, dependent: :destroy
+  validates :phone,:presence => true,
+                 :numericality => true,
+                 :length => { :minimum => 10, :maximum => 15 }
   validates :role, inclusion: ROLES
 
   private

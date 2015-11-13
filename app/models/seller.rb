@@ -4,6 +4,9 @@ class Seller < ActiveRecord::Base
 	has_one :location, dependent: :destroy
 	validates :name, presence: true, uniqueness: true
 	validates :address, presence: true
+	validates :phone,:presence => true,
+                :numericality => true,
+                :length => { :minimum => 10, :maximum => 15 }
 	belongs_to :user, -> { where :role => seller}
 
 	validates :logo_url, allow_blank: true, format: {
