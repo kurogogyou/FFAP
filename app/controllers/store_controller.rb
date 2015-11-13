@@ -35,4 +35,7 @@ class StoreController < ApplicationController
   def about
   end
 
+  def return
+  end
+
 end
