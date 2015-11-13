@@ -13,7 +13,11 @@ class SellersController < ApplicationController
   # GET /sellers/1.json
   def show
     @review = Review.new
-    @reviews = @seller.reviews
+    if params[:display_rating]
+      @reviews = @seller.reviews.where(:rating => params[:display_rating]).page params[:page]
+    else
+      @reviews = @seller.reviews.page params[:page]
+    end
   end
 
   # GET /sellers/new

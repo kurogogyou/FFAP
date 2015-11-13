@@ -29,15 +29,15 @@
   <strong>Seller reviews</strong>
 </h2>
 
-<p> Store has <%= @reviews.count %> comments. </p>
+<p> Store has <%= @seller.reviews.count %> comments. <%= link_to 'Show all', @seller %> </p>
 
 <% 5.downto(0) do |rating| %>
-<% subdiv = reviews_per_rating(@reviews, rating) %>  on Seller Helper
-<p><%= subdiv.count %> reviews rated <%= rating %></p>
+<% subdiv = reviews_per_rating(@seller.reviews, rating) #on Seller Helper %>  
+<p><%= subdiv.count %> reviews rated <%= rating %>. <%= link_to 'Show', seller_path(:id => @seller.id, :display_rating => rating)%></p>
 <% end %>
 
 <p>.............................................</p>
-
+<%= paginate @reviews %><br>
 <% @reviews.each do |review| %>
    <p><%= review.title %></p>
    <p><%= review.body %></p>
