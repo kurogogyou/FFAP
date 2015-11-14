@@ -4,7 +4,7 @@
 admin = User.create!(:username => "admin", 
 	:password => "1234", 
 	:password_confirmation => "1234", 
-	:email => "admin@example.com",
+	:email => "ffap.itt.2015@gmail.com",
 	:phone => "8096854708",
 	:role => "admin")
 

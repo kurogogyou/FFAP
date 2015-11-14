@@ -13,19 +13,20 @@ class StoreController < ApplicationController
       brand = Brand.where(:brand_name => params[:chassis_brand]).take
       model = VehicleModel.where(:model_name => params[:chassis_model]).take
       if brand == nil or model == nil
-        @products = Product.where(:title => "n/a").page params[:page]
+        @products = Product.where(:title => "n/a").order(:title).page params[:page]
         return
       end
-      @products = search_helper(params[:search], brand.id, params[:chassis_model], params[:chassis_year]).page params[:page]
+      @products = search_helper(params[:search], brand.id, params[:chassis_model], params[:chassis_year]).order(:title).
+        page params[:page]
     
     elsif !is_empty(params[:vehicle]) and current_user and current_user.role == 'client'
       vehicle = current_user.vehicles.find(params[:vehicle])
       @products = search_helper(params[:search], vehicle.get_brand_id, 
-        vehicle.check_model, vehicle.year).page params[:page]
+        vehicle.check_model, vehicle.year).order(:title).page params[:page]
 
     elsif params[:search] or params[:brand_id] or params[:model_id] or params[:year]
   		@products = search_helper(params[:search], params[:brand_id], 
-  			params[:model_id], params[:year]).page params[:page]
+  			params[:model_id], params[:year]).order(:title).page params[:page]
   	
     else
   		@products = Product.order(:title).page params[:page]

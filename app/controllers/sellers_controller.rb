@@ -14,9 +14,10 @@ class SellersController < ApplicationController
   def show
     @review = Review.new
     if params[:display_rating]
-      @reviews = @seller.reviews.where(:rating => params[:display_rating]).page params[:page]
+      @reviews = @seller.reviews.where(:rating => params[:display_rating]).order("created_at DESC").
+        page params[:page]
     else
-      @reviews = @seller.reviews.page params[:page]
+      @reviews = @seller.reviews.order("created_at DESC").page params[:page]
     end
   end
 

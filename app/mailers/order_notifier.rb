@@ -22,4 +22,16 @@ class OrderNotifier < ActionMailer::Base
 
   #  mail to: order.email, subject: 'Fast Find Auto Parts Order Shipped'
   end
+
+  def created(order)
+    @order = order
+
+    @admins = User.where(:role => "admin")
+
+    #@admins.each do |admin|
+    #  mail to: admin.email, subject: 'Order created'
+    #end
+
+  #  mail to: order.email, subject: 'Fast Find Auto Parts Order Shipped'
+  end
 end
