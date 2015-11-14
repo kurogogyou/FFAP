@@ -43,7 +43,9 @@
           <% stock = seller.stocks.where(:product_id => @product.id).take %>
           <dt> <strong>Stock:</strong> <%= stock.quantity %> </dt>
           <%= link_to 'Show', seller %><br/>
-          <%= button_to 'Add to Cart', line_items_path(product_id: @product, stock_id: stock) %>
+          <% if current_user %>
+            <%= button_to 'Add to Cart', line_items_path(product_id: @product, stock_id: stock) %>
+          <% end %>
         </td>
         <td>
           <%= number_to_currency(stock.price) %>

@@ -1,6 +1,9 @@
 <%= form_tag store_path, :id => 'store_form', :method => 'get' do %>
-  <div id="query_search" > 
+  <div id="qstring" style="width: 14em; display:inline-block">
     <%= text_field_tag :search, params[:search] %>
+  </div>
+
+  <div id="query_search" style="display: inline-block;"> 
     
     <%= select_tag(:brand_id, options_for_select(get_all_brand_names_ids), prompt: 'Select brand') %>
     
@@ -18,21 +21,21 @@
   </div>
 
   <div id="chassis_search" style="display: none;">
-    <%= text_field_tag :search, params[:search] %>
     <%= text_field_tag :vehicle_chassis_number %>
-    <label for="checkVIN"> Please verify Chassis number before searching:  </label> 
     <input type="button" id="checkVIN" value="Verify Chassis Number" onclick="getVINdata()"> 
     <%= hidden_field_tag :chassis_brand %>
     <%= hidden_field_tag :chassis_model %>
     <%= hidden_field_tag :chassis_year %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag "Search", :name => nil %><br>
     <div id="results-body" style="padding-top: 1em"> </div> 
+  </div>
+  <div id="please_verify" style="display: none; font-size: 0.8em">
+    <label for="checkVIN"> Please verify Chassis number before searching.</label> 
   </div>
 
   <%if current_user %>
     <%if current_user.role == "client"%>
       <div id="vehicle_search" style="display: none;">
-      <%= text_field_tag :search, params[:search] %>
         <%= select_tag :vehicle, options_from_collection_for_select(current_user.vehicles, 'id', 'description'), prompt: 'Select vehicle' %>
         <%= submit_tag "Search", :name => nil %>
         <div style="padding-top: 1em"> </div> 
@@ -42,6 +45,7 @@
     <div id="vehicle_search" style="display: none" ></div>
   <% end %>  
 
+  <div id="search_switches">
   <input type="button" id="byQuery" value="Search Queries" onclick="showQuerySearch()"> |
   <input type="button" id="byChassis" value="Search by Chassis Number" onclick="showChassisSearch()">
   <%if current_user %>
@@ -49,6 +53,7 @@
       | <input type="button" id="byVehicle" value="Search by Registered Vehicles" onclick="showVehicleSearch()">
     <% end %>
   <% end %>
+  </div>
 
   <script>
      var link
@@ -64,6 +69,8 @@
       $.get(link, {}, function(res,resp) {
           display.innerHTML = "Brand: " + res.make.name + "<br>"+ "Model: " + res.model.name +"<br>" + "Year: " + res.years[0].year;
           selectValues(res);
+          element = document.getElementById("please_verify");
+          element.style.display='none';
       }, "json").fail(function() {
           alert('Error, vehicle model not found.');
           display.innerHTML= ""; 
@@ -79,7 +86,9 @@
 
     function showChassisSearch(){
       var element = document.getElementById("chassis_search");
-      element.style.display='block';
+      element.style.display='inline-block';
+      element = document.getElementById("please_verify");
+      element.style.display='inline-block';
       element = document.getElementById("vehicle_search");
       element.style.display='none';
       element = document.getElementById("query_search");
@@ -89,8 +98,10 @@
     function showVehicleSearch(){
       var element = document.getElementById("chassis_search");
       element.style.display='none';
+      element = document.getElementById("please_verify");
+      element.style.display='none';
       element = document.getElementById("vehicle_search");
-      element.style.display='block';
+      element.style.display='inline-block';
       element = document.getElementById("query_search");
       element.style.display='none';
     }
@@ -98,10 +109,12 @@
     function showQuerySearch(){
       var element = document.getElementById("chassis_search");
       element.style.display='none';
+      element = document.getElementById("please_verify");
+      element.style.display='none';
       element = document.getElementById("vehicle_search");
       element.style.display='none';
       element = document.getElementById("query_search");
-      element.style.display='block';
+      element.style.display='inline-block';
     }
 
    </script>

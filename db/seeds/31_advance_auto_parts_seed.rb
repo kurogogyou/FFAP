@@ -10,7 +10,7 @@ end
 ap = Seller.create!(:name => "Advance Auto Parts", 
 	:address => "Autopista Duarte Km 11 ", 
 	:phone => "8093602121", 
-	:logo_url => "advance_autoparts_logo.png") 
+	:logo_url => "advance_autoparts_logo.jpg") 
  
 jason = User.where(:username => "Jason").take 
 ap.update(:user_id => jason.id) 
