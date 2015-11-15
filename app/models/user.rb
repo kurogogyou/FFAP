@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
 
   private
   def ensure_an_admin_remains
-  	if User.count.zero?
-  		raise "Can't delete last user"
+  	if User.where(:role => "admin").count.zero?
+  		raise "Can't delete last admin user"
   	end
   end
 end
