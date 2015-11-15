@@ -1,5 +1,5 @@
 class OrderNotifier < ActionMailer::Base
-  default from: "FFAP <ffap.itt.2015@gmail.com>"
+  default from: "ffap.itt.2015@gmail.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

@@ -60,9 +60,6 @@ end
 # for heroku
 gem 'rails_12factor'
 
-# ruby version
-ruby '2.0.0'
-
 #authentication and authorization handler
 gem 'authlogic'
 gem 'assignable_values'
@@ -73,3 +70,10 @@ gem 'paypal-sdk-rest'
 
 #for paging!
 gem 'kaminari'
+
+#for emails
+#gem 'googl-api-client'
+gem 'sendgrid-rails', '~> 2.0'
+
+# ruby version
+ruby '2.0.0'

@@ -50,8 +50,8 @@ class OrdersController < ApplicationController
       if @order.save
         olocation.update(:order_id => @order.id)
         format.html { redirect_to @order.paypal_url(store_url) }#, notice: 'Thank you for your order.' }
-        OrderNotifier.received(@order).deliver
-        OrderNotifier.created(@order).deliver
+        #OrderNotifier.received(@order).deliver
+        #OrderNotifier.created(@order).deliver
       #  format.json { render action: 'show', status: :created, location: @order }
       else
         format.html { render action: 'new' }
@@ -68,8 +68,8 @@ class OrdersController < ApplicationController
       #Cart.destroy(session[:cart_id])
       Cart.where(:user_id => @order.user_id).take.destroy
      # session[:cart_id] = nil
-      #OrderNotifier.received(@order).deliver
-      #OrderNotifier.created(@order).deliver
+      OrderNotifier.received(@order).deliver
+      OrderNotifier.created(@order).deliver
       @order.update_attributes notification_params: params, status: status, transaction_id: params[:txn_id], 
         purchased_at: Time.now
     end
