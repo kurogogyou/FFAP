@@ -16,3 +16,4 @@
 /tmp
 
 *.pid*
+*.lock
