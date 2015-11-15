@@ -10,7 +10,7 @@ end
 ap = Seller.create!(:name => "Auto Parts", 
 	:address => "Av. Maximo Gomez esq. Pedro Livio", 
 	:phone => "8092501717", 
-	:logo_url => "autoparts_logo.png") 
+	:logo_url => "logos/autoparts_logo.png") 
  
 frank = User.where(:username => "Frank").take 
 ap.update(:user_id => frank.id) 
@@ -527,8 +527,8 @@ create_product_stock(ap, product, 3200, 150)
  product = Product.where(:title => "Retrovisor Chevrolet Corvette 07").take 
  create_product_stock(ap, product, 4000, 150) 
 
- product = Product.where(:title => "Aro Hyundai Santa Fe 12").take 
- create_product_stock(ap, product, 7600, 220) 
+# product = Product.where(:title => "Aro Hyundai Santa Fe 12").take 
+# create_product_stock(ap, product, 7600, 220) 
  
  product = Product.where(:title => "Bumper Trasero Hyundai Santa Fe 12").take 
  create_product_stock(ap, product, 7000, 150) 
