@@ -40,6 +40,7 @@ class DeliveriesController < ApplicationController
         @location = Location.create(:latitude => 0.0,
           :longitude => 0.0,
           :delivery_id => @delivery.id)
+        OrderNotifier.shipped(@delivery.order).deliver
         format.html { redirect_to admin_path, notice: 'Delivery was successfully assigned.' }
         format.json { render action: 'show', status: :created, location: @delivery }
       else
