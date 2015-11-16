@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20151101194748) do
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "image_url"
+    t.string   "image_url",        default: "no.jpg"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "brand_id"

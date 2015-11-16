@@ -9,7 +9,7 @@ class Product < ActiveRecord::Base
 
 	before_destroy :ensure_not_referenced_by_anything
 
-	validates :title, :description, :image_url, presence:true
+	validates :title, :description, presence:true
 	validates :title, uniqueness: true #, format: {message: 'Title field data must be unique.'}
 	validates :title, length: {minimum: 4}
 	validates :image_url, allow_blank: true, format: {
