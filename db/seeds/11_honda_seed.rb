@@ -1,8 +1,17 @@
 honda = Brand.create!(brand_name: 'Honda')
 
 (2000..2016).each do |year|
-	honda.vehicle_models.create!(model_name: 'Civic', year: year)
 	honda.vehicle_models.create!(model_name: 'Accord', year: year)
+	honda.vehicle_models.create!(model_name: 'Civic', year: year)
+	honda.vehicle_models.create!(model_name: 'CR-V', year: year)
+	honda.vehicle_models.create!(model_name: 'Element', year: year)
+	honda.vehicle_models.create!(model_name: 'Fit', year: year)
+	honda.vehicle_models.create!(model_name: 'Insight', year: year)
+	honda.vehicle_models.create!(model_name: 'Logo', year: year)
+	honda.vehicle_models.create!(model_name: 'Odyssey', year: year)
+	honda.vehicle_models.create!(model_name: 'Pilot', year: year)
+	honda.vehicle_models.create!(model_name: 'Ridgeline', year: year)
+	honda.vehicle_models.create!(model_name: 'S2000', year: year)
 end
 
 civ00 = honda.vehicle_models.where(

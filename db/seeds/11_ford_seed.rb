@@ -4,9 +4,31 @@
 ford = Brand.create!(brand_name: 'Ford') 
  
 (2000..2016).each do |year| 
+	ford.vehicle_models.create!(model_name: 'Bronco', year: year) 
+	ford.vehicle_models.create!(model_name: 'Eco Sport', year: year) 
 	ford.vehicle_models.create!(model_name: 'Focus', year: year) 
+	ford.vehicle_models.create!(model_name: 'Econoline', year: year) 
+	ford.vehicle_models.create!(model_name: 'Edge', year: year) 
+	ford.vehicle_models.create!(model_name: 'Escape', year: year) 
+	ford.vehicle_models.create!(model_name: 'Excursion', year: year) 
+	ford.vehicle_models.create!(model_name: 'Expedition', year: year) 
+	ford.vehicle_models.create!(model_name: 'Explorer', year: year) 
+	ford.vehicle_models.create!(model_name: 'F-150', year: year) 
+	ford.vehicle_models.create!(model_name: 'F-250', year: year) 
+	ford.vehicle_models.create!(model_name: 'F-350', year: year) 
+	ford.vehicle_models.create!(model_name: 'F-450', year: year) 
+	ford.vehicle_models.create!(model_name: 'Fiesta', year: year) 
+	ford.vehicle_models.create!(model_name: 'Flex', year: year) 
+	ford.vehicle_models.create!(model_name: 'Focus', year: year) 
+	ford.vehicle_models.create!(model_name: 'Freestyle', year: year) 
+	ford.vehicle_models.create!(model_name: 'Fusion', year: year) 
+	ford.vehicle_models.create!(model_name: 'Mondeo', year: year) 
 	ford.vehicle_models.create!(model_name: 'Mustang', year: year) 
+	ford.vehicle_models.create!(model_name: 'Ranger', year: year) 
+	ford.vehicle_models.create!(model_name: 'Taurus', year: year) 
+	ford.vehicle_models.create!(model_name: 'Transit', year: year) 
 end 
+
  foc00 = ford.vehicle_models.where( 
 	:model_name => 'Focus', 
 	 :year => 2000 

@@ -4,8 +4,23 @@
 Chevrolet = Brand.create!(brand_name: 'Chevrolet') 
  
 (2000..2016).each do |year| 
+	Chevrolet.vehicle_models.create!(model_name: 'Avalanche', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Aveo', year: year) 
 	Chevrolet.vehicle_models.create!(model_name: 'Camaro', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Cobalt', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Colorado', year: year) 
 	Chevrolet.vehicle_models.create!(model_name: 'Corvette', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Equinox', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'HHR', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Impala', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Malibu', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Monte Carlo', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Optra', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Silverado', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Suburban', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Tahoe', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Trailblazer', year: year) 
+	Chevrolet.vehicle_models.create!(model_name: 'Uplander', year: year)
 end 
 
 camar10 = Chevrolet.vehicle_models.where( 

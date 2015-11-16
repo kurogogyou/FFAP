@@ -4,8 +4,27 @@
 BMW = Brand.create!(brand_name: 'BMW') 
  
 (2000..2016).each do |year| 
+	BMW.vehicle_models.create!(model_name: '323i', year: year) 
+	BMW.vehicle_models.create!(model_name: '328i', year: year) 
+	BMW.vehicle_models.create!(model_name: '328xi', year: year) 
+	BMW.vehicle_models.create!(model_name: '335i', year: year) 
+	BMW.vehicle_models.create!(model_name: '335xi', year: year) 
+	BMW.vehicle_models.create!(model_name: '525i', year: year) 
+	BMW.vehicle_models.create!(model_name: '525xi', year: year) 
+	BMW.vehicle_models.create!(model_name: '530i', year: year) 
+	BMW.vehicle_models.create!(model_name: '530xi', year: year) 
+	BMW.vehicle_models.create!(model_name: '550i', year: year) 
+	BMW.vehicle_models.create!(model_name: '650i', year: year) 
+	BMW.vehicle_models.create!(model_name: '750i', year: year) 
+	BMW.vehicle_models.create!(model_name: '750Li', year: year) 
+	BMW.vehicle_models.create!(model_name: '760Li', year: year) 
 	BMW.vehicle_models.create!(model_name: 'M3', year: year) 
+	BMW.vehicle_models.create!(model_name: 'M5', year: year) 
+	BMW.vehicle_models.create!(model_name: 'M6', year: year) 
+	BMW.vehicle_models.create!(model_name: 'X3', year: year) 
 	BMW.vehicle_models.create!(model_name: 'X5', year: year) 
+	BMW.vehicle_models.create!(model_name: 'X6', year: year)
+	BMW.vehicle_models.create!(model_name: 'Z4', year: year)
 end 
  
 m300 = BMW.vehicle_models.where( 

@@ -6,6 +6,19 @@ mitsubishi = Brand.create!(brand_name: 'Mitsubishi')
 (2000..2016).each do |year| 
 	mitsubishi.vehicle_models.create!(model_name: 'Eclipse', year: year) 
 	mitsubishi.vehicle_models.create!(model_name: 'Lancer', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'ASX', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'Endeavor', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'Evolution', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'Galant', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'L200', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'L300', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'Mirage', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'Montero', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'Montero Sport', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'Nativa', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'Outlander', year: year) 
+	mitsubishi.vehicle_models.create!(model_name: 'Pajero', year: year)
+	mitsubishi.vehicle_models.create!(model_name: 'Raider', year: year) 
 end 
  
 ecl00 = mitsubishi.vehicle_models.where( 

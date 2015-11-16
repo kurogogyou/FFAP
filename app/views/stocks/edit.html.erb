@@ -1,4 +1,9 @@
-<h1>Editing stock</h1>
+<h1>Modifying stocks</h1>
+
+<p> Modifying stocks for <%= @stock.product.title %></p>
+<p> Brand: <%= @stock.product.brand.brand_name %> </p>
+<p> Model: <%= @stock.product.vehicle_model.model_name %> </p>
+<p> Year: <%= @stock.product.vehicle_model.year %> </p>
 
 <%= render 'form' %>
 

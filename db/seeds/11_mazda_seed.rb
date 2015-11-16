@@ -4,8 +4,25 @@
 mazda = Brand.create!(brand_name: 'Mazda') 
  
 (2000..2016).each do |year| 
+	mazda.vehicle_models.create!(model_name: '2', year: year)
 	mazda.vehicle_models.create!(model_name: '3', year: year) 
 	mazda.vehicle_models.create!(model_name: '6', year: year) 
+	mazda.vehicle_models.create!(model_name: '323', year: year)
+	mazda.vehicle_models.create!(model_name: '5', year: year)
+	mazda.vehicle_models.create!(model_name: '626', year: year)
+	mazda.vehicle_models.create!(model_name: 'B2500', year: year)
+	mazda.vehicle_models.create!(model_name: 'Bongo', year: year)
+	mazda.vehicle_models.create!(model_name: 'BT-50', year: year)
+	mazda.vehicle_models.create!(model_name: 'CX-5', year: year)
+	mazda.vehicle_models.create!(model_name: 'CX-7', year: year)
+	mazda.vehicle_models.create!(model_name: 'CX-9', year: year)
+	mazda.vehicle_models.create!(model_name: 'RX-7', year: year)
+	mazda.vehicle_models.create!(model_name: 'RX-8', year: year)
+	mazda.vehicle_models.create!(model_name: 'Demio', year: year)
+	mazda.vehicle_models.create!(model_name: 'Miata', year: year)
+	mazda.vehicle_models.create!(model_name: 'Titan', year: year)
+	mazda.vehicle_models.create!(model_name: 'Tribute', year: year)
+	mazda.vehicle_models.create!(model_name: 'Verisa', year: year)
 end 
 
 m304 = mazda.vehicle_models.where( 

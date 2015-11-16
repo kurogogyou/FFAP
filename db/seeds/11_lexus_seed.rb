@@ -3,8 +3,12 @@ lex = Brand.create!(brand_name: 'Lexus')
 (2000..2016).each do |year|
 	lex.vehicle_models.create!(model_name: 'IS', year: year)
 	lex.vehicle_models.create!(model_name: 'GS', year: year)
-	#lex.vehicle_models.create!(model_name: 'LS', year: year)
-	#lex.vehicle_models.create!(model_name: 'ES', year: year)
+	lex.vehicle_models.create!(model_name: 'LS', year: year)
+	lex.vehicle_models.create!(model_name: 'ES', year: year)
+	lex.vehicle_models.create!(model_name: 'GX', year: year)
+	lex.vehicle_models.create!(model_name: 'ISF', year: year)
+	lex.vehicle_models.create!(model_name: 'LX', year: year)
+	lex.vehicle_models.create!(model_name: 'RX', year: year)
 end
 
 is00 = lex.vehicle_models.where(

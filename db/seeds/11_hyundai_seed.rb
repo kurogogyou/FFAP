@@ -3,8 +3,25 @@
 Hyundai = Brand.create!(brand_name: 'Hyundai') 
  
 (2000..2016).each do |year| 
+	Hyundai.vehicle_models.create!(model_name: 'Accent', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'Avante', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'County', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'Elantra', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'Equus', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'Galloper', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'Genesis', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'Grand Santa Fe', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'H1', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'H100', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'i10', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'i20', year: year) 
 	Hyundai.vehicle_models.create!(model_name: 'Santa Fe', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'Sonata', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'Starex', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'Terracan', year: year) 
 	Hyundai.vehicle_models.create!(model_name: 'Tucson', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'Veloster', year: year) 
+	Hyundai.vehicle_models.create!(model_name: 'Veracruz', year: year) 
 end 
 
 santf01 = Hyundai.vehicle_models.where( 

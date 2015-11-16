@@ -4,7 +4,24 @@
 Kia = Brand.create!(brand_name: 'Kia') 
  
 (2000..2016).each do |year| 
+	Kia.vehicle_models.create!(model_name: 'Bongo', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Borrego', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Carens', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Carnival', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Cerato', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Forte', year: year) 
+	Kia.vehicle_models.create!(model_name: 'K-5', year: year) 
+	Kia.vehicle_models.create!(model_name: 'K-7', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Lotze', year: year) 
 	Kia.vehicle_models.create!(model_name: 'Optima', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Picanto', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Rio', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Rondo', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Sedena', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Sephia', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Sorento', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Soul', year: year) 
+	Kia.vehicle_models.create!(model_name: 'Spectra', year: year) 
 	Kia.vehicle_models.create!(model_name: 'Sportage', year: year) 
 end 
 
