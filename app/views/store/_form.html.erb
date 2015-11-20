@@ -3,7 +3,7 @@
     <%= text_field_tag :search, params[:search] %>
   </div>
 
-  <div id="query_search" style="display: inline-block;"> 
+  <div id="query_search" style="display: inline-block"> 
     
     <%= select_tag(:brand_id, options_for_select(get_all_brand_names_ids), prompt: 'Select brand') %>
     
@@ -20,7 +20,7 @@
     <div style="padding-top: 1em"> </div>
   </div>
 
-  <div id="chassis_search" style="display: none;">
+  <div id="chassis_search" style="display: none">
     <%= text_field_tag :vehicle_chassis_number %>
     <input type="button" id="checkVIN" value="Verify Chassis Number" onclick="getVINdata()"> 
     <%= hidden_field_tag :chassis_brand %>
@@ -35,7 +35,7 @@
 
   <%if current_user %>
     <%if current_user.role == "client"%>
-      <div id="vehicle_search" style="display: none;">
+      <div id="vehicle_search" style="display: none">
         <%= select_tag :vehicle, options_from_collection_for_select(current_user.vehicles, 'id', 'description'), prompt: 'Select vehicle' %>
         <%= submit_tag "Search", :name => nil %>
         <div style="padding-top: 1em"> </div> 
