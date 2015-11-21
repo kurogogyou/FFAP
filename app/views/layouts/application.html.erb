@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
   <title>Fast Find Auto Parts</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <script src="http://maps.googleapis.com/maps/api/js"></script>
 </head>
 <body class='<%= controller.controller_name %>'>
   <div id="banner">
@@ -61,7 +61,7 @@
       <% else %>
         <ul>
         <li><%= link_to 'Register', register_path %> | 
-        <%= link_to 'Log in', login_path, method: :new%></li>
+        <%= link_to 'Log in', login_path, method: :get%></li>
         </ul>
       <%end%>
     </div>

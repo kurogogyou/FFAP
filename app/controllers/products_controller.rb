@@ -71,6 +71,10 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    if !is_empty(params[:year]) and !is_empty(params[:model_id])
+      params[:product][:vehicle_model_id] = get_true_model(params[:model_id], params[:year]).id
+    end
+    
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
