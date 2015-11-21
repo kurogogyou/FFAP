@@ -3,7 +3,7 @@ json.array! (@orders) do |order|
   if order.delivery != nil
 		json.delivery_id order.delivery.id
 	else
-		json.delivery "-1"
+		json.delivery_id "-1"
 	end
   	json.line_items order.line_items.each do |i|
   		json.item(i, :quantity, :id)
