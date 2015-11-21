@@ -54,7 +54,10 @@ class SellersController < ApplicationController
   def update
     respond_to do |format|
       if @seller.update(seller_params)
-        format.html { redirect_to @seller, notice: 'Seller was successfully updated.' }
+        @seller.location.update!(
+          :latitude => params[:latitude],
+          :longitude => params[:longitude])
+        format.html { redirect_to manage_seller_path, notice: 'Seller was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
