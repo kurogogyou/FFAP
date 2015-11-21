@@ -75,5 +75,8 @@ gem 'kaminari'
 #gem 'googl-api-client'
 gem 'sendgrid-rails', '~> 2.0'
 
+#upload images
+gem 'carrierwave'
+
 # ruby version
 ruby '2.0.0'
