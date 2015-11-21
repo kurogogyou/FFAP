@@ -35,7 +35,13 @@
   </div>
   <div class="field">
     <%= label_tag :model %><br>
-    <%= select_tag :model, options_for_select(get_all_model_names), prompt: 'Select model'%>
+    <select id="model_id" name="model_id" prompt="Select model">
+      <option value="not">Select model</option>
+      <% models_with_brands = get_all_model_names_with_brand %>
+      <%= models_with_brands.each do |model| %>
+        <option value="<%=model[0]%>" brand="<%=model[1]%>" style="display:none"><%= model[0] %></option>
+      <% end %>
+    </select>
   </div>
   <div class="field">
     <%= label_tag :year %><br>

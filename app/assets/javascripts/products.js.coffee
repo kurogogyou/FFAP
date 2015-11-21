@@ -10,8 +10,8 @@ $(document).on "ready, page:change", ->
     $('.products .entry > img').click ->
       $(this).parent().find(':submit').click()
 
-    $('#brand_id').change ->
-      if $('#brand_id option:selected').text() != 'Select brand'
+    $('#product_brand_id').change ->
+      if $('#product_brand_id option:selected').text() != 'Select brand'
         $('#model_id').removeAttr('disabled')
         $('#year').removeAttr('disabled')
 
@@ -19,7 +19,7 @@ $(document).on "ready, page:change", ->
           do ->
             $(option).css('display', 'none')
 
-        brand = $('#brand_id option:selected').val()
+        brand = $('#product_brand_id option:selected').val()
         options = $('#model_id').children("[brand='"+brand+"']")
 
         for option in options
