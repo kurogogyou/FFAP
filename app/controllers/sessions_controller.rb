@@ -26,6 +26,8 @@ class SessionsController < ApplicationController
 
       if current_user.role == 'admin'
         redirect_to admin_url
+      elsif current_user.role == 'seller'
+        redirect_to manage_seller_path
       else
         redirect_to store_url
       end

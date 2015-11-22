@@ -4,14 +4,14 @@ module VehicleModelsHelper
 	end
 
 	def get_all_model_names
-		default_year_for_model_representation = 2000
+		#default_year_for_model_representation = 2000
 		names = VehicleModel.where(
 			:year => default_year_for_model_representation).map{ 
 													|h| [h.model_name]}
 	end
 
 	def get_all_model_names_with_brand
-		default_year_for_model_representation = 2000
+		#default_year_for_model_representation = 2000
 		names = VehicleModel.where(
 			:year => default_year_for_model_representation).map{ 
 													|h| [h.model_name, h.brand.id]}
@@ -19,5 +19,9 @@ module VehicleModelsHelper
 
 	def model_years
 		(2000..2016).to_a
+	end
+
+	def default_year_for_model_representation
+		2000
 	end
 end

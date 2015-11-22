@@ -66,6 +66,9 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        @user.location.update!(
+          :latitude => params[:latitude],
+          :longitude => params[:longitude])
         if current_user.role == "admin"
           format.html { redirect_to users_url, notice: "User #{@user.username} was successfully updated." }
         else  

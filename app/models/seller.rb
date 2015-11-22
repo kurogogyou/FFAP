@@ -6,7 +6,7 @@ class Seller < ActiveRecord::Base
 	validates :address, presence: true
 	validates :phone,:presence => true,
                 :numericality => true,
-                :length => { :minimum => 10, :maximum => 15 }
+                :length => { :minimum => 10, :maximum => 10 }
 	belongs_to :user, -> { where :role => seller}
 
 	validates :logo_url, allow_blank: true, format: {

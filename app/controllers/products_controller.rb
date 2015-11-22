@@ -20,13 +20,8 @@ class ProductsController < ApplicationController
       @products = search_helper(params[:search], brand.id, params[:chassis_model], params[:chassis_year]).order(:title).
         page params[:page]
     
-    elsif !is_empty(params[:vehicle]) and current_user and current_user.role == 'client'
-      vehicle = current_user.vehicles.find(params[:vehicle])
-      @products = search_helper(params[:search], vehicle.get_brand_id, 
-        vehicle.check_model, vehicle.year).order(:title).page params[:page]
-
-    elsif params[:search] or params[:brand_id] or params[:model_id] or params[:year]
-      @products = search_helper(params[:search], params[:brand_id], 
+    elsif params[:search] or params[:product_brand_id] or params[:model_id] or params[:year]
+      @products = search_helper(params[:search], params[:product_brand_id], 
         params[:model_id], params[:year]).order(:title).page params[:page]
     
     else
@@ -53,8 +48,8 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    if !is_empty(params[:year]) and !is_empty(params[:model])
-      params[:product][:vehicle_model_id] = get_true_model(params[:model], params[:year]).id
+    if !is_empty(params[:year]) and !is_empty(params[:model_id])
+      params[:product][:vehicle_model_id] = get_true_model(params[:model_id], params[:year]).id
     end
 
     @product = Product.new(product_params)
@@ -76,6 +71,10 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    if !is_empty(params[:year]) and !is_empty(params[:model_id])
+      params[:product][:vehicle_model_id] = get_true_model(params[:model_id], params[:year]).id
+    end
+    
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }

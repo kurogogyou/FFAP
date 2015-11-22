@@ -5,7 +5,7 @@
 
   <div id="query_searchp" style="display: inline-block;"> 
     
-    <%= select_tag(:brand_id, options_for_select(get_all_brand_names_ids), prompt: 'Select brand') %>
+    <%= select_tag(:product_brand_id, options_for_select(get_all_brand_names_ids), prompt: 'Select brand') %>
     
     <select id="model_id" name="model_id" prompt="Select model">
     	<option value="not">Select model</option>

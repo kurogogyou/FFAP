@@ -1,3 +1,4 @@
+<div class="depot_form">
 <%= form_for(@seller) do |f| %>
   <% if @seller.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +11,8 @@
       </ul>
     </div>
   <% end %>
-
+  <fieldset>
+  <legend>Enter Seller Details</legend>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -27,7 +29,18 @@
     <%= f.label :phone %><br>
     <%= f.text_field :phone %>
 
+  <p>Please select store location on map</p>
+  <div id="mapa"></div>
+  <div class="field">
+    <%= hidden_field_tag :latitude %>
+  </div>
+  <div class="field">
+    <%= hidden_field_tag :longitude %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+  </fieldset>
 <% end %>
+</div>
