@@ -54,7 +54,11 @@ Depot::Application.routes.draw do
   get "/tracking/:id" => "deliveries#track"
 
   namespace :api, path: '/', defaults:{format: :json} do
-    resources :product_query
+    resources :product_query do
+      collection do
+        post 'search' #this works!
+      end
+    end
     
     controller :cart_query do
       post 'cart_query' => :display
