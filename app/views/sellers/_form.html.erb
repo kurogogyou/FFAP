@@ -18,8 +18,9 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :logo_url %><br>
-    <%= f.text_field :logo_url %>
+    <%= image_tag(@seller.logo_url) if @seller.user_logo? %> <br>
+    <%= f.file_field :user_logo %>
+    <%= f.hidden_field :user_logo_cache %>
   </div>
   <div class="field">
     <%= f.label :address %><br>

@@ -67,6 +67,11 @@
   <% end %>
 <% end %>
   
+<% if current_user.role == "client" and @order.delivered %>
+  <p> Did you receive this order correctly? </p>
+  <input type="button" id="confirmation" value="Yes" onclick="postTrue()"> |
+  <input type="button" id="confirmation" value="No" onclick="postFalse()">
+<% end %>
 <% if @order.delivery %>
   <%= hidden_field_tag :delivery_id, @order.delivery.id %>
 <% else %>
@@ -75,6 +80,8 @@
 
 <script type="text/javascript">
   var id = document.getElementById("delivery_id").value;
+
+  var order_id = <%= @order.id %>
 
   function getETA(){
     $.get('/delivery_eta/' + id, {}, function(res,resp) {
@@ -85,5 +92,21 @@
         alert(res.eta);
       }
     });
+  }
+
+  function postTrue(){
+    postConfirm(true);
+  }
+
+  function postFalse(){
+    postConfirm(false);
+  }
+
+  function postConfirm(value){
+    $.post('orders/confirm', {id: order_id, confirm: value}, function(res, resp){
+      if(res.success == false){
+        alert(res.message)
+      }
+    }, "json")
   }
 </script>
