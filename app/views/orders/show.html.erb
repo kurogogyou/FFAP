@@ -67,10 +67,18 @@
   <% end %>
 <% end %>
   
-<% if current_user.role == "client" and @order.delivered %>
+<% if current_user.role == "client" and @order.delivered and !@order.confirmed? %>
+  <div id="ask_confirmation">
   <p> Did you receive this order correctly? </p>
   <input type="button" id="confirmation" value="Yes" onclick="postTrue()"> |
   <input type="button" id="confirmation" value="No" onclick="postFalse()">
+  </div>
+  <div id="order_thankyou" style="display: none">
+    <p> Thank you for choosing us! </p>
+  </div>
+  <div id="order_contact" style="display: none">
+    <p> Please contact us for support! </p>
+  </div>
 <% end %>
 <% if @order.delivery %>
   <%= hidden_field_tag :delivery_id, @order.delivery.id %>
@@ -95,15 +103,19 @@
   }
 
   function postTrue(){
+    var element = document.getElementById("ask_confirmation").style.display='none';
+    element = document.getElementById("order_thankyou").style.display='block';
     postConfirm(true);
   }
 
   function postFalse(){
+    var element = document.getElementById("ask_confirmation").style.display='none';
+    element = document.getElementById("order_contact").style.display='block';
     postConfirm(false);
   }
 
   function postConfirm(value){
-    $.post('orders/confirm', {id: order_id, confirm: value}, function(res, resp){
+    $.post('./confirm', {id: order_id, confirm: value}, function(res, resp){
       if(res.success == false){
         alert(res.message)
       }

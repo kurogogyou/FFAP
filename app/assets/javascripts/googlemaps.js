@@ -26,4 +26,3 @@ google.maps.event.addListener(markerobject, 'dragend', function(evt){
     document.getElementById('longitude').value = evt.latLng.lng();
   });
 }
-google.maps.event.addDomListener(window, 'load', initialize);
