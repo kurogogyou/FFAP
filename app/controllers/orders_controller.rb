@@ -81,7 +81,7 @@ class OrdersController < ApplicationController
       render :json => {:success => :true, :message => 'No se encuentra la orden especificada.'}
       return
     end
-    if params[:confirm] == true
+    if params[:confirm] == "true"
       @order.update!(:confirmed => true)
     else
       @order.update!(:confirmed => false)
@@ -100,6 +100,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :user_id, :address, :page, :confirmed)
+      params.require(:order).permit(:name, :address, :email, :user_id, :address, :page, :confirm)
     end
 end

@@ -20,7 +20,12 @@
 <p>
   <strong>Status:</strong>
   <% if @order.delivered %>
-    <p>Delivered</p>
+    <p>Delivered,
+    <% if @order.confirmed%>
+     user confirmed.
+    <% else %>
+     unconfirmed.
+    <% end %></p>
   <% else %>
     <p>On the way</p>
   <% end %>
@@ -49,7 +54,6 @@
 
 <%= render(@order.line_items) %>
 <p></p>
-<%= link_to 'Back', orders_path %>
 <% if current_user.role == "admin" %>
   <% if !@order.delivered %>
     <% if !@order.delivery %>
