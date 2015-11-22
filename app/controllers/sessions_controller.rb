@@ -48,13 +48,14 @@ class SessionsController < ApplicationController
    #REST indicates that the session details should be in the device
    #To-Do: include session details in JSON
    def create_mobile
+    allowed_roles = ['delivery', 'client']
     @user_session = Session.new({:username => params[:username], :password => params[:password]})
     @user_session.save
       if current_user
-        if current_user.role == 'client' or current_user.role == 'delivery'
+        if allowed_roles.include? current_user.role and current_user.role == params[:role]
           render :json => {:success => :true, :message => ''} 
         else
-          render :json => {:success => :false, :message => 'Usuario no es cliente'}, :status => :unauthorized
+          render :json => {:success => :false, :message => 'Tipo de usuario incorrecto.'}, :status => :unauthorized
         end 
       else
         render :json => {:success => :false, :message => 'Usuario o clave incorrectos'}, :status => :unauthorized 

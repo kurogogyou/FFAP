@@ -1,5 +1,5 @@
 json.extract! @delivery, :id, :estimated_time
-json.order @delivery.order, :id
+json.order @delivery.order, :id, :invoice
 json.client @delivery.order.user, :username
 json.location @delivery.order.location, :latitude, :longitude
 json.sellers @delivery.list_sellers.each do |seller|
