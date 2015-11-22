@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   has_many :vehicles, dependent: :destroy
   validates :phone,:presence => true,
                  :numericality => true,
-                 :length => { :minimum => 10, :maximum => 15 }
+                 :length => { :minimum => 10, :maximum => 10 }
   validates :role, inclusion: ROLES
 
   private
