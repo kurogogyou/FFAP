@@ -8,6 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name %>'>
+  
   <div id="banner">
     <%= image_tag("logo.jpg") %>
     <%= @page_title || "Fast Find Auto Parts" %>
@@ -65,9 +66,11 @@
         </ul>
       <%end%>
     </div>
+
     <div id="main">
       <%= yield %>
     </div>
+
   </div>
 
 </body>
