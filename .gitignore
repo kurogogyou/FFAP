@@ -16,3 +16,6 @@
 /tmp
 
 *.pid*
+
+#ignore locally uploaded files
+/public/uploads/*

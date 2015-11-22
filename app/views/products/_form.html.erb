@@ -21,8 +21,9 @@
   </div>
 <% if current_user.role == "admin" %>
   <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
+    <%= image_tag(@product.image_url) if @product.user_image? %> <br>
+    <%= f.file_field :user_image %>
+    <%= f.hidden_field :user_image_cache %>
   </div>
 <% else %>
     <div class="field">
