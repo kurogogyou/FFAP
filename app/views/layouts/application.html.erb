@@ -4,7 +4,7 @@
   <title>Fast Find Auto Parts</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <% if controllers_with_maps.include? controller.controller_name %>
-  <script src="http://maps.googleapis.com/maps/api/js"></script>
+  
   <% end %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -67,9 +67,7 @@
         </ul>
       <%end%>
     </div>
-    <% if controllers_with_maps.include? controller.controller_name %>
-    <script>google.maps.event.addDomListener(window, 'load', initialize);</script>
-    <% end %>
+    
     <div id="main">
       <%= yield %>
     </div>
