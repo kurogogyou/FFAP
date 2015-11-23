@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        if @product.image_url == "no.jpg"
+        if @product.user_image == nil
           ProductNotifier.created(@product).deliver
         end
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
