@@ -40,7 +40,11 @@ Depot::Application.routes.draw do
     get 'register' => :register
   end
 
-  resources :orders
+  resources :orders do
+    collection do
+      post 'confirm' => :confirm
+    end
+  end
 
   resources :line_items
 
@@ -52,9 +56,10 @@ Depot::Application.routes.draw do
   namespace :api, path: '/', defaults:{format: :json} do
     resources :product_query do
       collection do
-        post 'search'
+        post 'search' #this works!
       end
     end
+    
     controller :cart_query do
       post 'cart_query' => :display
       post 'cart_add' => :add_product

@@ -12,12 +12,21 @@ class Product < ActiveRecord::Base
 	validates :title, :description, presence:true
 	validates :title, uniqueness: true #, format: {message: 'Title field data must be unique.'}
 	validates :title, length: {minimum: 4}
-	validates :image_url, allow_blank: true, format: {
-		with:  %r{\.(gif|jpg|png)\Z}i,
-		message: 'must be a URL for GIF, JPG, or PNG image.' 
-	}
+	
 	validates :brand_id, presence: true
 	validates :vehicle_model_id, presence: true
+
+	mount_uploader :user_image, UserImageUploader
+
+	def image_url
+		if self.user_image?
+			ret = self.user_image_url
+		elsif self.seed_image?
+			ret = self.seed_image
+		else
+			ret = "ruby-logo.png"
+		end	
+	end
 	
 	def self.latest
 		Product.order(:updated_at).last 

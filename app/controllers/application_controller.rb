@@ -12,8 +12,13 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+  helper_method :controllers_with_maps
 
   private
+
+  def controllers_with_maps
+    ["users", "sellers"]
+  end
   
   def current_user_session
   	return @current_user_session if defined?(@current_user_session)

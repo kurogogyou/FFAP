@@ -20,7 +20,12 @@
 <p>
   <strong>Status:</strong>
   <% if @order.delivered %>
-    <p>Delivered</p>
+    <p>Delivered,
+    <% if @order.confirmed%>
+     user confirmed.
+    <% else %>
+     unconfirmed.
+    <% end %></p>
   <% else %>
     <p>On the way</p>
   <% end %>
@@ -49,7 +54,6 @@
 
 <%= render(@order.line_items) %>
 <p></p>
-<%= link_to 'Back', orders_path %>
 <% if current_user.role == "admin" %>
   <% if !@order.delivered %>
     <% if !@order.delivery %>
@@ -67,6 +71,19 @@
   <% end %>
 <% end %>
   
+<% if current_user.role == "client" and @order.delivered and !@order.confirmed? %>
+  <div id="ask_confirmation">
+  <p> Did you receive this order correctly? </p>
+  <input type="button" id="confirmation" value="Yes" onclick="postTrue()"> |
+  <input type="button" id="confirmation" value="No" onclick="postFalse()">
+  </div>
+  <div id="order_thankyou" style="display: none">
+    <p> Thank you for choosing us! </p>
+  </div>
+  <div id="order_contact" style="display: none">
+    <p> Please contact us for support! </p>
+  </div>
+<% end %>
 <% if @order.delivery %>
   <%= hidden_field_tag :delivery_id, @order.delivery.id %>
 <% else %>
@@ -75,6 +92,8 @@
 
 <script type="text/javascript">
   var id = document.getElementById("delivery_id").value;
+
+  var order_id = <%= @order.id %>
 
   function getETA(){
     $.get('/delivery_eta/' + id, {}, function(res,resp) {
@@ -85,5 +104,25 @@
         alert(res.eta);
       }
     });
+  }
+
+  function postTrue(){
+    var element = document.getElementById("ask_confirmation").style.display='none';
+    element = document.getElementById("order_thankyou").style.display='block';
+    postConfirm(true);
+  }
+
+  function postFalse(){
+    var element = document.getElementById("ask_confirmation").style.display='none';
+    element = document.getElementById("order_contact").style.display='block';
+    postConfirm(false);
+  }
+
+  function postConfirm(value){
+    $.post('./confirm', {id: order_id, confirm: value}, function(res, resp){
+      if(res.success == false){
+        alert(res.message)
+      }
+    }, "json")
   }
 </script>

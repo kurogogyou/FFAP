@@ -6,13 +6,20 @@ class Seller < ActiveRecord::Base
 	validates :address, presence: true
 	validates :phone,:presence => true,
                 :numericality => true,
-                :length => { :minimum => 10, :maximum => 15 }
+                :length => { :minimum => 10, :maximum => 10 }
 	belongs_to :user, -> { where :role => seller}
 
-	validates :logo_url, allow_blank: true, format: {
-		with:  %r{\.(gif|jpg|png)\Z}i,
-		message: 'must be a URL for GIF, JPG, or PNG image.' 
-	}
+	mount_uploader :user_logo, LogoUploader
+
+	def logo_url
+		if self.user_logo?
+			ret = self.user_logo_url
+		elsif self.seed_logo?
+			ret = self.seed_logo
+		else
+			ret = "ruby-logo.png"
+		end	
+	end
 
 	def average_rating
 		if self.reviews.empty?

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101194748) do
+ActiveRecord::Schema.define(version: 20151122173424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20151101194748) do
     t.datetime "purchased_at"
     t.integer  "user_id"
     t.boolean  "delivered",           default: false
+    t.boolean  "confirmed"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
@@ -96,11 +97,12 @@ ActiveRecord::Schema.define(version: 20151101194748) do
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "image_url",        default: "no.jpg"
+    t.string   "seed_image",       default: "no.jpg"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "brand_id"
     t.integer  "vehicle_model_id"
+    t.string   "user_image"
   end
 
   add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree
@@ -123,10 +125,11 @@ ActiveRecord::Schema.define(version: 20151101194748) do
     t.string   "name"
     t.string   "address"
     t.string   "phone"
-    t.string   "logo_url"
+    t.string   "seed_logo"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "user_logo"
   end
 
   add_index "sellers", ["user_id"], name: "index_sellers_on_user_id", using: :btree

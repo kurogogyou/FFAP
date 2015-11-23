@@ -55,13 +55,3 @@
 <%= render :partial => 'reviews/form', :locals => { :seller => @seller } %>
 <% end %>
 
-<% if current_user %>
-  <% if current_user.role == "admin" %>
-    <%= link_to 'Back', sellers_path %>
-  <% else %>
-    <%= link_to 'Back', home_path %>
-  <% end %>
-<% else %>
-  <%= link_to 'Back', store_path %>
-<% end %>
-

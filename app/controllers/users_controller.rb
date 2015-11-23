@@ -41,12 +41,17 @@ class UsersController < ApplicationController
       end
     end
 
-    location = Location.create!(
-      :latitude => params[:latitude],
-      :longitude => params[:longitude])
-
     respond_to do |format|
       if @user.save
+        begin
+          location = Location.create!(
+            :latitude => params[:latitude],
+            :longitude => params[:longitude])
+        rescue ActiveRecord::RecordInvalid
+          location = Location.create!(
+            :latitude => 18.463078,
+            :longitude => -69.929489)
+        end
         location.update(:user_id => @user.id)
         if @authenticated
           format.html { redirect_to users_url, notice: "User #{@user.username} was successfully created." }
@@ -66,7 +71,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        @user.location.update!(
+        @user.location.update(
           :latitude => params[:latitude],
           :longitude => params[:longitude])
         if current_user.role == "admin"

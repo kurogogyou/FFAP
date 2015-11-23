@@ -8,8 +8,6 @@
       <th>Email</th>
       <th>Date ordered</th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -21,8 +19,6 @@
         <td><%= order.email %></td>
         <td><%= order.created_at %></td>
         <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Remove', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
-  skip_before_action :authorize, only: [:hook]
-  protect_from_forgery except: [:hook]
+  skip_before_action :authorize, only: [:hook, :confirm]
+  protect_from_forgery except: [:hook, :confirm]
   include CurrentCart
   include OrdersHelper
   before_action :set_cart, only: [:new, :create]
-  before_action :set_order, only: [:show]
+  before_action :set_order, only: [:show, :confirm]
 
   # GET /orders
   # GET /orders.json
@@ -76,14 +76,30 @@ class OrdersController < ApplicationController
     render nothing: true
   end
 
+  def confirm
+    if @order == nil
+      render :json => {:success => :true, :message => 'No se encuentra la orden especificada.'}
+      return
+    end
+    if params[:confirm] == "true"
+      @order.update!(:confirmed => true)
+    else
+      @order.update!(:confirmed => false)
+    end
+    render :json => {:success => :true, :message => ''}
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
-      @order = Order.find(params[:id])
+      begin
+        @order = Order.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :user_id, :address, :page)
+      params.require(:order).permit(:name, :address, :email, :user_id, :address, :page, :confirm)
     end
 end

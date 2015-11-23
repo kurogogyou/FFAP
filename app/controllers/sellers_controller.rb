@@ -1,6 +1,6 @@
 class SellersController < ApplicationController
   skip_before_action :authorize, only: [:show]
-  before_action :usercheck, except: [:show, :new, :create]
+  before_action :usercheck, except: [:show, :index, :new, :create]
   before_action :set_seller, only: [:show, :edit, :update, :destroy]
 
   # GET /sellers
@@ -37,8 +37,17 @@ class SellersController < ApplicationController
 
     respond_to do |format|
       if @seller.save
-        current_user.location.update(
-          :seller_id => @seller.id)
+        begin
+          location = Location.create!(
+            :latitude => params[:latitude],
+            :longitude => params[:longitude],
+            :seller_id => @seller.id)
+        rescue ActiveRecord::RecordInvalid
+          location = Location.create!(
+            :latitude => 18.463078,
+            :longitude => -69.929489,
+            :seller_id => @seller.id)
+        end
         @seller.update(:user_id => current_user.id)
         format.html { redirect_to manage_seller_path, notice: 'Seller was successfully registered.' }
         format.json { render action: 'show', status: :created, location: @seller }
@@ -98,7 +107,7 @@ class SellersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def seller_params
-      params.require(:seller).permit(:name, :address, :phone, :logo_url, :user_id)
+      params.require(:seller).permit(:name, :address, :phone, :user_logo, :user_logo_cache, :user_id)
     end
 
     def deliveries_by_carried_stock
