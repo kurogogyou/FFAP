@@ -25,8 +25,11 @@
         <thead>
           <tr>
             <th>Title</th>
-            <th>Description</th>
             <th>Quantity</th>
+            <th>Client</th>
+            <th>Client Phone</th>
+            <th>Delivery</th>
+            <th>Delivery Phone</th>
             <th></th>
           </tr>
         </thead>
@@ -35,8 +38,11 @@
           <% @delivery.by_seller(@seller).each do |line_item| %>
             <tr>
               <td><%= line_item.product.title %></td>
-              <td><%= line_item.product.description %></td>
               <td><%= line_item.quantity %></td>
+              <td><%= line_item.order.user.username %></td>
+              <td><%= line_item.order.user.phone %></td>
+              <td><%= line_item.order.delivery.user.username %></td>
+              <td><%= line_item.order.delivery.user.phone %></td>
               <td></td>
             </tr>
           <% end %>
