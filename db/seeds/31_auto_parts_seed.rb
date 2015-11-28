@@ -10,7 +10,7 @@ end
 ap = Seller.create!(:name => "Auto Parts", 
 	:address => "Av. Maximo Gomez esq. Pedro Livio", 
 	:phone => "8092501717", 
-	:logo_url => "logos/autoparts_logo.png") 
+	:seed_logo => "logos/autoparts_logo.png") 
  
 frank = User.where(:username => "Frank").take 
 ap.update(:user_id => frank.id) 
