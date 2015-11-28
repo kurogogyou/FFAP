@@ -41,8 +41,10 @@
           <% end %>
           </span>
           <% if current_user %>
-          <%= button_to 'Add to Cart', line_items_path(product_id: product,
+            <% if current_user.role != "seller" %>
+            <%= button_to 'Add to Cart', line_items_path(product_id: product,
            stock_id: lowest_priced(product.stocks)), remote: true, :disabled => !product.in_stock? %>
+            <% end %>
           <% end %>
         </div>
       </div>

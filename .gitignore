@@ -19,3 +19,5 @@
 
 #ignore locally uploaded files
 /public/uploads/*
+
+.byebug_history
