@@ -38,8 +38,8 @@ class Order < ActiveRecord::Base
 
   def dollar_price
     #Note: this is a test value forcer!
-    0.01.round(2)
-    #(self.total_price/45.2).round(2)
+    #0.01.round(2)
+    (self.total_price/45.4).round(2)
   end
 
   def invoice
