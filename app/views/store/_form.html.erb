@@ -45,6 +45,9 @@
     <div id="vehicle_search" style="display: none" ></div>
   <% end %>  
 
+  <%= check_box_tag :show_not_in_stock %>
+  <%= label :show_not_in_stock, "Show unavailable products." %>
+
   <div id="search_switches">
   <input type="button" id="byQuery" value="Search Queries" onclick="showQuerySearch()"> |
   <input type="button" id="byChassis" value="Search by Chassis Number" onclick="showChassisSearch()">

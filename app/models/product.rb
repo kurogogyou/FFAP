@@ -18,6 +18,8 @@ class Product < ActiveRecord::Base
 
 	mount_uploader :user_image, UserImageUploader
 
+	scope :in_stock, -> { where(:stocked => true) }
+
 	def image_url
 		if self.user_image?
 			ret = self.user_image_url
@@ -55,6 +57,16 @@ class Product < ActiveRecord::Base
 	    	sellers_list << stock.seller
 	    end
 	    return sellers_list
+	end
+
+	def check_stock
+		ret = self.in_stock?
+		if ret
+			self.update(:stocked => true)
+		else
+			self.update(:stocked => false)
+		end
+		ret
 	end
 
 	private
