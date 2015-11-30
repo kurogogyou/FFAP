@@ -13,7 +13,11 @@ class Api::OrderApiController < ApplicationController
 			render :json => {:success => :false, :message => 'Usuario no existe o no encontrado'}
 			return
  		end
-		@orders = Order.where(:user_id => @user.id)
+ 		if params[:processed] == "true"
+ 			@orders = Order.where(:user_id => @user.id, :processed => true, :status => "Incomplete")
+ 		else
+			@orders = Order.where(:user_id => @user.id)
+		end
 	end
 
 	def show

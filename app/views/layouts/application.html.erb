@@ -53,7 +53,7 @@
         <% end %>
         <% if user.role == 'client' %>
           <li><%= link_to 'Register Vehicle', new_vehicle_path %></li>
-          <li><%= link_to 'Cart', @cart %></li>
+          <li><%= link_to 'Cart', current_user.cart %></li>
         <% end %>
         <li><%= link_to 'Edit user', edit_user_path(:current) %> | 
         <%= link_to 'Logout', logout_path, method: :delete%></li>
