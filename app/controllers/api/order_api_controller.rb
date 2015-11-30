@@ -59,7 +59,7 @@ class Api::OrderApiController < ApplicationController
 		@order.add_line_items_from_cart(@cart)
 		loca.update(:order_id => @order.id)
 		OrderNotifier.received(@order).deliver
-    OrderNotifier.created(@order).deliver
+    	OrderNotifier.created(@order).deliver
 		render :json => {:success => :true, :message => ''}
 	end
 end

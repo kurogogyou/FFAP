@@ -57,6 +57,7 @@
 </p>
 
 <%= render(@order.line_items) %>
+<p>Total (+ITBIS): <%= number_to_currency(@order.total_price) %></p>
 <p></p>
 <% if current_user.role == "admin" %>
   <% if !@order.processed %>
@@ -108,6 +109,8 @@
     <p> Please contact us for support! </p>
   </div>
   <% end %>
+
+<%= link_to 'Back to orders', orders_path %>
 <% end %>
 <% if @order.delivery %>
   <%= hidden_field_tag :delivery_id, @order.delivery.id %>

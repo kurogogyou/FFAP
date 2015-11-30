@@ -4,5 +4,8 @@
 
 <h1>Welcome</h1>
 
-It's <%= Time.now %>.
-We have <%= pluralize(@total_orders, "order") %>.
+It's <%= Time.now %>. <br/>
+We have <%= pluralize(@pending_processing, "order") %> pending processing and <%= pluralize(@pending_delivery, "order") %> pending delivery.
+<br/> We have a total of <%= pluralize(@customers, "customer") %> registered right now.
+<br/> There are <%= pluralize(@sellers, "seller") %> registered right now.
+<br/> There are <%= pluralize(@products.count, "product") %> registered with <%= @products.in_stock.count%> currently in stock.

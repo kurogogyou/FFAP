@@ -4,8 +4,11 @@
 <tr>
 <%end%>
   <td><%= line_item.quantity %>&times;</td>
-  <td><%= line_item.product.title %></td>
+  <td><%= link_to line_item.product.title, line_item.product %></td>
   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+  <%if controller.controller_name == "carts" %>
+  <td>From: <%= link_to line_item.stock.seller.name, line_item.stock.seller %></td>	
+  <% end %>
   <% if @order or @delivery %>
   <td></td><br>
   <% else %>

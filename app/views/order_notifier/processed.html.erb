@@ -1,0 +1,12 @@
+<h3>Dear <%= @order.name %></h3>
+
+<p>Your order number <%= @order.invoice %> has been processed. You can go <%= link_to "here", orders_path%> to review your orders and pay them. </p><br>
+
+<p>Order total: RD$<%= @order.total_price %>
+
+<p>You ordered the following items:</p>
+
+<table>
+	<tr><th colspan="2">Qty</th><th>Description</th></tr>
+	<%= render @order.line_items -%>
+</table>

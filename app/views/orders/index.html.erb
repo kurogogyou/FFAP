@@ -4,10 +4,9 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Address</th>
+      <th>Tracking number</th>
       <th>Email</th>
       <th>Date ordered</th>
-      <th></th>
       <% if current_user.role == "seller" %>
         <th>Item Confirmation</th>
       <% end %>
@@ -18,10 +17,9 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.name %></td>
-        <td><%= order.address %></td>
+        <td><%= link_to order.invoice, order %></td>
         <td><%= order.email %></td>
         <td><%= order.created_at %></td>
-        <td><%= link_to 'Show', order %></td>
         <% if current_user.role == "seller" or current_user.role == "admin" %>
           <% if order.delivered %>
             <td>Order Delivered</td>

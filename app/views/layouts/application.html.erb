@@ -25,7 +25,7 @@
         </ul>
       </div>
       <div id="cart">
-        <% if @cart %>
+        <% if @cart and controller.controller_name != "carts" %>
           <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
             <%= render @cart %>
           <% end %>
@@ -53,6 +53,7 @@
         <% end %>
         <% if user.role == 'client' %>
           <li><%= link_to 'Register Vehicle', new_vehicle_path %></li>
+          <li><%= link_to 'Cart', @cart %></li>
         <% end %>
         <li><%= link_to 'Edit user', edit_user_path(:current) %> | 
         <%= link_to 'Logout', logout_path, method: :delete%></li>

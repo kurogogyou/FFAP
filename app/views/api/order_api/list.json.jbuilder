@@ -1,5 +1,5 @@
 json.array! (@orders) do |order|  
-  json.order(order, :id, :name, :address, :email, :user_id, :delivered, :invoice, :created_at)
+  json.order(order, :id, :name, :address, :email, :user_id, :delivered, :processed, :invoice, :created_at)
   if order.delivery != nil
 		json.delivery_id order.delivery.id
 	else

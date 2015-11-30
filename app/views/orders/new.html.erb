@@ -2,6 +2,12 @@
 <div class="depot_form">
   <fieldset>
   	<legend>Confirm your order</legend>
+	<div class="confirmation">
+    	<%= render(@cart.line_items) %>
+    <p>Sub Total: <%= @cart.sub_total %></p>
+    <p>ITBIS (18%): <%= @cart.itbis %></p>
+    <p>Total Price: <%= @cart.total_price %></p>
+  	</div>
 	<%= render 'form' %>
   </fieldset>
 </div>

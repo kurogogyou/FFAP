@@ -36,7 +36,16 @@ class Cart < ActiveRecord::Base
 		return false
 	end
 
-	def total_price
+	def sub_total
 		line_items.to_a.sum {|item| item.total_price}
+	end
+
+	def total_price
+		tprice = sub_total
+		tprice = tprice * 1.18
+	end
+
+	def itbis
+		sub_total * 0.18
 	end
 end
