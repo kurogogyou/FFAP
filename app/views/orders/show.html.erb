@@ -19,7 +19,11 @@
 
 <p>
   <strong>Status:</strong>
-  <% if @order.delivered %>
+  <% if !@order.processed %>
+    <p> Pending processing. </p>
+  <% elsif @order.status == "Incomplete" %>
+    <p> Pending payment. </p>
+  <% elsif @order.delivered %>
     <p>Delivered,
     <% if @order.confirmed%>
      user confirmed.
@@ -55,7 +59,20 @@
 <%= render(@order.line_items) %>
 <p></p>
 <% if current_user.role == "admin" %>
-  <% if !@order.delivered %>
+  <% if !@order.processed %>
+    <p></p>
+    <h2><strong>Process order</strong></h2>
+    <p><%= @order.confirmed_line_items.count %> out of <%= @order.line_items.count %> have been confirmed by their sellers. At least one should be confirmed to process.</p>
+    <p><%= button_to 'Update', @order, method: :get %> </p>
+    <% if @order.partially_confirmed %>
+      <%= button_to 'Process', process_orders_path(id: @order.id), method: :post %>
+    <% end %>
+    
+  <% elsif @order.status == "Incomplete" %>
+  <p></p>
+    <h2><strong>Process order</strong></h2>
+    <p> Order processed. Pending payment. </p>
+  <% elsif !@order.delivered %>
     <% if !@order.delivery %>
     <p></p>
     <h2><strong>Assign order to delivery</strong></h2>
@@ -71,7 +88,14 @@
   <% end %>
 <% end %>
   
-<% if current_user.role == "client" and @order.delivered and !@order.confirmed? %>
+<% if current_user.role == "client"  %>
+  <% if !@order.processed %>
+  <h3> Please wait for order to be processed </h3>
+  <p><%= button_to 'Update', @order, method: :get %> </p>
+  <% elsif @order.status == "Incomplete" %>
+  <h3> Complete payment </h3>
+  <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), @order.paypal_url(store_url) %>
+  <% elsif @order.delivered and !@order.confirmed?%>
   <div id="ask_confirmation">
   <p> Did you receive this order correctly? </p>
   <input type="button" id="confirmation" value="Yes" onclick="postTrue()"> |
@@ -83,11 +107,16 @@
   <div id="order_contact" style="display: none">
     <p> Please contact us for support! </p>
   </div>
+  <% end %>
 <% end %>
 <% if @order.delivery %>
   <%= hidden_field_tag :delivery_id, @order.delivery.id %>
 <% else %>
   <%= hidden_field_tag :delivery_id, "-1" %>
+<% end %>
+
+<% if current_user.role == "seller" or current_user.role == "admin"%>
+<%= link_to 'Confirmed Items', confirm_items_orders_url(id: @order.id) %>
 <% end %>
 
 <script type="text/javascript">

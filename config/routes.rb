@@ -43,6 +43,9 @@ Depot::Application.routes.draw do
   resources :orders do
     collection do
       post 'confirm' => :confirm
+      post 'confirm_item'
+      get 'confirm_items' => :confirm_list
+      post 'process' => :process_order
     end
   end
 

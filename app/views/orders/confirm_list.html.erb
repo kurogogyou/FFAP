@@ -1,0 +1,84 @@
+<h1>Confirm Order Items</h1>
+<div class="li_list">
+<% if @line_items.count == 0 %>
+  <h3> No line_items to show </h3>
+<% else %>
+<table>
+  <tbody>
+    <% @line_items.each do |line_item| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
+        <td> <%= image_tag(line_item.product.image_url, class: 'list_image')%> </td>
+        <td class="list_description"> 
+          <dl>
+            <dt> <%= line_item.product.title %> </dt>
+            <dd> <%= truncate(strip_tags(line_item.product.description), length: 80)%> 
+            </dd>
+            <dd><strong>Model: </strong><%= line_item.product.brand.brand_name + " " + line_item.product.vehicle_model.model_name + " " + line_item.product.vehicle_model.year.to_s %>
+            </dd>
+          </dl>
+        </td>
+
+        <td>
+        <% if line_item.confirmed %>
+       	<span id="li_message_<%=line_item.id%>" style="color: blue">
+        	Item Confirmed, 
+        	<% if line_item.accepted %>
+        	accepted.
+        	<% else %>
+        	denied.
+        	<%end%>
+        </span>
+        <% if current_user.role == "admin" %>
+        	<p> Seller: <%= link_to line_item.stock.seller.name, line_item.stock.seller %></p>
+        <% end %>
+        <% else %>
+       		<% if current_user.role == "seller" %>
+       		<span id="li_buttons_<%=line_item.id%>">
+          	<input type="button" id="confirm_litem" value="Confirm" onclick="confirmLItem(<%=line_item.id%>, true)">
+          	<input type="button" id="deny_litem" value="Deny" onclick="confirmLItem(<%=line_item.id%>, false)"> 
+        	</span>
+        	<span id="li_message_<%=line_item.id%>" style="display: none; color: blue">
+        		Item Confirmed
+        	</span>
+        	<% else %>
+        	<span id="li_message_<%=line_item.id%>" style="color: red">
+        		Item not yet confirmed
+        	</span><br/>
+        	<p> Seller: <%= link_to line_item.stock.seller.name, line_item.stock.seller %></p>
+        	<% end %>
+        <% end %> 
+        </td>
+        <td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+<br/>
+<%= link_to 'Go to Order', @order %>
+<%= link_to 'Back to Orders', orders_path %>
+</div>
+
+<div id="map" <div id="map"></div></div>
+
+<script type="text/javascript">
+
+	function confirmLItem(item_id, value){
+    $.post('./confirm_item', {id: item_id, value: value}, function(res, resp){
+      if(res.success == false){
+        alert(res.message)
+        return;
+      }
+      hideLIButtons(item_id);
+    }, "json")
+  }
+
+  function hideLIButtons(item_id){
+  	var element = document.getElementById("li_buttons_"+item_id)
+  	//console.log("li_buttons_"+item_id)
+  	element.style.display='none';
+  	var element = document.getElementById("li_message_"+item_id)
+  	element.style.display='inline-block';
+  }
+</script>

@@ -8,6 +8,9 @@
       <th>Email</th>
       <th>Date ordered</th>
       <th></th>
+      <% if current_user.role == "seller" %>
+        <th>Item Confirmation</th>
+      <% end %>
     </tr>
   </thead>
 
@@ -19,11 +22,24 @@
         <td><%= order.email %></td>
         <td><%= order.created_at %></td>
         <td><%= link_to 'Show', order %></td>
+        <% if current_user.role == "seller" or current_user.role == "admin" %>
+          <% if order.delivered %>
+            <td>Order Delivered</td>
+          <% elsif order.processed %>
+            <td>Order Processed</td>
+          <% else %>
+            <td><%= link_to 'Confirm Items', confirm_items_orders_url(id: order.id) %></td>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<%= paginate @orders %>
-<%= link_to 'Back to Store', store_path %>
+<% if current_user.role == "seller" %>
+  <%= link_to 'Back to Seller Management', manage_seller_path %>
+<% else %>
+  <%= paginate @orders %>
+  <%= link_to 'Back to Store', store_path %>
+<% end %>

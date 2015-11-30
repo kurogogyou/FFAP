@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   include CurrentCart
   include OrdersHelper
   before_action :set_cart, only: [:new, :create]
-  before_action :set_order, only: [:show, :confirm]
+  before_action :set_order, only: [:show, :confirm, :confirm_list, :process_order]
+  before_action :check_user, only: [:confirm_list]
 
   # GET /orders
   # GET /orders.json
@@ -13,7 +14,8 @@ class OrdersController < ApplicationController
     if @user.role == "client"
       @orders = Order.where(:name => @user.username).order(:created_at).page params[:page]
     elsif @user.role == "seller"
-      @orders = Order.where(:name => @user.username).order(:created_at).page params[:page]
+      @seller = Seller.find(current_user.seller.id) 
+      @orders = orders_by_carried_stock
     else
       @orders = Order.order(:created_at).page params[:page]
     end
@@ -49,7 +51,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         olocation.update(:order_id => @order.id)
-        format.html { redirect_to @order.paypal_url(store_url) }#, notice: 'Thank you for your order.' }
+        format.html { redirect_to @order }#, notice: 'Thank you for your order.' }
         #OrderNotifier.received(@order).deliver
         #OrderNotifier.created(@order).deliver
       #  format.json { render action: 'show', status: :created, location: @order }
@@ -89,6 +91,36 @@ class OrdersController < ApplicationController
     render :json => {:success => :true, :message => ''}
   end
 
+  def confirm_list
+    if current_user.role == "seller"
+      @line_items = @order.by_seller(current_user.seller)
+    else
+      @line_items = @order.line_items
+    end
+  end
+
+  def confirm_item
+    @line_item = LineItem.find(params[:id])
+    if @line_item == nil
+      render :json => {:success => :false, :message => 'No se encuentra la pieza especificada.'}
+      return
+    end
+    @line_item.update!(
+      confirmed: true,
+      accepted: params[:value])
+    render :json => {:success => :true, :message => ''}
+  end
+
+  def process_order
+    if current_user.role != "admin"
+      redirect_to home_path, notice: 'You need to be an admin.'
+    end
+    removed_items = @order.process
+    #Order notifier here...
+    removed_items.each { |e| e.destroy }
+    redirect_to @order, notice: 'Order processed successfully.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
@@ -96,6 +128,27 @@ class OrdersController < ApplicationController
         @order = Order.find(params[:id])
       rescue ActiveRecord::RecordNotFound
       end
+    end
+
+    def check_user
+      if current_user.role == "seller"
+        if current_user.seller == nil
+          redirect_to new_seller_path, notice: 'Please register your store.'
+        end
+      elsif current_user.role == "admin"
+      else
+        redirect_to home_path, notice: 'You need to be a store administrator to perform this action.'
+      end
+    end
+
+    def orders_by_carried_stock
+      collection = []
+      Order.all.each do |order|
+        if !order.by_seller(@seller).empty?
+          collection << order
+        end
+      end
+      collection
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

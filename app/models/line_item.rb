@@ -7,4 +7,9 @@ class LineItem < ActiveRecord::Base
   def total_price
   	stock.price * quantity
   end
+
+  def confirm(is_accepted)
+  	self.update(confirmed: true,
+  		accepted: is_accepted)
+  end
 end

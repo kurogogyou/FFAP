@@ -9,7 +9,7 @@ class OrderNotifier < ActionMailer::Base
   def received(order)
     @order = order
 
-    mail to: order.email, subject: 'Fast Find Auto Parts Order Confirmation'
+   # mail to: order.email, subject: 'Fast Find Auto Parts Order Confirmation'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -20,7 +20,7 @@ class OrderNotifier < ActionMailer::Base
   def shipped(order)
     @order = order
 
-    mail to: order.email, subject: 'Fast Find Auto Parts Order Shipped'
+    #mail to: order.email, subject: 'Fast Find Auto Parts Order Shipped'
   end
 
   def created(order)
@@ -29,9 +29,14 @@ class OrderNotifier < ActionMailer::Base
     @admins = User.where(:role => "admin")
 
     @admins.each do |admin|
-      mail to: admin.email, subject: 'Order created'
-    end
+     # mail to: admin.email, subject: 'Order created'
+    end  
+  end
 
-  #  mail to: order.email, subject: 'Fast Find Auto Parts Order Shipped'
+  def processed(order, removed_items)
+    @order = order
+    @removed_items = removed_items
+
+    #mail to: order.email, subject: 'Order processed. You can now complete order.'
   end
 end

@@ -16,6 +16,50 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def by_seller(seller)
+    line_items = []
+    self.line_items.each do |line_item|
+      if line_item.stock.seller == seller
+        line_items << line_item
+      end
+    end
+    line_items
+  end
+
+  def list_sellers
+    sellers = []
+    self.line_items.each do |line_item|
+      unless sellers.include? line_item.stock.seller
+        sellers << line_item.stock.seller
+      end
+    end
+    sellers
+  end
+
+  def partially_confirmed
+    ret = false
+    self.line_items.each do |line_item|
+      if line_item.confirmed
+        ret = true
+      end
+    end
+    ret
+  end
+
+  def confirmed_line_items
+    line_items.where(confirmed: true)
+  end
+
+  def process
+    collection = []
+    line_items.where(accepted: false).each do |line_item|
+      line_item.update(order_id: nil)
+      collection << line_item
+    end
+    self.update(processed: true)
+    collection
+  end
+
   def paypal_url(return_path)
     values = {
         business: "ml.vizard-facilitator@gmail.com",
@@ -38,8 +82,8 @@ class Order < ActiveRecord::Base
 
   def dollar_price
     #Note: this is a test value forcer!
-    #0.01.round(2)
-    (self.total_price/45.4).round(2)
+    0.01.round(2)
+    #(self.total_price/45.4).round(2)
   end
 
   def invoice

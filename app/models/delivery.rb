@@ -16,22 +16,10 @@ class Delivery < ActiveRecord::Base
 	end
 
 	def by_seller(seller)
-		line_items = []
-		order.line_items.each do |line_item|
-			if line_item.stock.seller == seller
-				line_items << line_item
-			end
-		end
-		line_items
+		order.by_seller(seller)
 	end
 
 	def list_sellers
-		sellers = []
-		order.line_items.each do |line_item|
-			unless sellers.include? line_item.stock.seller
-			  sellers << line_item.stock.seller
-			end
-		end
-		sellers
+		order.list_sellers
 	end
 end

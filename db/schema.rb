@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123175618) do
+ActiveRecord::Schema.define(version: 20151129020735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20151123175618) do
     t.integer  "quantity",   default: 1
     t.integer  "order_id"
     t.integer  "stock_id"
+    t.boolean  "confirmed",  default: false
+    t.boolean  "accepted",   default: false
   end
 
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id", using: :btree
@@ -85,6 +87,7 @@ ActiveRecord::Schema.define(version: 20151123175618) do
     t.integer  "user_id"
     t.boolean  "delivered",           default: false
     t.boolean  "confirmed"
+    t.boolean  "processed",           default: false
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree

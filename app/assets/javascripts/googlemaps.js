@@ -1,12 +1,21 @@
 
 ready = function() {
-  var initialize, map, marker, markerCoords, script;
-  script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' + 'libraries=places&' + 'callback=initialize';
-  document.body.appendChild(script);
+  var script; //, tag;
+  var initialize, map, marker, markerCoords;
+  var controller = document.body.getAttribute("controller");
+  if(controller == "users" || controller == "sellers" || controller == "mapa"){
+//    tag = document.createElement('script')
+    script = document.createElement('script');
+    script.type = 'text/javascript';
+//    tag.id = "googlemaps_inclusion";
+//    tag.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' + 'libraries=places&' + 'callback=initialize';
+    document.body.appendChild(script);
+//    document.head.appendChild(tag);
+  }
   return;
 };
+
 
 map = void 0;
 marker = void 0;
@@ -33,8 +42,8 @@ markerCoords = function(markerobject) {
     document.getElementById('longitude').value = evt.latLng.lng();
   });
 };
-
 $(document).ready(ready); //calls for the function we defined above (first loading)
 $(document).on('page:load',ready); // the same but for the other loadings
 
+// $('body').hasClass('sellers')
 //google.maps.event.addDomListener(window, 'load', initialize);
