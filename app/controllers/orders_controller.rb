@@ -78,7 +78,7 @@ class OrdersController < ApplicationController
 
   def confirm
     if @order == nil
-      render :json => {:success => :true, :message => 'No se encuentra la orden especificada.'}
+      render :json => {:success => :false, :message => 'No se encuentra la orden especificada.'}
       return
     end
     if params[:confirm] == "true"

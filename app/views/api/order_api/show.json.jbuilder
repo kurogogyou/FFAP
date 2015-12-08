@@ -1,6 +1,6 @@
-json.extract! @order, :id, :name, :address, :email, :user_id, :invoice, :delivered, :created_at
+json.extract! @order, :id, :name, :address, :email, :user_id, :invoice, :delivered, :confirmed, :created_at
 if @order.delivery != nil
-	json.delivery_id order.delivery.id
+	json.delivery_id @order.delivery.id
 else
 	json.delivery_id "-1"
 end
