@@ -19,17 +19,15 @@
 }
 
 #fwslider .slidePrev {
-   
-   
     position: absolute;
     top:50%;
     left:-50px;
-    
+
     z-index: 10;
 }
 
 #fwslider .slidePrev span {
-	background-image: url("../images/img-sprite.png");
+	background-image: url("img-sprite.png");
 	width:80px;
 	height: 70px;
 	float: left;
@@ -38,17 +36,17 @@
 	cursor: pointer;
 }
 #fwslider .slideNext {
-   
-  
+
+
     position: absolute;
     top:50%;
     right:-50px;
-   
+
     z-index: 10;
 }
 
 #fwslider .slideNext span {
-  background-image: url("../images/img-sprite.png");
+  background-image: url("img-sprite.png");
 	width:80px;
 	height: 70px;
 	float: left;
