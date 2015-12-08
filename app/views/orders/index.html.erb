@@ -1,43 +1,41 @@
-<h1>Listing orders</h1>
+<h2 class="head">Listing orders</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Tracking number</th>
-      <th>Email</th>
-      <th>Date ordered</th>
-      <% if current_user.role == "seller" %>
-        <th>Item Confirmation</th>
-      <% end %>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
       <tr>
-        <td><%= order.name %></td>
-        <td><%= link_to order.invoice, order %></td>
-        <td><%= order.email %></td>
-        <td><%= order.created_at %></td>
-        <% if current_user.role == "seller" or current_user.role == "admin" %>
-          <% if order.delivered %>
-            <td>Order Delivered</td>
-          <% elsif order.processed %>
-            <td>Order Processed</td>
-          <% else %>
-            <td><%= link_to 'Confirm Items', confirm_items_orders_url(id: order.id) %></td>
-          <% end %>
+        <th>#</th>
+        <th>Name</th>
+        <th>Tracking number</th>
+        <th>Email</th>
+        <th>Date ordered</th>
+        <% if current_user.role == "seller" %>
+          <th>Item Confirmation</th>
         <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-<% if current_user.role == "seller" %>
-  <%= link_to 'Back to Seller Management', manage_seller_path %>
-<% else %>
-  <%= paginate @orders %>
-  <%= link_to 'Back to Store', store_path %>
-<% end %>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.name %></td>
+          <td><%= link_to order.invoice, order %></td>
+          <td><%= order.email %></td>
+          <td><%= order.created_at %></td>
+          <% if current_user.role == "seller" or current_user.role == "admin" %>
+            <% if order.delivered %>
+              <td>Order Delivered</td>
+            <% elsif order.processed %>
+              <td>Order Processed</td>
+            <% else %>
+              <td><%= link_to 'Confirm Items', confirm_items_orders_url(id: order.id) %></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= paginate @orders %>

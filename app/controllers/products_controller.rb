@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   # before_action :set_cart
   include VehicleModelsHelper
   include StoreHelper
+  include StocksHelper
   include BrandsHelper
   skip_before_action :authorize, only: [:show]
   before_action :set_product, only: [:show, :edit, :update, :destroy]

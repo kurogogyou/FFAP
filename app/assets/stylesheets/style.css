@@ -31,6 +31,7 @@ img{max-width:100%;}
 body{
 	font-family: 'Exo 2', sans-serif;
 	background:#fff;
+	min-height: 600px;
 }
 .wrap{
 	width:80%;
@@ -1018,6 +1019,7 @@ fieldset.input input[type="submit"]:hover, .button1 input[type="submit"]:hover{
 	font-family: 'Exo 2', sans-serif;
 	outline:none;
 	font-size:1em;
+	margin-bottom: 10px;
 }
 .remember{
 	margin-top: 6%;

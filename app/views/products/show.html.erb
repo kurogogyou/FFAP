@@ -1,64 +1,55 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-
-<td> <%= image_tag(@product.image_url, class:'image') %> </td>
-
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Brand:</strong>
-  <%= @product.brand.brand_name %>
-</p>
-
-<p>
-  <strong>Model:</strong>
-  <%= @product.vehicle_model.model_name + " " + @product.vehicle_model.year.to_s %>
-</p>
-
-<% if @product.in_stock? %>
-<p>In Stock</p>
-<h3>Stores:</h3>
-<table>
-  <tbody>
-    <% @sellers.each do |seller| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
-        <td> <%= image_tag(seller.logo_url, class: 'list_image') %> </td>
-        <td class="list_description"> 
-          <dl>
-            <dt> <%= seller.name %> </dt>
-            <dd> <%= seller.address%> </dd>
-            <dd> <strong>Tel.: </strong> <%= seller.phone%> </dd>
-          </dl>
-        </td>
-        <td>
-          <% stock = seller.stocks.where(:product_id => @product.id).take %>
-          <dt> <strong>Stock:</strong> <%= stock.quantity %> </dt>
-          <%= link_to 'Show', seller %><br/>
-          <% if current_user %>
-            <%= button_to 'Add to Cart', line_items_path(product_id: @product, stock_id: stock) %>
+<div class="cont span_3_of_3">
+        <div class="grid images_3_of_2">
+          <%= image_tag(@product.image_url, class:'image center-block') %>
+          <div class="clearfix"></div>
+        </div>
+             <div class="desc1 span_3_of_2">
+              <h3 class="m_3"><%= @product.title%></h3>
+                 <p class="m_5"><%= lowest_priced(@product.stocks).price %></p>
+               <div class="btn_form">
+            <form>
+              <input type="submit" value="buy" title="">
+            </form>
+           </div>
+             <p class="m_text2"><%= @product.description %> </p>
+             <% if @product.in_stock? %>
+              <p class="text-success">In Stock</p>
+            <% else %>
+              <p class="text-danger">Out of Stock</p>
+              <% end %>
+           </div>
+         <div class="clear"></div>  
+      <div class="clients">
+      <h3 class="m_3">Seller options</h3>
+     <ul>
+     <% @sellers = @sellers.each_slice(3).to_a %>
+      <% @sellers.each do |sellers_list| %>
+        <div class="top-box">
+          <% sellers_list.each do |seller| %>
+            <div class="col-sm-4 seller-thumbnail" >
+              <div>
+                <%= image_tag(seller.logo_url, class: 'list_image center-block', style:'width:50%;height:50%') %>
+              </div>
+              <div class='text-center'>
+                <%= link_to seller.name, seller %><br/>
+                <address>
+                  <p><%= seller.address%></p>
+                  <p><strong>Tel.: </strong> <%= seller.phone%><p>
+                </address>
+                <p><% stock = seller.stocks.where(:product_id => @product.id).take %><p>
+                <p><strong>Stock:</strong> <%= stock.quantity %><p>
+                <p style="margin-top: 10px"><%= number_to_currency(stock.price) %><p>
+                <% if current_user %>
+                  <%= button_to 'Add to Cart', line_items_path(product_id: @product, stock_id: stock), class: 'btn btn-primary', style:"margin-top: 10px" %>
+                <% end %>
+              </div>
+            </div>
           <% end %>
-        </td>
-        <td>
-          <%= number_to_currency(stock.price) %>
-        </td>
-      </tr>
-
-    <% end %>
-  </tbody>
-</table>
-
-<% else %>
-<p>Out of Stock</p>
-<% end %>
+        </div>
+        <div class="clear"></div>
+      <% end %>
+     </ul>
+     </div>
 
 <p></p>
 <% if current_user %>

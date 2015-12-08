@@ -11,9 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :chassis_number %><br>
-    <%= f.text_field :chassis_number %>
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :chassis_number %><br>
+      <%= f.text_field :chassis_number, class:'form-control' %>
+    </div>
   </div>
   <div class="field">
     <%= hidden_field_tag 'vehicle[brand]' %>
