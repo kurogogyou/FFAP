@@ -97,26 +97,7 @@
       </div> -->
       <div id="response"> </div>
       <div class="tag-list">
-        <ul class="icon1 sub-icon1 profile_img">
-          <li>
-            <a class="active-icon c1" href="#"> </a>
-            <ul class="sub-icon1 list">
-              <li><h3>Tags de Busqueda</h3><a href=""></a></li>
-              <li><p>Algun texto de ejemplo  <a href="">Link en el texto</a></p></li>
-            </ul>
-          </li>
-        </ul>
-
-        <ul class="icon1 sub-icon1 profile_img">
-          <li>
-            <a class="active-icon c2" href="#"> </a>
-            <ul class="sub-icon1 list">
-              <li><h3>Current list of cart</h3><a href=""></a></li>
-              <li><p>Algun texto de ejemplo  <a href="">Link en el texto</a></p></li>
-            </ul>
-          </li>
-        </ul>
-
+        <span class="active-icon c2"></span>
         <% @cart ? path = cart_path(@cart) : path = "" %>
         <ul class="last"><li><%= link_to "Cart(#{@cart ? @cart.line_items.count : "0"})", path %></a></li></ul>
       </div>

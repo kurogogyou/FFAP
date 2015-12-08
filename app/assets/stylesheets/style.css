@@ -123,7 +123,7 @@ body{
 }
 .header-bottom-right{
 	float:right;
-	width:30.5%;
+	width:12.5%;
 	margin-top:10px;
 }
 .search {
@@ -167,6 +167,9 @@ body{
 }
 .tag-list{
 	float:left;
+}
+.tag-list span {
+	float: left;
 }
 /* create_btn */
 .create_btn{
@@ -346,7 +349,7 @@ body{
 }
 ul.last{
 	float: left;
-	margin: 12px 0px 0 20px;
+	margin: 12px 0px 0 5px;
 }
 ul.last li a{
 	color:#000;
@@ -2184,7 +2187,7 @@ ul.delivery-list li a:hover{
 		width:89px;
 	}
 	.header-bottom-right {
-		width: 32.5%;
+		width: 11.5%;
 	}
 	.to input[type="text"] {
 		width: 47.7%;
@@ -2201,7 +2204,7 @@ ul.delivery-list li a:hover{
 		width:89px;
 	}
 	.header-bottom-right {
-		width:31.5%;
+		width:12.5%;
 	}
 	.to input[type="text"] {
 		width:47.2%;
