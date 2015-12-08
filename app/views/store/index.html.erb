@@ -1,55 +1,114 @@
-<!-- <h1>Store#index</h1> -->
-<!-- <p>Find me in app/views/store/index.html.erb</p> -->
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-<div class="sform">
-  <%= render 'form' %>
+<div class="cont span_2_of_3">
+  <h2 class="head">Catalog</h2>
   <% if @products.length < @products.total_count %>
-    <p style="font-size: 0.8em">Showing <%= @products.length %> out of <%= @products.total_count %> results </p>
+    <!-- <p style="font-size: 0.8em">Showing <%= @products.length %> out of <%= @products.total_count %> results </p> -->
   <% else %>
-    <p style="font-size: 0.8em">Showing <%= @products.length %> results </p>
+    <!-- <p style="font-size: 0.8em">Showing <%= @products.length %> results </p> -->
   <% end %>
+  <div class="mens-toolbar">
+    <!-- <div class="sort-by">
+      <label>Sort By</label>
+      <select>
+        <option value="">Position</option>
+        <option value="">Name</option>
+        <option value="">Price</option>
+      </select>
+      <a href=""><img src="images/arrow2.gif" alt="" class="v-middle"></a>
+    </div> -->
+    <div class="sform">
+      <%= render 'form' %>
+    </div>
+    <div class="pager">
+      <ul class="dc_pagination dc_paginationA dc_paginationA06">
+        <li><a href="#" class="previous">Pages</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <% @products = @products.each_slice(3).to_a %>
+  <% @products.each do |products_list| %>
+    <div class="top-box">
+      <% products_list.each do |product| %>
+        <div class="col_1_of_3 span_1_of_3">
+          <a href="<%= product_path(product.id) %>">
+            <div class="inner_content clearfix">
+              <div class="product_image">
+                <%= image_tag(product.image_url) %>
+              </div>
+              <div class="sale-box"><span class="on_sale title_shop">
+                <% if product.in_stock? %>
+                  <p>In Stock</p>
+                <% end %>
+              </span></div>
+              <div class="price">
+                <div class="cart-left">
+                  <p class="title"><%= link_to product.title, product %></p>
+
+                  <div class="price1" style="color:#9C9C9C;">
+                    <span><%= product.description %></span>
+                  </div>
+
+                  <div class="price1" style="color:#9C9C9C;">
+                    <span ><b style="color:black;">Model:</b> <%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %></span>
+                  </div>
+
+                  <div class="price1">
+                    <span class="actual">$12.00</span>
+                  </div>
+                </div>
+                <div class="cart-right"> </div>
+                <div class="clear"></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% end %>
+      <div class="clear"></div>
+    </div>
+  <% end %>
+
+  <!-- <h2 class="head">New Products</h2>
+  <div class="section group">
+    <div class="col_1_of_3 span_1_of_3">
+      <a href="single.html">
+        <div class="inner_content clearfix">
+          <div class="product_image">
+            <img src="images/pic1.jpg" alt=""/>
+          </div>
+
+          <div class="sale-box"><span class="on_sale title_shop">New</span></div>
+
+          <div class="price">
+            <div class="cart-left">
+              <p class="title">Titulo</p>
+
+              <div class="price1" style="color:#9C9C9C;">
+                <span >Aros mazda 3 2013</span>
+              </div>
+
+              <div class="price1" style="color:#9C9C9C;">
+                <span ><b style="color:black;">Model:</b> mazda 3 2013</span>
+              </div>
+
+              <div class="price1">
+                <span class="actual">$12.00</span>
+              </div>
+            </div>
+            <div class="cart-right"> </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="clear"></div>
+  </div> -->
 </div>
-<h1> Catalog </h1>
-<% if @products.empty? %>
-<h3>No results to show</h3>
-<% else %>
-<%= paginate @products %>
-<% cache ['store', Product.latest] do %>
-  <% @products.each do |product| %>
-    <% cache ['entry', product] do %>
-      <div class="entry">
-        <%= image_tag(product.image_url) %>
-        <h3><%= link_to product.title, product %></h3>
-        <div class="desc">
-          <p><%= product.description %></p>
-  	      <p><strong>Model: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %></p>
-          <% if product.in_stock? %>
-            <p>In Stock</p>
-          <% else %>
-            <p>Out of Stock</p>
-          <% end %>
-          
-        </div>
-        <div class="price_line">
-          <span class="price">
-          <% if product.in_stock? %>
-            <%= "From " + number_to_currency(lowest_priced(product.stocks).price) %>
-          <% else %>
-            <%= "Unavailable" %>
-          <% end %>
-          </span>
-          <% if current_user %>
-            <% if current_user.role != "seller" %>
-            <%= button_to 'Add to Cart', line_items_path(product_id: product,
-           stock_id: lowest_priced(product.stocks)), remote: true, :disabled => !product.in_stock? %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-<% end %>
-<%= paginate @products %>
-<% end %>
+
+<div class="rsidebar span_1_of_left">
+  <h5 class="m_1" style="text-align:center">Promotions</h5>
+  <%= image_tag("", width:"100%", height: 400) %>
+</div>

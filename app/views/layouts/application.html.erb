@@ -18,8 +18,8 @@
 <body class='<%= controller.controller_name %>' controller="<%= controller.controller_name %>">
   
 <% if current_user %>
-<% session = Session.find %>
-<% user = current_user %>
+  <% session = Session.find %>
+  <% user = current_user %>
 <% end %>
 
 <!-- HEADER TOP -->
@@ -44,14 +44,6 @@
         <div class="clear"></div>
       </div>
 
-      <div id="welcome">
-        <ul>
-          <% if session %>
-            <h2>Welcome, <%= current_user.username %></h2>
-          <% end %>
-        </ul>
-      </div>
-
       <div class="cssmenu">
         <ul>
           <!--  | -->
@@ -60,8 +52,7 @@
             <li><%= link_to 'Edit user', edit_user_path(:current) %></li> |
             <li><%= link_to 'Logout', logout_path, method: :delete%></li>
           <% else %>
-            <li><%= link_to 'Register', register_path %></li> |
-            <li><%= link_to 'Log in', login_path, method: :get%></li>
+            <li><%= link_to 'Sign in', login_path, method: :get%></li>
           <% end %>
         </ul>
       </div>
@@ -101,10 +92,10 @@
     </div>
 
     <div class="header-bottom-right">
-      <div class="search">
+      <!-- <div class="search">
         <input type="text" name="s" class="textbox" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
         <input type="submit" value="Subscribe" id="submit" name="submit">
-      </div>
+      </div> -->
       <div id="response"> </div>
       <div class="tag-list">
         <ul class="icon1 sub-icon1 profile_img">
@@ -135,18 +126,63 @@
   <div class="clear"></div>
 </div>
 
+<% if controller.controller_name == "home" %>
+  <!-- start slider -->
+  <div id="fwslider" style="height: 685px">
+    <div class="slider_container">
+      <div class="slide">
+        <!-- Slide image -->
+          <%= image_tag("ban.jpg")%>
+        <!-- /Slide image -->
+        <!-- Texts container -->
+        <div class="slide_content">
+          <div class="slide_content_wrap">
+            <!-- Text title -->
+            <h4 class="title">Imagen de ejemplo 1</h4>
+            <!-- /Text title -->
+
+            <!-- Text description -->
+            <p class="description">Entra a ver klk...</p>
+            <!-- /Text description -->
+          </div>
+        </div>
+         <!-- /Texts container -->
+      </div>
+
+      <!-- /Duplicate to create more slides -->
+      <div class="slide">
+        <%= image_tag("ban2.jpg")%>
+        <div class="slide_content">
+          <div class="slide_content_wrap">
+            <h4 class="title">Imagen de ejemplo 2 </h4>
+            <p class="description">Entra a ver klk</p>
+          </div>
+        </div>
+      </div>
+      <!--/slide -->
+    </div>
+    <div class="timers"></div>
+    <div class="slidePrev"><span></span></div>
+    <div class="slideNext"><span></span></div>
+  </div>
+  <!--/slider -->
+<% end %>
+
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<div class="main">
-  <div class="wrap">
-    <div class="section group">
-      <%= yield %>
+<div class="<%= 'mens' if controller.controller_name != "home"%>">
+  <div class="main">
+    <div class="wrap">
+      <div class="section group">
+        <%= yield %>
+      </div>
     </div>
+    <div class="clear"></div>
   </div>
-  <div class="clear"></div>
 </div>
+
 
 <div class="footer">
   <div class="footer-top">
