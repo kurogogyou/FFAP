@@ -45,7 +45,6 @@
     <div id="vehicle_search" style="display: none" ></div>
   <% end %>  
 
-  <div class="clearfix"></div>
   <%= check_box_tag :show_not_in_stock %>
   <%= label :show_not_in_stock, "Show unavailable products." %>
 
@@ -54,7 +53,7 @@
   <input type="button" class="btn" id="byChassis" value="Search by Chassis Number" onclick="showChassisSearch()">
   <%if current_user %>
     <%if current_user.role == "client"%>
-      | <input type="button" class="btn" id="byVehicle" value="Search by Registered Vehicles" onclick="showVehicleSearch()">
+      <input type="button" class="btn" id="byVehicle" value="Search by Registered Vehicles" onclick="showVehicleSearch()">
     <% end %>
   <% end %>
   </div>
