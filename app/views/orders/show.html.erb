@@ -84,7 +84,7 @@
       <p><%= @order.confirmed_line_items.count %> de <%= @order.line_items.count %> han sido confirmados por los respectivos comercios. Por lo menos uno debe estar confirmado para procesar.</p>
       <p><%= button_to 'Actualizar', {action: 'show', order_id: @order.id }, { class: 'btn', method: :get, style:"margin: 10px 0" } %> </p>
       <% if @order.partially_confirmed %>
-        <%= button_to 'Procesar', {action: "process_order", order_id: @order.id}, { class: 'btn', method: :post, style:"margin: 10px 0" } %>
+        <%= button_to 'Procesar', {action: "process_order", id: @order.id}, { class: 'btn', method: :post, style:"margin: 10px 0" } %>
       <% end %>
       
     <% elsif @order.status == "Incomplete" %>
