@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  skip_before_action :authorize, only: [:hook, :confirm]
+  skip_before_action :authorize, only: [:hook, :confirm, :confirm, :confirm_item]
   protect_from_forgery except: [:hook, :confirm]
   include CurrentCart
   include OrdersHelper

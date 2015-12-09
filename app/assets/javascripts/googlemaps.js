@@ -3,15 +3,12 @@ ready = function() {
   var script; //, tag;
   var initialize, map, marker, markerCoords;
   var controller = document.body.getAttribute("controller");
+  console.log(controller);
   if(controller == "users" || controller == "sellers" || controller == "mapa"){
-//    tag = document.createElement('script')
     script = document.createElement('script');
     script.type = 'text/javascript';
-//    tag.id = "googlemaps_inclusion";
-//    tag.type = 'text/javascript';
     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' + 'libraries=places&' + 'callback=initialize';
     document.body.appendChild(script);
-//    document.head.appendChild(tag);
   }
   return;
 };
