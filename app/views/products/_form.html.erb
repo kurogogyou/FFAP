@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field form-group">
-    <%= f.label :title %><br>
+    <%= f.label :title, "Nombre" %><br>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
   <div class="field form-group">
-    <%= f.label :description %><br>
+    <%= f.label :description, "Descripcion" %><br>
     <%= f.text_area :description, rows: 6, class: 'form-control' %>
   </div>
 <% if current_user.role == "admin" %>
   <div class="field form-group">
     <%= image_tag(@product.image_url) if @product.user_image? %> <br>
-    <%= f.file_field :user_image %>
+    <%= f.file_field :user_image%>
     <%= f.hidden_field :user_image_cache %>
   </div>
 <% else %>
@@ -31,12 +31,12 @@
   </div>
 <% end %>
   <div class="field form-group">
-    <%= f.label :brand_id %><br>
-    <%= f.select :brand_id, get_all_brand_names_ids, {}, {prompt: 'Select brand', class: 'form-control'} %>
+    <%= f.label :brand_id, "Marca" %><br>
+    <%= f.select :brand_id, get_all_brand_names_ids, {}, {prompt: 'Seleccione Marca', class: 'form-control'} %>
   </div>
   <div class="field form-group">
-    <%= label_tag :model %><br>
-    <select id="model_id" name="model_id" class="form-control" prompt="Select model">
+    <%= label_tag :model, "Modelo" %><br>
+    <select id="model_id" name="model_id" class="form-control" prompt="Seleccione modelo">
       <option value="not">Select model</option>
       <% models_with_brands = get_all_model_names_with_brand %>
       <%= models_with_brands.each do |model| %>
@@ -45,10 +45,10 @@
     </select>
   </div>
   <div class="field form-group">
-    <%= label_tag :year %><br>
-    <%= select_tag :year, options_for_select(model_years), prompt: 'Select year', class: 'form-control'%>
+    <%= label_tag :year, "Año" %><br>
+    <%= select_tag :year, options_for_select(model_years), prompt: 'Seleccione año', class: 'form-control'%>
   </div>
   <div class="actions">
-    <%= f.submit "Save", class: 'btn' %>
+    <%= f.submit "Guargar", class: 'btn' %>
   </div>
 <% end %>

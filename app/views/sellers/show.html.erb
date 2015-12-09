@@ -8,17 +8,17 @@
   </h2>
 
   <p>
-    <strong class="bold">Address:</strong>
+    <strong class="bold">Direccion:</strong>
     <%= @seller.address %>
   </p>
 
   <p>
-    <strong class="bold">Phone:</strong>
+    <strong class="bold">Telefono:</strong>
     <%= @seller.phone %>
   </p>
 
   <h2 style="margin-top: 10px">
-    <strong class="bold">Average rating</strong>
+    <strong class="bold">Puntuacion promedio</strong>
   </h2>
 
   <p>
@@ -33,10 +33,10 @@
   </p>
 
   <h3 class="m_3" style="margin-top: 20px;">
-    Seller reviews
+    Comentarios
   </h3>
 
-  <p> Store has <%= @seller.reviews.count %> comments. </p>
+  <p> Este comercio tiene <%= @seller.reviews.count %> comentarios. </p>
 
   <% 5.downto(0) do |rating| %>
     <% subdiv = reviews_per_rating(@seller.reviews, rating) #on Seller Helper %>  
@@ -48,13 +48,13 @@
       <% empty_stars.to_i.downto(1) do %>
         <span class="glyphicon glyphicon-star-empty"></span>
       <% end %>
-      <%= link_to "#{subdiv.count} reviews", seller_path(:id => @seller.id, :display_rating => rating)%>
+      <%= link_to "#{subdiv.count} reseñas", seller_path(:id => @seller.id, :display_rating => rating)%>
     </p>
   <% end %>
 </div>
 <div class="clearfix"></div>
 
-<h3 class="m_3"> Reviews </h3>
+<h3 class="m_3"> Comentarios </h3>
 <p class="pull-right"><%= paginate @reviews %><p>
 </div>
 
@@ -84,7 +84,7 @@
 
 <% if current_user %>
 <h3 class="m_3">
-  <strong>Write your review</strong>
+  <strong>Opine</strong>
 </h3>
 
 <%= render :partial => 'reviews/form', :locals => { :seller => @seller } %>

@@ -3,37 +3,37 @@
 </div>
 
 <div class="col-sm-6">
-  <h2 class="head">Seller Management Page</h2>
+  <h2 class="head">Administrar su negocio</h2>
   <h3 class="m_3"><%= @seller.name %></h3>
 
   <p>
-    <strong class="bold">Address:</strong>
+    <strong class="bold">Direccion:</strong>
     <%= @seller.address %>
   </p>
 
   <p>
-    <strong class="bold">Phone:</strong>
+    <strong class="bold">Telefono:</strong>
     <%= @seller.phone %>
   </p>
 
   <div style="margin: 10px 0 20px;">
-    <%= link_to 'Edit Seller Information', edit_seller_path(@seller), class: 'btn btn-default' %>
-    <%= link_to 'List Stocks', stocks_path, class: 'btn btn-default' %>
+    <%= link_to 'Editar Informacion de su Negocio', edit_seller_path(@seller), class: 'btn btn-default' %>
+    <%= link_to 'Existencias', stocks_path, class: 'btn btn-default' %>
   </div>
 
   <p>
-    <strong class="bold">Deliveries carrying our stocks:</strong>
+    <strong class="bold">Deliveries con nuestras existencias:</strong>
   </p>
   <% if @deliveries.empty? %>
-  <p>Nothing to show.</p>
+  <p>Nada que mostrar.</p>
   <% else %>
   <table class="table">
     <thead>
       <tr>
-        <th>Invoice</th>
-        <th>Customer</th>
-        <th>Address</th>
-        <th>Personnel</th>
+        <th>Factura</th>
+        <th>Cliente</th>
+        <th>Direccion</th>
+        <th>Personal</th>
         <th></th>
       </tr>
     </thead>

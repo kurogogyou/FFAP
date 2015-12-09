@@ -1,12 +1,12 @@
-<h2 class="head">Registered vehicles</h2>
+<h2 class="head">Vehiculos registrados</h2>
 <% if !@vehicles.empty? %>
 <table class="table">
   <thead>
     <tr>
-      <th>Chassis number</th>
-      <th>Brand</th>
-      <th>Model</th>
-      <th>Year</th>
+      <th>Numero de Chassis</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Año</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,8 +18,8 @@
         <td><%= vehicle.brand %></td>
         <td><%= vehicle.model %></td>
         <td><%= vehicle.year %></td>
-        <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-        <td><%= link_to 'Remove', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_vehicle_path(vehicle) %></td>
+        <td><%= link_to 'Remover', vehicle, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,7 +27,7 @@
 
 <br>
 <% else %>
-<p> No vehicles registered.</p>
+<p> Ningun vehiculo ha sido registrado.</p>
 <% end %>
 
-<%= link_to 'Register New Vehicle', new_vehicle_path, class: 'btn btn-default' %>
+<%= link_to 'Registre su vehiculo', new_vehicle_path, class: 'btn btn-default' %>

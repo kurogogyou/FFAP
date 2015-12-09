@@ -1,11 +1,11 @@
-<h2 class="head"> Your Cart </h2>
+<h2 class="head"> Su carrito </h2>
 <table class="table">
   <thead>
     <th></th>
-    <th class="bold">Name</th>
-    <th class="bold">Supplier</th>
-    <th class="bold">Quantity</th>
-    <th class="bold">Price</th>
+    <th class="bold">Nombre</th>
+    <th class="bold">Suplidor</th>
+    <th class="bold">Cantidad</th>
+    <th class="bold">Precio</th>
   </thead>
   <tbody>
     <%= render(@cart.line_items) %>
@@ -38,8 +38,8 @@
 </table>
 
 <div style="margin-left: 10px" class="pull-right">
-  <%= button_to 'Empty cart', @cart, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
+  <%= button_to 'Vaciar carrito', @cart, method: :delete, data: {confirm: 'Esta seguro?'}, class: 'btn btn-danger' %>
 </div>
 <div class="pull-right">
-  <%= button_to "Checkout", new_order_path, method: :get, class: 'btn'%>
+  <%= button_to "Ordenar", new_order_path, method: :get, class: 'btn'%>
 </div>

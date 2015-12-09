@@ -1,27 +1,27 @@
-<h2 class="head">Welcome</h2>
+<h2 class="head">Bienvenido</h2>
 
-<h3 class="bold" style="margin-bottom: 10px">Last activities</h3>
+<h3 class="bold" style="margin-bottom: 10px">Ultimas actividades</h3>
 <p>
-	We have 
+	Tenemos 
 	<span class="text-warning"><%= pluralize(@pending_processing, "order") %></span>
-	 pending processing and 
+	sin procesar y 
 	<span class="text-warning"><%= pluralize(@pending_delivery, "order") %></span> 
-	pending delivery.
+	sin enviar.
 </p>
 <p>
-	We have a total of 
+	Tenemos un total de 
 	<span class="text-info"><%= pluralize(@customers, "customer") %></span>
-	registered right now.
+	registrados actualmente.
 </p>
 <p>
-	There are 
+	Hay  
 	<span class="text-info"><%= pluralize(@sellers, "seller") %></span>
-	registered right now.
+	registrados actualmente.
 </p>
 <p>
-	There are 
+	Hay 
 	<span class="text-info"><%= pluralize(@products.count, "product") %></span>
-	registered with 
+	registrados con 
 	<span class="text-success"><%= @products.in_stock.count%></span>
-	currently in stock.
+	actualmente disponibles.
 </p>

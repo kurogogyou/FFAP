@@ -12,6 +12,6 @@
   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
   <% if @order or @delivery %>
   <% else %>
-    <td><%= link_to 'Remove', line_item, method: :delete, data: {confirm: 'Really remove?'} %></td>
+    <td><%= link_to 'Remover', line_item, method: :delete, data: {confirm: 'Esta seguro?'} %></td>
   <% end %>
 </tr>

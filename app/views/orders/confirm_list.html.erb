@@ -1,7 +1,7 @@
-<h2 class="head">Confirm Order Items</h2>
+<h2 class="head">Confirmar Piezas</h2>
 <div class="li_list">
 <% if @line_items.count == 0 %>
-  <h3> No line_items to show </h3>
+  <h3> Nada que mostrar. </h3>
 <% else %>
 
 <table>
@@ -14,7 +14,7 @@
             <dt> <%= line_item.product.title %> </dt>
             <dd> <%= truncate(strip_tags(line_item.product.description), length: 80)%> 
             </dd>
-            <dd><strong>Model: </strong><%= line_item.product.brand.brand_name + " " + line_item.product.vehicle_model.model_name + " " + line_item.product.vehicle_model.year.to_s %>
+            <dd><strong>Modelo: </strong><%= line_item.product.brand.brand_name + " " + line_item.product.vehicle_model.model_name + " " + line_item.product.vehicle_model.year.to_s %>
             </dd>
           </dl>
         </td>
@@ -22,15 +22,15 @@
         <td>
         <% if line_item.confirmed %>
        	<span id="li_message_<%=line_item.id%>" style="color: blue">
-        	Item Confirmed, 
+        	Item Confirmado, 
         	<% if line_item.accepted %>
-        	accepted.
+        	y aceptado.
         	<% else %>
-        	denied.
+        	y negado.
         	<%end%>
         </span>
         <% if current_user.role == "admin" %>
-        	<p> Seller: <%= link_to line_item.stock.seller.name, line_item.stock.seller %></p>
+        	<p> Comercio: <%= link_to line_item.stock.seller.name, line_item.stock.seller %></p>
         <% end %>
         <% else %>
        		<% if current_user.role == "seller" %>
@@ -39,13 +39,13 @@
           	<input type="button" class="btn btn-danger" id="deny_litem" value="Deny" onclick="confirmLItem(<%=line_item.id%>, false)"> 
         	</span>
         	<span id="li_message_<%=line_item.id%>" style="display: none; color: blue">
-        		Item Confirmed
+        		Confirmado
         	</span>
         	<% else %>
         	<span id="li_message_<%=line_item.id%>" style="color: red">
-        		Item not yet confirmed
+        		No confirmado
         	</span><br/>
-        	<p> Seller: <%= link_to line_item.stock.seller.name, line_item.stock.seller %></p>
+        	<p> Comercio: <%= link_to line_item.stock.seller.name, line_item.stock.seller %></p>
         	<% end %>
         <% end %> 
         </td>
@@ -57,8 +57,8 @@
 </table>
 <% end %>
 <br/>
-<%= link_to 'Go to Order', @order, class: 'btn btn-default' %>
-<%= link_to 'Back to Orders', orders_path, class: 'btn btn-default' %>
+<%= link_to 'Volver a la orden', @order, class: 'btn btn-default' %>
+<%= link_to 'Lista de ordenes', orders_path, class: 'btn btn-default' %>
 </div>
 
 <div id="map" <div id="map"></div></div>

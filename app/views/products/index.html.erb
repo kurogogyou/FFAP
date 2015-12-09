@@ -1,13 +1,13 @@
-<h2 class="head">Listing products</h2>
+<h2 class="head">Piezas</h2>
 <% if current_user.role == "admin" or current_user.role == "seller" %>
   <div class="pull-right">
-    <%= link_to 'New Product', new_product_path, class: 'btn btn-default' %>
+    <%= link_to 'Nueva Pieza', new_product_path, class: 'btn btn-default' %>
   </div>
 <% end %>
 <%= render 'searcher' %>
 
 <% if @products.count == 0 %>
-  <h3> No products to show </h3>
+  <h3> Nada que mostrar. </h3>
 <% else %>
 
 <div class="pull-right">
@@ -29,19 +29,19 @@
               <dt> <%= product.title %> </dt>
               <dd> <%= truncate(strip_tags(product.description), length: 80)%> 
               </dd>
-              <dd><strong>Model: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %>
+              <dd><strong>Modelo: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %>
               </dd>
             </dl>
           </td>
 
           <td>
-            <%= link_to 'Show', product %><br/>
+            <%= link_to 'Mostrar', product %><br/>
             <% if current_user.role == "admin" %>
-            <%= link_to 'Edit', edit_product_path(product) %><br/>
-            <%= link_to 'Remove', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Editar', edit_product_path(product) %><br/>
+            <%= link_to 'Remover', product, method: :delete, data: { confirm: 'Esta seguro?' } %>
             <% end %>
             <% if current_user.role == "seller" %>
-            <br/><%= link_to 'Modify Stock', mod_stock_path(:seller_id => current_user.seller.id, :product_id => product.id), method: :post %>
+            <br/><%= link_to 'Existencias', mod_stock_path(:seller_id => current_user.seller.id, :product_id => product.id), method: :post %>
             <% end %>
           </td>
           <td>
@@ -63,19 +63,19 @@
               <dt> <%= product.title %> </dt>
               <dd> <%= truncate(strip_tags(product.description), length: 80)%> 
               </dd>
-              <dd><strong>Model: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %>
+              <dd><strong>Modelo: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %>
               </dd>
             </dl>
           </td>
 
           <td>
-            <%= link_to 'Show', product %><br/>
+            <%= link_to 'Mostrar', product %><br/>
             <% if current_user.role == "admin" %>
-            <%= link_to 'Edit', edit_product_path(product) %><br/>
-            <%= link_to 'Remove', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Editar', edit_product_path(product) %><br/>
+            <%= link_to 'Remover', product, method: :delete, data: { confirm: 'Esta seguro?' } %>
             <% end %>
             <% if current_user.role == "seller" %>
-            <br/><%= link_to 'Modify Stock', mod_stock_path(:seller_id => current_user.seller.id, :product_id => product.id), method: :post %>
+            <br/><%= link_to 'Existencias', mod_stock_path(:seller_id => current_user.seller.id, :product_id => product.id), method: :post %>
             <% end %>
           </td>
           <td>

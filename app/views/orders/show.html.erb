@@ -1,13 +1,13 @@
-<h2 class="head">Order <%= @order.invoice %></h2>
+<h2 class="head">Orden <%= @order.invoice %></h2>
 
 <div class="col-sm-6">
   <p>
-    <span class="bold">Name:</span> 
+    <span class="bold">Nombre:</span> 
     <%= @order.name %>
   </p>
 
   <p>
-    <span class="bold">Address:</span>
+    <span class="bold">Direccion:</span>
     <%= @order.address %>
   </p>
 
@@ -19,28 +19,28 @@
   <p>
     <span class="bold">Status:</span>
     <% if !@order.processed %>
-      Pending processing.
+      Sin procesar.
     <% elsif @order.status == "Incomplete" %>
-      Pending payment.
+      No se ha pagado.
     <% elsif @order.delivered %>
-      Delivered,
+      Enviada,
       <% if @order.confirmed%>
-       user confirmed.
+       y confirmada por usuario.
       <% else %>
-       unconfirmed.
+       sin confirmar.
       <% end %>
     <% else %>
-      On the way
+      En camino.
     <% end %>
   </p>
 
   <p>
-    <span class="bold">Date ordered:</span>
+    <span class="bold">Fecha:</span>
     <%= @order.created_at %>
   </p>
 
   <p>
-    <span class="bold"> Delivery Location:</span>
+    <span class="bold"> Ubicacion para envio:</span>
     <%= @order.location.latitude %>, <%= @order.location.longitude %>
   </p>
 
@@ -56,15 +56,15 @@
 <div class="col-sm-6">
   
   <p class="bold">
-    Items bought:
+    Despliegue:
   </p>
 
   <table class="table table-striped">
     <thead>
       <th></th>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Price</th>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
     </thead>
     <tbody>
       <%= render(@order.line_items) %>
@@ -80,27 +80,27 @@
   <% if current_user.role == "admin" %>
     <% if !@order.processed %>
       <p></p>
-      <p class="bold">Process order</p>
-      <p><%= @order.confirmed_line_items.count %> out of <%= @order.line_items.count %> have been confirmed by their sellers. At least one should be confirmed to process.</p>
-      <p><%= button_to 'Update', {action: 'show', order_id: @order.id }, { class: 'btn', method: :get, style:"margin: 10px 0" } %> </p>
+      <p class="bold">Procesar orden</p>
+      <p><%= @order.confirmed_line_items.count %> de <%= @order.line_items.count %> han sido confirmados por los respectivos comercios. Por lo menos uno debe estar confirmado para procesar.</p>
+      <p><%= button_to 'Actualizar', {action: 'show', order_id: @order.id }, { class: 'btn', method: :get, style:"margin: 10px 0" } %> </p>
       <% if @order.partially_confirmed %>
-        <%= button_to 'Process', {action: "process_order", order_id: @order.id}, { class: 'btn', method: :post, style:"margin: 10px 0" } %>
+        <%= button_to 'Procesar', {action: "process_order", order_id: @order.id}, { class: 'btn', method: :post, style:"margin: 10px 0" } %>
       <% end %>
       
     <% elsif @order.status == "Incomplete" %>
     <p></p>
-      <h2><strong>Process order</strong></h2>
-      <p> Order processed. Pending payment. </p>
+      <h2><strong>Procesar orden</strong></h2>
+      <p> Orden procesada. Pendiente al pago. </p>
     <% elsif !@order.delivered %>
       <% if !@order.delivery %>
       <p></p>
-      <h2><strong>Assign order to delivery</strong></h2>
+      <h2><strong>Asignar flete</strong></h2>
    
       <%= render :partial => 'deliveries/form', :locals => { :order => @order } %>
    
       <% else %>
       <p></p>
-      <p>Delivery is assigned to <%= @order.delivery.user.username %>, Delivery ID: <%= @order.delivery.id%></p>
+      <p>El envio esta asignado a <%= @order.delivery.user.username %>, Delivery ID: <%= @order.delivery.id%></p>
 
       <%= link_to 'Reassign', edit_delivery_path(@order.delivery)%>
       <% end %>
@@ -109,22 +109,22 @@
     
   <% if current_user.role == "client"  %>
     <% if !@order.processed %>
-    <h3> Please wait for order to be processed </h3>
+    <h3> Por favor espere a que se procese su orden. </h3>
     <p><%= button_to 'Update', {action: 'show', order_id: @order.id}, { class: 'btn', method: :get, style:"margin: 10px 0" } %> </p>
     <% elsif @order.status == "Incomplete" %>
-    <h3> Complete payment </h3>
+    <h3> Complete su pago </h3>
     <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), @order.paypal_url(store_url) %>
     <% elsif @order.delivered and !@order.confirmed?%>
     <div id="ask_confirmation">
-    <p> Did you receive this order correctly? </p>
-    <input type="button" id="confirmation" value="Yes" onclick="postTrue()"> |
+    <p> Recibio esta orden correctamente? </p>
+    <input type="button" id="confirmation" value="Si" onclick="postTrue()"> |
     <input type="button" id="confirmation" value="No" onclick="postFalse()">
     </div>
     <div id="order_thankyou" style="display: none">
-      <p> Thank you for choosing us! </p>
+      <p> Gracias por preferirnos! </p>
     </div>
     <div id="order_contact" style="display: none">
-      <p> Please contact us for support! </p>
+      <p> Por favor contactenos para asistirle! </p>
     </div>
     <% end %>
   <br/>
@@ -136,7 +136,7 @@
   <% end %>
 
   <% if current_user.role == "seller" or current_user.role == "admin"%>
-  <%= link_to 'Confirmed Items', confirm_items_orders_url(id: @order.id), class: 'btn btn-default' %>
+  <%= link_to 'Piezas confirmadas', confirm_items_orders_url(id: @order.id), class: 'btn btn-default' %>
   <% end %>
 </div>
 <div class="clearfix"></div>

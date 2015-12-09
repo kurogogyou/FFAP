@@ -1,11 +1,11 @@
 <div class="cont span_2_of_3">
-  <h2 class="head">New parts</h2>
+  <h2 class="head">Novedades</h2>
 
   <div class="top-box">
 
   <% @products.each do |p| %>
      <div class="col_1_of_3 span_1_of_3">
-        <a href="single.html">
+         <a href="products/<%= p.id %>"> 
           <div class="inner_content clearfix">
             <div class="product_image">
               <%= image_tag(p.image_url) %>
@@ -25,16 +25,16 @@
                 <div class="price1">
                   <h3>
                     <% if p.in_stock? %>
-                      <%= "Available" %>
+                      <%= "Disponible" %>
                     <% else %>
-                      <%= "Unavailable" %>
+                      <%= "No Disponible" %>
                     <% end %>
                   </h3>
                 </div>
                 <div class="price1">
                   <span class="actual">
                     <% if p.in_stock? %>
-                      <%= "From " + number_to_currency(lowest_priced(p.stocks).price) %>
+                      <%= "Desde " + number_to_currency(lowest_priced(p.stocks).price) %>
                     <% end %>
                   </span>
                 </div>
@@ -51,19 +51,18 @@
   </div>
 </div>
 
-<div class="rsidebar span_1_of_left">
+<!-- <div class="rsidebar span_1_of_left">
   <div class="top-border"> </div>
 
   <div class="sidebar-bottom">
-    <h2 class="m_1">Notify</h2>
-    <p class="m_text">Introduzca email a subscribir</p>
+    <h2 class="m_1"></h2>
+    <p class="m_text"></p>
     <div class="subscribe">
      <form>
-        <input name="userName" type="text" class="textbox" placeholder="Email">
+
+      <input name="userName" type="text" class="textbox" placeholder="Email">
         <input type="submit" value="Subscribe">
      </form>
     </div>
   </div>
-</div>
-
-
+</div>-->

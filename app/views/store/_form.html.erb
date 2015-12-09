@@ -5,32 +5,32 @@
 
   <div id="query_search" style="display: inline-block"> 
     
-    <%= select_tag(:brand_id, options_for_select(get_all_brand_names_ids), prompt: 'Select brand', class: 'form-control') %>
+    <%= select_tag(:brand_id, options_for_select(get_all_brand_names_ids), prompt: 'Seleccione marca', class: 'form-control') %>
     
     <select id="model_id" class='form-control' name="model_id" prompt="Select model">
-    	<option value="not">Select model</option>
+    	<option value="not">Seleccione modelo</option>
     	<% models_with_brands = get_all_model_names_with_brand %>
     	<%= models_with_brands.each do |model| %>
     		<option value="<%=model[0]%>" brand="<%=model[1]%>" style="display:none"><%= model[0] %></option>
     	<% end %>
     </select>
     
-    <%= select_tag :year, options_for_select(model_years), prompt: 'Select year', class: 'form-control' %>
-    <%= submit_tag "Search", :name => nil, class: 'btn' %>
+    <%= select_tag :year, options_for_select(model_years), prompt: 'Seleccione año', class: 'form-control' %>
+    <%= submit_tag "Buscar", :name => nil, class: 'btn' %>
     <div style="padding-top: 1em"> </div>
   </div>
 
   <div id="chassis_search" style="display: none">
     <%= text_field_tag :vehicle_chassis_number, "", class: 'form-control' %>
-    <input type="button" class="btn" id="checkVIN" value="Verify Chassis Number" onclick="getVINdata()"> 
+    <input type="button" class="btn" id="checkVIN" value="Verificar Numero de Chassis" onclick="getVINdata()"> 
     <%= hidden_field_tag :chassis_brand %>
     <%= hidden_field_tag :chassis_model %>
     <%= hidden_field_tag :chassis_year %>
-    <%= submit_tag "Search", :name => nil, class: 'btn' %><br>
+    <%= submit_tag "Buscar", :name => nil, class: 'btn' %><br>
     <div id="results-body" style="padding-top: 1em"> </div> 
   </div>
   <div id="please_verify" style="display: none; font-size: 0.8em">
-    <label for="checkVIN"> Please verify Chassis number before searching.</label> 
+    <label for="checkVIN"> Por favor verifique el chassis antes de buscar.</label> 
   </div>
 
   <%if current_user %>
@@ -46,14 +46,14 @@
   <% end %>  
 
   <%= check_box_tag :show_not_in_stock %>
-  <%= label :show_not_in_stock, "Show unavailable products." %>
+  <%= label :show_not_in_stock, "Mostrar piezas no disponibles." %>
 
   <div id="search_switches">
-  <input type="button" class="btn" id="byQuery" value="Search Queries" onclick="showQuerySearch()"> 
-  <input type="button" class="btn" id="byChassis" value="Search by Chassis Number" onclick="showChassisSearch()">
+  <input type="button" class="btn" id="byQuery" value="Busqueda general" onclick="showQuerySearch()"> 
+  <input type="button" class="btn" id="byChassis" value="Busqueda por Chassis" onclick="showChassisSearch()">
   <%if current_user %>
     <%if current_user.role == "client"%>
-      <input type="button" class="btn" id="byVehicle" value="Search by Registered Vehicles" onclick="showVehicleSearch()">
+      <input type="button" class="btn" id="byVehicle" value="Busqueda por vehiculos registrados" onclick="showVehicleSearch()">
     <% end %>
   <% end %>
   </div>

@@ -39,7 +39,7 @@
               </div>
               <div class="sale-box"><span class="on_sale title_shop">
                 <% if product.in_stock? %>
-                  <p>In Stock</p>
+                  <p>Disponible</p>
                 <% end %>
               </span></div>
               <div class="price">
@@ -59,7 +59,9 @@
                   </div>
 
                   <% if current_user %>
+                  <% if current_user.role == "client" %>
                     <%= button_to 'Add to Cart', line_items_path(product_id: product, stock_id: lowest_priced(product.stocks)), class: 'btn btn-primary', style:"margin-top: 10px" %>
+                  <% end %>  
                   <% end %>
                 </div>
               </div>

@@ -1,16 +1,16 @@
-<h2 class="head">Listing orders</h2>
+<h2 class="head">Ordenes</h2>
 
 <div class="table-responsive">
   <table class="table table-striped table-hover">
     <thead>
       <tr>
         <th>#</th>
-        <th>Name</th>
+        <th>Nombre</th>
         <th>Tracking number</th>
         <th>Email</th>
-        <th>Date ordered</th>
+        <th>Fecha</th>
         <% if current_user.role == "seller" %>
-          <th>Item Confirmation</th>
+          <th>Confirmacion de pieza</th>
         <% end %>
       </tr>
     </thead>
@@ -25,9 +25,9 @@
           <td><%= order.created_at %></td>
           <% if current_user.role == "seller" or current_user.role == "admin" %>
             <% if order.delivered %>
-              <td>Order Delivered</td>
+              <td>Enviada</td>
             <% elsif order.processed %>
-              <td>Order Processed</td>
+              <td>Procesada</td>
             <% else %>
               <td><%= link_to 'Confirm Items', confirm_items_orders_url(id: order.id) %></td>
             <% end %>
