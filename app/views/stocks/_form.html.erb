@@ -10,16 +10,16 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  
+  <div class="field form-group add-margin">
     <%= f.label :quantity %><br>
-    <%= f.number_field :quantity, min: 0 %>
+    <%= f.number_field :quantity, min: 0, class: 'form-control' %>
   </div> 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    <%= f.text_field :price, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit "Save", class: 'btn' %>
   </div>
 <% end %>

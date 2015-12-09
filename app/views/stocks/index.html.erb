@@ -1,34 +1,78 @@
-<h1>Listing stocks</h1>
-<%= paginate @stocks %>
-<table>
-  <tbody>
-    <% @stocks.each do |stock| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
-        <td> <%= image_tag(stock.product.image_url, class: 'list_image')%> </td>
-        <td class="list_description"> 
-          <dl>
-            <dt> <%= stock.product.title %> </dt>
-            <dd> <%= truncate(strip_tags(stock.product.description), length: 80)%> 
-            </dd>
-            <dd><strong>Model: </strong><%= stock.product.brand.brand_name + " " + stock.product.vehicle_model.model_name + " " + stock.product.vehicle_model.year.to_s %>
-            </dd>
-            <dd> Seller: <%= stock.seller.name %> </dd>
-            <dd> Stock quantity: <%= stock.quantity %> </dd>
-          </dl>
-        </td>
+<h2 class="head">Listing stocks</h2>
 
-        <td>
-          <%= link_to 'Show', stock %><br/>
-          <%= link_to 'Edit', edit_stock_path(stock) %><br/>
-          <%= link_to 'Remove', stock, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-        <td>
-          <%= "US$" + stock.price.to_s %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
+<% pag_stock = @stocks %>
+<div class="pull-right">
+  <%= paginate pag_stock %>
+</div>
+<div class="clearfix"></div>
 
-<%= link_to 'Back to Manage Seller', manage_seller_path %>
+<% first_half = @stocks.slice(0, @stocks.length/2) %>
+<% second_half = @stocks.slice(@stocks.length/2, @stocks.length) %>
+
+<div class="col-sm-6">
+  <table class="table">
+    <tbody>
+      <% first_half.each do |stock| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
+          <td> <%= image_tag(stock.product.image_url, class: 'list_image')%> </td>
+          <td class="list_description"> 
+            <dl>
+              <dt> <%= stock.product.title %> </dt>
+              <dd> <%= truncate(strip_tags(stock.product.description), length: 80)%> 
+              </dd>
+              <dd><strong class="bold">Model: </strong><%= stock.product.brand.brand_name + " " + stock.product.vehicle_model.model_name + " " + stock.product.vehicle_model.year.to_s %>
+              </dd>
+              <dd><span class="bold">Seller:</span> <%= stock.seller.name %> </dd>
+              <dd><span class="bold">Stock quantity:</span> <%= stock.quantity %> </dd>
+            </dl>
+          </td>
+
+          <td>
+            <%= link_to 'Edit', edit_stock_path(stock) %><br/>
+            <%= link_to 'Remove', stock, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+          <td>
+            <%= "US$" + stock.price.to_s %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="col-sm-6">
+  <table class="table">
+    <tbody>
+      <% second_half.each do |stock| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
+          <td> <%= image_tag(stock.product.image_url, class: 'list_image')%> </td>
+          <td class="list_description"> 
+            <dl>
+              <dt> <%= stock.product.title %> </dt>
+              <dd> <%= truncate(strip_tags(stock.product.description), length: 80)%> 
+              </dd>
+              <dd><strong class="bold">Model: </strong><%= stock.product.brand.brand_name + " " + stock.product.vehicle_model.model_name + " " + stock.product.vehicle_model.year.to_s %>
+              </dd>
+              <dd><span class="bold">Seller:</span> <%= stock.seller.name %> </dd>
+              <dd><span class="bold">Stock quantity:</span> <%= stock.quantity %> </dd>
+            </dl>
+          </td>
+
+          <td>
+            <%= link_to 'Edit', edit_stock_path(stock) %><br/>
+            <%= link_to 'Remove', stock, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+          <td>
+            <%= "US$" + stock.price.to_s %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="clearfix"></div>
+<div class="pull-right">
+  <%= link_to 'Back to Manage Seller', manage_seller_path, style: 'margin-right: 20px;' %>
+  <%= paginate pag_stock %>
+</div>

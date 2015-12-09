@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
       elsif current_user.role == 'seller'
         redirect_to manage_seller_path
       else
-        redirect_to store_url
+        redirect_to home_url
       end
     else
       redirect_to login_url, alert: "Invalid user/password combination"
@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
     @user_session.destroy
     flash[:notice] = "Logged out."
     session[:cart_id] = nil
-    redirect_to store_url
+    redirect_to home_url
    end
 
    #Only checks if user exists and is client. Creates a temporary session to validate.

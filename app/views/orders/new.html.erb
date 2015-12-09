@@ -1,12 +1,31 @@
 <!-- <h1>New order</h1> -->
 <div class="depot_form">
   <fieldset>
-  	<legend>Confirm your order</legend>
+  	<h2 class="head">Confirm your order</h2>
 	<div class="confirmation">
-    	<%= render(@cart.line_items) %>
-    <p>Sub Total: <%= @cart.sub_total %></p>
-    <p>ITBIS (18%): <%= @cart.itbis %></p>
-    <p>Total Price: <%= @cart.total_price %></p>
+    <table class="table">
+      <tbody>
+      	<%= render(@cart.line_items) %>
+        <tr class="total_line">
+          <td></td>
+          <td></td>
+          <td class="highlight-gray">Sub-Total</td>
+          <td class="total_cell highlight-gray"><%= number_to_currency(@cart.sub_total) %></td>
+        </tr>
+        <tr class="total_line">
+          <td style="border:none;"></td>
+          <td style="border:none;"></td>
+          <td class="highlight-gray">ITBIS (18%)</td>
+          <td class="total_cell highlight-gray"><%= number_to_currency(@cart.itbis) %></td>
+        </tr>
+        <tr class="total_line">
+          <td style="border:none;"></td>
+          <td style="border:none;"></td>
+          <td class="highlight-gray">Total</td>
+          <td class="total_cell highlight-gray"><%= number_to_currency(@cart.total_price) %></td>
+        </tr> 
+      </tbody>
+    </table>
   	</div>
 	<%= render 'form' %>
   </fieldset>

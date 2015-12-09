@@ -85,7 +85,7 @@
               <li><%= link_to 'Manage Seller', manage_seller_path %></li>
             <% end %>
             <% if user.role == 'client' %>
-              <li><%= link_to 'Register Vehicle', new_vehicle_path %></li>
+              <li><%= link_to 'Vehicles', vehicles_path %></li>
             <% end %>
           <%end%>
         </ul>
@@ -114,13 +114,12 @@
   <!--/slider -->
 <% end %>
 
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-
 <div class="<%= 'mens' if controller.controller_name != "home"%>">
   <div class="main">
     <div class="wrap">
+      <% if notice %>
+        <p id="notice" class="bg-info" style="padding: 5px; margin: 10px 0;"><%= notice %></p>
+      <% end %>
       <div class="section group">
         <%= yield %>
       </div>

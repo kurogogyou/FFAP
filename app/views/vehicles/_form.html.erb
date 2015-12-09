@@ -31,7 +31,7 @@
   </div>
 
   <label for="checkVIN">Please verify Chassis number before submitting:</label> <br>
-  <input type="button" id="checkVIN" value="Verify Chassis Number" onclick="getVINdata()"> 
+  <input type="button" class="btn btn-default" id="checkVIN" value="Verify Chassis Number" onclick="getVINdata()"> 
   <div id="results-body" style="padding-top: 1em"> </div>
   <script>
      var link
@@ -56,7 +56,7 @@
    }
    </script>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit "Save", class: 'btn' %>
   </div>
 <% end %>

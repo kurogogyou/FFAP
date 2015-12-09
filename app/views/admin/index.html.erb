@@ -1,11 +1,27 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
+<h2 class="head">Welcome</h2>
 
-<h1>Welcome</h1>
-
-It's <%= Time.now %>. <br/>
-We have <%= pluralize(@pending_processing, "order") %> pending processing and <%= pluralize(@pending_delivery, "order") %> pending delivery.
-<br/> We have a total of <%= pluralize(@customers, "customer") %> registered right now.
-<br/> There are <%= pluralize(@sellers, "seller") %> registered right now.
-<br/> There are <%= pluralize(@products.count, "product") %> registered with <%= @products.in_stock.count%> currently in stock.
+<h3 class="bold" style="margin-bottom: 10px">Last activities</h3>
+<p>
+	We have 
+	<span class="text-warning"><%= pluralize(@pending_processing, "order") %></span>
+	 pending processing and 
+	<span class="text-warning"><%= pluralize(@pending_delivery, "order") %></span> 
+	pending delivery.
+</p>
+<p>
+	We have a total of 
+	<span class="text-info"><%= pluralize(@customers, "customer") %></span>
+	registered right now.
+</p>
+<p>
+	There are 
+	<span class="text-info"><%= pluralize(@sellers, "seller") %></span>
+	registered right now.
+</p>
+<p>
+	There are 
+	<span class="text-info"><%= pluralize(@products.count, "product") %></span>
+	registered with 
+	<span class="text-success"><%= @products.in_stock.count%></span>
+	currently in stock.
+</p>

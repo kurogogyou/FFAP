@@ -63,7 +63,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to store_url }
+      format.html { redirect_to cart_path(@line_item.cart_id) }
       format.json { head :no_content }
     end
   end

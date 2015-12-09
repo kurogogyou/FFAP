@@ -5,13 +5,13 @@
 <%end%>
   <td><%= image_tag(line_item.product.seed_image, width: "50px") %></td>
   <td><%= link_to line_item.product.title, line_item.product %></td>
+  <%if controller.controller_name == "carts" %>
+    <td>From: <%= link_to line_item.stock.seller.name, line_item.stock.seller %></td> 
+  <% end %>
   <td><%= line_item.quantity %></td>
   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
-  <%if controller.controller_name == "carts" %>
-    <td>From: <%= link_to line_item.stock.seller.name, line_item.stock.seller %></td>	
-  <% end %>
   <% if @order or @delivery %>
   <% else %>
-    <td><%= button_to 'X', line_item, method: :delete, data: {confirm: 'Really remove?'} %></td>
+    <td><%= link_to 'Remove', line_item, method: :delete, data: {confirm: 'Really remove?'} %></td>
   <% end %>
 </tr>

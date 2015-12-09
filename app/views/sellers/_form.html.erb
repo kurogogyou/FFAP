@@ -11,37 +11,40 @@
       </ul>
     </div>
   <% end %>
-  <fieldset>
-  <legend>Enter Seller Details</legend>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= image_tag(@seller.logo_url) if @seller.user_logo? %> <br>
-    <%= f.file_field :user_logo %>
-    <%= f.hidden_field :user_logo_cache %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_area :address, rows: 6 %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-
-  <p>Please select store location on map</p>
-  <div id="mapa"></div>
-  <div class="field">
-    <%= hidden_field_tag :latitude %>
-  </div>
-  <div class="field">
-    <%= hidden_field_tag :longitude %>
+  <div class="col-sm-6">
+    <div class="field form-group">
+      <%= f.label :name, class: 'control-label' %><br>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="field form-group">
+      <%= image_tag(@seller.logo_url) if @seller.user_logo? %> <br>
+      <%= f.file_field :user_logo, class: 'control-label' %>
+      <%= f.hidden_field :user_logo_cache %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :address, class: 'control-label' %><br>
+      <%= f.text_area :address, rows: 6, class: 'form-control' %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :phone, class: 'control-label' %><br>
+      <%= f.text_field :phone, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="col-sm-6">
+    <p>Please select store location on map</p>
+    <div id="mapa"></div>
+    <div class="field form-group">
+      <%= hidden_field_tag :latitude %>
+    </div>
+    <div class="field form-group">
+      <%= hidden_field_tag :longitude %>
+    </div>
   </div>
-  </fieldset>
+
+  <div class="clearfix"></div>
+  <div class="actions form-group">
+    <%= f.submit "Save", class: 'btn' %>
+  </div>
 <% end %>
 </div>

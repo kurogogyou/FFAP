@@ -23,7 +23,7 @@
   <div class="field">
     <%= hidden_field_tag 'order[user_id]', user.id %>
   </div>
-  <div class="actions">
-    <%= f.submit "Place order" %>
+  <div class="actions form-group pull-right">
+    <%= f.submit "Place order", class: 'btn' %>
   </div>
 <% end %>

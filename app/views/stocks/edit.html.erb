@@ -1,11 +1,12 @@
-<h1>Modifying stocks</h1>
+<h2 class="head">Modifying stocks</h2>
 
-<p> Modifying stocks for <%= @stock.product.title %></p>
-<p> Brand: <%= @stock.product.brand.brand_name %> </p>
-<p> Model: <%= @stock.product.vehicle_model.model_name %> </p>
-<p> Year: <%= @stock.product.vehicle_model.year %> </p>
+<p class="lead"> Modifying stocks for <%= @stock.product.title %></p>
 
-<%= render 'form' %>
+<div class="col-sm-4">
+	<p><span class="bold"> Brand:</span> <%= @stock.product.brand.brand_name %> </p>
+	<p><span class="bold"> Model:</span> <%= @stock.product.vehicle_model.model_name %> </p>
+	<p><span class="bold"> Year:</span> <%= @stock.product.vehicle_model.year %> </p>
 
-<%= link_to 'Show', @stock %> |
-<%= link_to 'Back', stocks_path %>
+	<%= render 'form' %>
+</div>
+

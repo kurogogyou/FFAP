@@ -34,7 +34,7 @@ class StocksController < ApplicationController
 
     respond_to do |format|
       if @stock.save
-        format.html { redirect_to @stock, notice: 'Stock was successfully created.' }
+        format.html { redirect_to stocks_path, notice: 'Stock was successfully created.' }
         format.json { render action: 'show', status: :created, location: @stock }
       else
         format.html { render action: 'new' }
@@ -60,7 +60,7 @@ class StocksController < ApplicationController
   def update
     respond_to do |format|
       if @stock.update(stock_params)
-        format.html { redirect_to @stock, notice: 'Stock was successfully updated.' }
+        format.html { redirect_to stocks_path, notice: 'Stock was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -35,8 +35,8 @@
         <% else %>
        		<% if current_user.role == "seller" %>
        		<span id="li_buttons_<%=line_item.id%>">
-          	<input type="button" id="confirm_litem" value="Confirm" onclick="confirmLItem(<%=line_item.id%>, true)">
-          	<input type="button" id="deny_litem" value="Deny" onclick="confirmLItem(<%=line_item.id%>, false)"> 
+          	<input type="button" class="btn" id="confirm_litem" value="Confirm" onclick="confirmLItem(<%=line_item.id%>, true)">
+          	<input type="button" class="btn btn-danger" id="deny_litem" value="Deny" onclick="confirmLItem(<%=line_item.id%>, false)"> 
         	</span>
         	<span id="li_message_<%=line_item.id%>" style="display: none; color: blue">
         		Item Confirmed

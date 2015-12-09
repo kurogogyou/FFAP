@@ -1,6 +1,6 @@
-<h1>Registered vehicles</h1>
+<h2 class="head">Registered vehicles</h2>
 <% if !@vehicles.empty? %>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Chassis number</th>
@@ -18,7 +18,6 @@
         <td><%= vehicle.brand %></td>
         <td><%= vehicle.model %></td>
         <td><%= vehicle.year %></td>
-        <td><%= link_to 'Show', vehicle %></td>
         <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
         <td><%= link_to 'Remove', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -31,4 +30,4 @@
 <p> No vehicles registered.</p>
 <% end %>
 
-<%= link_to 'Register New Vehicle', new_vehicle_path %>
+<%= link_to 'Register New Vehicle', new_vehicle_path, class: 'btn btn-default' %>

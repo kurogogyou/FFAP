@@ -11,25 +11,85 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, size: 80 %>
+  <div class="field form-group">
+    <%= f.label :title, class: 'control-label' %><br>
+    <%= f.text_field :title, size: 80, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body, rows: 5, cols: 100 %>
+  <div class="field form-group">
+    <%= f.label :body, class: 'control-label' %><br>
+    <%= f.text_area :body, rows: 5, cols: 100, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= hidden_field_tag :seller_id, seller.id %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= hidden_field_tag :user_id, current_user.id %>
   </div>
-  <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.number_field :rating, min: 0, max: 5 %> | 0 - Awful, 1 - very bad, 2 - bad, 3 - average, 4 - good, 5 - very good
+  <div class="field form-group">
+    <%= f.label :rating, class: 'control-label' %><br>
+    <%= f.number_field :rating, min: 0, max: 5, class: 'form-control', style: 'width: 100px; display: inline-block; vertical-align: text-bottom;' %> 
+    <span> 
+      <div style="display: inline-block; margin: 0 10px;">
+        <p>
+          <% 5.downto(1) do %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+        </p>
+        <span>Very good</span>
+      </div>
+
+      <div style="display: inline-block; margin: 0 10px;">
+        <p>
+          <% 4.downto(1) do %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+          <% empty_stars = 1 %>
+          <% empty_stars.to_i.downto(1) do %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+        </p>
+        <span>Good</span>
+      </div>
+
+      <div style="display: inline-block; margin: 0 10px;">
+        <p>
+          <% 3.downto(1) do %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+          <% empty_stars = 2 %>
+          <% empty_stars.to_i.downto(1) do %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+        </p>
+        <span>Average</span>
+      </div>
+
+      <div style="display: inline-block; margin: 0 10px;">
+        <p>
+          <% 2.downto(1) do %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+          <% empty_stars = 3 %>
+          <% empty_stars.to_i.downto(1) do %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+        </p>
+        <span>Bad</span>
+      </div>
+
+      <div style="display: inline-block; margin: 0 10px;">
+        <p>
+          <span class="glyphicon glyphicon-star"></span>
+          <% empty_stars = 4 %>
+          <% empty_stars.to_i.downto(1) do %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+        </p>
+        <span>Awful</span>
+      </div>
+    <span>
   </div> 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit "Save", class: 'btn' %>
   </div>
 <% end %>

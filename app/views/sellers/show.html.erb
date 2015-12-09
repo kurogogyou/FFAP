@@ -1,56 +1,91 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
+<div class="col-sm-6">
+  <td> <%= image_tag(@seller.logo_url, class:'logo') %> </td>
+</div>
+
+<div class="col-sm-6">
+  <h2 class="head">
+    <%= @seller.name %>
+  </h2>
+
+  <p>
+    <strong class="bold">Address:</strong>
+    <%= @seller.address %>
+  </p>
+
+  <p>
+    <strong class="bold">Phone:</strong>
+    <%= @seller.phone %>
+  </p>
+
+  <h2 style="margin-top: 10px">
+    <strong class="bold">Average rating</strong>
+  </h2>
+
+  <p>
+    <% empty_stars = 5 - @seller.average_rating %>
+    <% @seller.average_rating.to_i.downto(1) do %>
+      <span class="glyphicon glyphicon-star"></span>
+    <% end %>
+    <% empty_stars.to_i.downto(1) do %>
+      <span class="glyphicon glyphicon-star-empty"></span>
+    <% end %>
+
+  </p>
+
+  <h3 class="m_3" style="margin-top: 20px;">
+    Seller reviews
+  </h3>
+
+  <p> Store has <%= @seller.reviews.count %> comments. </p>
+
+  <% 5.downto(0) do |rating| %>
+    <% subdiv = reviews_per_rating(@seller.reviews, rating) #on Seller Helper %>  
+    <p>
+      <% rating.downto(1) do %>
+        <span class="glyphicon glyphicon-star"></span>
+      <% end %>
+      <% empty_stars = 5 - rating %>
+      <% empty_stars.to_i.downto(1) do %>
+        <span class="glyphicon glyphicon-star-empty"></span>
+      <% end %>
+      <%= link_to "#{subdiv.count} reviews", seller_path(:id => @seller.id, :display_rating => rating)%>
+    </p>
+  <% end %>
+</div>
+<div class="clearfix"></div>
+
+<h3 class="m_3"> Reviews </h3>
+<p class="pull-right"><%= paginate @reviews %><p>
+</div>
+
+<% @reviews = @reviews.each_slice(2).to_a %>
+<% @reviews.each do |review_list| %>
+  <div class="col-sm-6">
+    <% review_list.each do |review| %>
+      <div class="review">
+        <p>
+          <span class="bold"><%= review.title %><span>
+          <% review.rating.to_i.downto(1) do %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+          <% empty_stars = 5 - review.rating %>
+          <% empty_stars.to_i.downto(1) do %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+        </p>
+        <p><%= review.user.username %><p>
+        <p><%= review.body %></p>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
-<td> <%= image_tag(@seller.logo_url, class:'logo') %> </td>
-
-<p>
-  <strong>Name:</strong>
-  <%= @seller.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @seller.address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @seller.phone %>
-</p>
-
-<h2>
-  <strong>Average rating</strong>
-</h2>
-
-<p> <%= @seller.average_rating %> out of 5 </p>
-
-<h2>
-  <strong>Seller reviews</strong>
-</h2>
-
-<p> Store has <%= @seller.reviews.count %> comments. <%= link_to 'Show all', @seller %> </p>
-
-<% 5.downto(0) do |rating| %>
-<% subdiv = reviews_per_rating(@seller.reviews, rating) #on Seller Helper %>  
-<p><%= subdiv.count %> reviews rated <%= rating %>. <%= link_to 'Show', seller_path(:id => @seller.id, :display_rating => rating)%></p>
-<% end %>
-
-<p>.............................................</p>
-<%= paginate @reviews %><br>
-<% @reviews.each do |review| %>
-   <p><%= review.title %></p>
-   <p><%= review.body %></p>
-   <p><%= review.user.username %><p>
-   <p><%= review.rating %> out of 5</p>
-   <p><%= "....." %></p>
-<% end %>
-
+<div class="clearfix"></div>
 
 <% if current_user %>
-<h2>
-  <strong>Write your review:</strong>
-</h2>
+<h3 class="m_3">
+  <strong>Write your review</strong>
+</h3>
 
 <%= render :partial => 'reviews/form', :locals => { :seller => @seller } %>
 <% end %>

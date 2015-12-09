@@ -1,31 +1,25 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
+<h2 class="head">Listing sellers</h2>
 
-<h1>Listing sellers</h1>
+<%= link_to 'New Seller', new_seller_path, class: 'btn btn-default pull-right' %>
 
-<table>
-  <tbody>
-    <% @sellers.each do |seller| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
-        <td> <%= image_tag(seller.logo_url, class: 'list_image') %> </td>
-        <td class="list_description"> 
-          <dl>
-            <dt> <%= seller.name %> </dt>
-            <dd> <%= seller.address%> </dd>
-            <dd> <strong>Tel.: </strong> <%= seller.phone%> </dd>
-          </dl>
-        </td>
-        <td>
-          <%= link_to 'Show', seller %><br/>
-          <%= link_to 'Edit', edit_seller_path(seller) %><br/>
-          <%= link_to 'Remove', seller, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
+<% @sellers = @sellers.each_slice(3).to_a %>
+<% @sellers.each do |seller_list| %>
+  <div class="top-box">
+    <% seller_list.each do |seller| %>
+      <div class="col-sm-4">
+        <%= image_tag(seller.logo_url, class: 'list_image') %>
+        <dl>
+          <dt> <%= link_to seller.name, seller, class: 'btn' %> </dt>
+          <dd> <%= seller.address%> </dd>
+          <dd> <strong>Tel.: </strong> <%= seller.phone%> </dd>
+        </dl>
 
+        <div class="add-margin">
+          <%= link_to 'Edit', edit_seller_path(seller), class: 'btn btn-default' %>
+          <%= link_to 'Remove', seller, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Seller', new_seller_path %>
+  </div>
+  <div class="clearfix"></div>
+<% end %>
