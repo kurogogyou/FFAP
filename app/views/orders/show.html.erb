@@ -1,126 +1,144 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
+<h2 class="head">Order <%= @order.invoice %></h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @order.name %>
-</p>
+<div class="col-sm-6">
+  <p>
+    <span class="bold">Name:</span> 
+    <%= @order.name %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @order.address %>
-</p>
+  <p>
+    <span class="bold">Address:</span>
+    <%= @order.address %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @order.email %>
-</p>
+  <p>
+    <span class="bold">Email:</span>
+    <%= @order.email %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <% if !@order.processed %>
-    <p> Pending processing. </p>
-  <% elsif @order.status == "Incomplete" %>
-    <p> Pending payment. </p>
-  <% elsif @order.delivered %>
-    <p>Delivered,
-    <% if @order.confirmed%>
-     user confirmed.
+  <p>
+    <span class="bold">Status:</span>
+    <% if !@order.processed %>
+      Pending processing.
+    <% elsif @order.status == "Incomplete" %>
+      Pending payment.
+    <% elsif @order.delivered %>
+      Delivered,
+      <% if @order.confirmed%>
+       user confirmed.
+      <% else %>
+       unconfirmed.
+      <% end %>
     <% else %>
-     unconfirmed.
-    <% end %></p>
-  <% else %>
-    <p>On the way</p>
-  <% end %>
-</p>
-
-<p>
-  <strong>Date ordered:</strong>
-  <%= @order.created_at %>
-</p>
-
-<p>
-  <strong>Delivery Location:</strong>
-  <%= @order.location.latitude %>, <%= @order.location.longitude %>
-</p>
-
-<p>
-  <strong>Tracking number:</strong>
-  <%= @order.invoice %>
-</p>
-<% if !@order.delivered %>
-<input type="button" id="ETA" value="Get Estimated Delivery Time" onclick="getETA()">
-<% end %>
-<p>
-  <strong>Items bought:</strong>
-</p>
-
-<%= render(@order.line_items) %>
-<p>Total (+ITBIS): <%= number_to_currency(@order.total_price) %></p>
-<p></p>
-<% if current_user.role == "admin" %>
-  <% if !@order.processed %>
-    <p></p>
-    <h2><strong>Process order</strong></h2>
-    <p><%= @order.confirmed_line_items.count %> out of <%= @order.line_items.count %> have been confirmed by their sellers. At least one should be confirmed to process.</p>
-    <p><%= button_to 'Update', @order, method: :get %> </p>
-    <% if @order.partially_confirmed %>
-      <%= button_to 'Process', process_orders_path(id: @order.id), method: :post %>
+      On the way
     <% end %>
-    
-  <% elsif @order.status == "Incomplete" %>
-  <p></p>
-    <h2><strong>Process order</strong></h2>
-    <p> Order processed. Pending payment. </p>
-  <% elsif !@order.delivered %>
-    <% if !@order.delivery %>
-    <p></p>
-    <h2><strong>Assign order to delivery</strong></h2>
- 
-    <%= render :partial => 'deliveries/form', :locals => { :order => @order } %>
- 
-    <% else %>
-    <p></p>
-    <p>Delivery is assigned to <%= @order.delivery.user.username %>, Delivery ID: <%= @order.delivery.id%></p>
+  </p>
 
-    <%= link_to 'Reassign', edit_delivery_path(@order.delivery)%>
-    <% end %>
+  <p>
+    <span class="bold">Date ordered:</span>
+    <%= @order.created_at %>
+  </p>
+
+  <p>
+    <span class="bold"> Delivery Location:</span>
+    <%= @order.location.latitude %>, <%= @order.location.longitude %>
+  </p>
+
+  <p>
+    <span class="bold">Tracking number:</span>
+    <%= @order.invoice %>
+  </p>
+  <% if !@order.delivered %>
+    <input class="btn" style="margin: 10px 0" type="button" id="ETA" value="Get Estimated Delivery Time" onclick="getETA()">
   <% end %>
-<% end %>
+</div>
+
+<div class="col-sm-6">
   
-<% if current_user.role == "client"  %>
-  <% if !@order.processed %>
-  <h3> Please wait for order to be processed </h3>
-  <p><%= button_to 'Update', @order, method: :get %> </p>
-  <% elsif @order.status == "Incomplete" %>
-  <h3> Complete payment </h3>
-  <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), @order.paypal_url(store_url) %>
-  <% elsif @order.delivered and !@order.confirmed?%>
-  <div id="ask_confirmation">
-  <p> Did you receive this order correctly? </p>
-  <input type="button" id="confirmation" value="Yes" onclick="postTrue()"> |
-  <input type="button" id="confirmation" value="No" onclick="postFalse()">
-  </div>
-  <div id="order_thankyou" style="display: none">
-    <p> Thank you for choosing us! </p>
-  </div>
-  <div id="order_contact" style="display: none">
-    <p> Please contact us for support! </p>
-  </div>
-  <% end %>
-<br/>
-<%= link_to 'Back to orders', orders_path %>
-<% end %>
-<% if @order.delivery %>
-  <%= hidden_field_tag :delivery_id, @order.delivery.id %>
-<% else %>
-  <%= hidden_field_tag :delivery_id, "-1" %>
-<% end %>
+  <p class="bold">
+    Items bought:
+  </p>
 
-<% if current_user.role == "seller" or current_user.role == "admin"%>
-<%= link_to 'Confirmed Items', confirm_items_orders_url(id: @order.id) %>
-<% end %>
+  <table class="table table-striped">
+    <thead>
+      <th></th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </thead>
+    <tbody>
+      <%= render(@order.line_items) %>
+      <tr>
+        <td></td>
+        <td class="highlight-gray">Total (+ITBIS):</td>
+        <td class="highlight-gray"><%= number_to_currency(@order.total_price) %></td>
+      </tr>
+    </tbody>
+  </table>
+  <p></p>
+  <% if current_user.role == "admin" %>
+    <% if !@order.processed %>
+      <p></p>
+      <p class="bold">Process order</p>
+      <p><%= @order.confirmed_line_items.count %> out of <%= @order.line_items.count %> have been confirmed by their sellers. At least one should be confirmed to process.</p>
+      <p><%= button_to 'Update', {action: 'show', order_id: @order.id }, { class: 'btn', method: :get, style:"margin: 10px 0" } %> </p>
+      <% if @order.partially_confirmed %>
+        <%= button_to 'Process', {action: "process_order", order_id: @order.id}, { class: 'btn', method: :post, style:"margin: 10px 0" } %>
+      <% end %>
+      
+    <% elsif @order.status == "Incomplete" %>
+    <p></p>
+      <h2><strong>Process order</strong></h2>
+      <p> Order processed. Pending payment. </p>
+    <% elsif !@order.delivered %>
+      <% if !@order.delivery %>
+      <p></p>
+      <h2><strong>Assign order to delivery</strong></h2>
+   
+      <%= render :partial => 'deliveries/form', :locals => { :order => @order } %>
+   
+      <% else %>
+      <p></p>
+      <p>Delivery is assigned to <%= @order.delivery.user.username %>, Delivery ID: <%= @order.delivery.id%></p>
+
+      <%= link_to 'Reassign', edit_delivery_path(@order.delivery)%>
+      <% end %>
+    <% end %>
+  <% end %>
+    
+  <% if current_user.role == "client"  %>
+    <% if !@order.processed %>
+    <h3> Please wait for order to be processed </h3>
+    <p><%= button_to 'Update', {action: 'show', order_id: @order.id}, { class: 'btn', method: :get, style:"margin: 10px 0" } %> </p>
+    <% elsif @order.status == "Incomplete" %>
+    <h3> Complete payment </h3>
+    <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), @order.paypal_url(store_url) %>
+    <% elsif @order.delivered and !@order.confirmed?%>
+    <div id="ask_confirmation">
+    <p> Did you receive this order correctly? </p>
+    <input type="button" id="confirmation" value="Yes" onclick="postTrue()"> |
+    <input type="button" id="confirmation" value="No" onclick="postFalse()">
+    </div>
+    <div id="order_thankyou" style="display: none">
+      <p> Thank you for choosing us! </p>
+    </div>
+    <div id="order_contact" style="display: none">
+      <p> Please contact us for support! </p>
+    </div>
+    <% end %>
+  <br/>
+  <% end %>
+  <% if @order.delivery %>
+    <%= hidden_field_tag :delivery_id, @order.delivery.id %>
+  <% else %>
+    <%= hidden_field_tag :delivery_id, "-1" %>
+  <% end %>
+
+  <% if current_user.role == "seller" or current_user.role == "admin"%>
+  <%= link_to 'Confirmed Items', confirm_items_orders_url(id: @order.id), class: 'btn btn-default' %>
+  <% end %>
+</div>
+<div class="clearfix"></div>
 
 <script type="text/javascript">
   var id = document.getElementById("delivery_id").value;

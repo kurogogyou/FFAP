@@ -1,8 +1,9 @@
-<h1>Confirm Order Items</h1>
+<h2 class="head">Confirm Order Items</h2>
 <div class="li_list">
 <% if @line_items.count == 0 %>
   <h3> No line_items to show </h3>
 <% else %>
+
 <table>
   <tbody>
     <% @line_items.each do |line_item| %>
@@ -56,8 +57,8 @@
 </table>
 <% end %>
 <br/>
-<%= link_to 'Go to Order', @order %>
-<%= link_to 'Back to Orders', orders_path %>
+<%= link_to 'Go to Order', @order, class: 'btn btn-default' %>
+<%= link_to 'Back to Orders', orders_path, class: 'btn btn-default' %>
 </div>
 
 <div id="map" <div id="map"></div></div>

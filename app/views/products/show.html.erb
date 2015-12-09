@@ -1,60 +1,70 @@
 <div class="cont span_3_of_3">
-        <div class="grid images_3_of_2">
-          <%= image_tag(@product.image_url, class:'image center-block') %>
-          <div class="clearfix"></div>
-        </div>
-             <div class="desc1 span_3_of_2">
-              <h3 class="m_3"><%= @product.title%></h3>
-                 <p class="m_5"><%= lowest_priced(@product.stocks).price %></p>
-               <div class="btn_form">
-            <form>
-              <input type="submit" value="buy" title="">
-            </form>
-           </div>
-             <p class="m_text2"><%= @product.description %> </p>
-             <% if @product.in_stock? %>
-              <p class="text-success">In Stock</p>
-            <% else %>
-              <p class="text-danger">Out of Stock</p>
-              <% end %>
-           </div>
-         <div class="clear"></div>  
-      <div class="clients">
-      <h3 class="m_3">Seller options</h3>
-     <ul>
-     <% @sellers = @sellers.each_slice(3).to_a %>
-      <% @sellers.each do |sellers_list| %>
-        <div class="top-box">
-          <% sellers_list.each do |seller| %>
-            <div class="col-sm-4 seller-thumbnail" >
-              <div>
-                <%= image_tag(seller.logo_url, class: 'list_image center-block', style:'width:50%;height:50%') %>
-              </div>
-              <div class='text-center'>
-                <%= link_to seller.name, seller %><br/>
-                <address>
-                  <p><%= seller.address%></p>
-                  <p><strong>Tel.: </strong> <%= seller.phone%><p>
-                </address>
-                <p><% stock = seller.stocks.where(:product_id => @product.id).take %><p>
-                <p><strong>Stock:</strong> <%= stock.quantity %><p>
-                <p style="margin-top: 10px"><%= number_to_currency(stock.price) %><p>
-                <% if current_user %>
-                  <%= button_to 'Add to Cart', line_items_path(product_id: @product, stock_id: stock), class: 'btn btn-primary', style:"margin-top: 10px" %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-        <div class="clear"></div>
+  <% if current_user %>
+    <% if current_user.role == "admin"%>
+      <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-default edit-product' %>
+    <% end %>
+  <% end %>
+  <div class="grid images_3_of_2">
+    <%= image_tag(@product.image_url, class:'image center-block') %>
+    <div class="clearfix"></div>
+  </div>
+  <div class="desc1 span_3_of_2">
+    <h2 class="head"><%= @product.title%></h2>
+      <% if @product.in_stock? %>
+        <p class="m_5">$<%= lowest_priced(@product.stocks).price %></p>
       <% end %>
-     </ul>
-     </div>
+    <div class="btn_form">
+      <% if current_user %>
+        <% if @product.in_stock? %>
+          <% seller = lowest_priced(@product.stocks).seller %>
+          <% stock = seller.stocks.where(:product_id => @product.id).take %>
+          <%= button_to 'Add to Cart', line_items_path(product_id: @product, stock_id: stock), class: 'btn btn-primary', style:"margin-top: 10px" %>
+        <% end %>
+      <% end %>
+    </div>
+    <p class="m_text2"><%= @product.description %> </p>
+
+    <% if @product.in_stock? %>
+      <p class="text-success">In Stock</p>
+    <% else %>
+      <p class="text-danger">Out of Stock</p>
+    <% end %>
+  </div>
+  <div class="clear"></div>  
+  
+  <div class="clients">
+    <% if @product.in_stock? %>
+      <h3 class="m_3">Seller options</h3>
+        <ul>
+          <% @sellers = @sellers.each_slice(3).to_a %>
+          <% @sellers.each do |sellers_list| %>
+            <div class="top-box">
+              <% sellers_list.each do |seller| %>
+                <div class="col-sm-4 seller-thumbnail" >
+                  <div>
+                    <%= image_tag(seller.logo_url, class: 'list_image center-block', style:'width:50%;height:50%') %>
+                  </div>
+                  <div class='text-center'>
+                    <%= link_to seller.name, seller %><br/>
+                    <address>
+                      <p><%= seller.address%></p>
+                      <p><strong>Tel.: </strong> <%= seller.phone %><p>
+                    </address>
+                    <p><% stock = seller.stocks.where(:product_id => @product.id).take %><p>
+                    <p><strong>Stock:</strong> <%= stock.quantity %><p>
+                    <p style="margin-top: 10px"><%= number_to_currency(stock.price) %><p>
+                    <% if current_user %>
+                      <%= button_to 'Add to Cart', line_items_path(product_id: @product, stock_id: stock), class: 'btn btn-primary', style:"margin-top: 10px" %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            <div class="clear"></div>
+          <% end %>
+      </ul>
+    <% end %>
+  </div>
 
 <p></p>
-<% if current_user %>
-  <% if current_user.role == "admin"%>
-    <%= link_to 'Edit', edit_product_path(@product) %> |
-  <% end %>
-<% end %>
+
 

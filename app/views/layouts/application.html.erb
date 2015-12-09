@@ -101,7 +101,7 @@
       <div class="tag-list">
         <span class="active-icon c2"></span>
         <% @cart ? path = cart_path(@cart) : path = "" %>
-        <ul class="last"><li><%= link_to "Cart(#{@cart ? @cart.line_items.count : "0"})", path %></a></li></ul>
+        <ul class="last"><li><%= link_to "Cart(#{@cart ? @cart.line_items.count : "0"})", @cart %></a></li></ul>
       </div>
     </div>
   </div>
@@ -110,43 +110,7 @@
 
 <% if controller.controller_name == "home" %>
   <!-- start slider -->
-  <div id="fwslider" style="height: 685px">
-    <div class="slider_container">
-      <div class="slide">
-        <!-- Slide image -->
-          <%= image_tag("ban.jpg")%>
-        <!-- /Slide image -->
-        <!-- Texts container -->
-        <div class="slide_content">
-          <div class="slide_content_wrap">
-            <!-- Text title -->
-            <h4 class="title">Imagen de ejemplo 1</h4>
-            <!-- /Text title -->
-
-            <!-- Text description -->
-            <p class="description">Entra a ver klk...</p>
-            <!-- /Text description -->
-          </div>
-        </div>
-         <!-- /Texts container -->
-      </div>
-
-      <!-- /Duplicate to create more slides -->
-      <div class="slide">
-        <%= image_tag("ban2.jpg")%>
-        <div class="slide_content">
-          <div class="slide_content_wrap">
-            <h4 class="title">Imagen de ejemplo 2 </h4>
-            <p class="description">Entra a ver klk</p>
-          </div>
-        </div>
-      </div>
-      <!--/slide -->
-    </div>
-    <div class="timers"></div>
-    <div class="slidePrev"><span></span></div>
-    <div class="slideNext"><span></span></div>
-  </div>
+  <%= image_tag("ban.jpg")%>
   <!--/slider -->
 <% end %>
 

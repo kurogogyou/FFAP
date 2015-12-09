@@ -11,27 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.select :user_id, delivery_users, prompt: 'Select delivery user' %>
+  <div class="col-sm-6">
+    <div class="field form-group">
+      <%= f.label :user_id %><br>
+      <%= f.select :user_id, delivery_users, {}, {prompt: 'Select delivery user', class: 'form-control'} %>
+    </div>
+    <% begin %>
+      <% if order %>
+      <div class="field form-group">
+        <%= hidden_field_tag 'delivery[order_id]', order.id %>
+      </div>
+      <div class="actions form-group">
+        <%= f.submit "Assign Delivery" %>
+      </div>
+      <% end %>
+    <% rescue NameError %>
+      <div class="field form-group">
+        <%= f.label :order_id %><br>
+        <%= f.text_field :order_id, class: 'form-control' %>
+      </div>
+      <div class="actions form-group">
+        <%= f.submit "Save", class: 'btn' %>
+      </div>
   </div>
-  <% begin %>
-    <% if order %>
-    <div class="field">
-      <%= hidden_field_tag 'delivery[order_id]', order.id %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Assign Delivery" %>
-    </div>
-    <% end %>
-  <% rescue NameError %>
-    <div class="field">
-      <%= f.label :order_id %><br>
-      <%= f.text_field :order_id %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
   <% end %>
 
 <% end %>

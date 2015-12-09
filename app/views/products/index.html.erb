@@ -1,44 +1,95 @@
+<h2 class="head">Listing products</h2>
+<% if current_user.role == "admin" or current_user.role == "seller" %>
+  <div class="pull-right">
+    <%= link_to 'New Product', new_product_path, class: 'btn btn-default' %>
+  </div>
+<% end %>
 <%= render 'searcher' %>
 
-<h1>Listing products</h1>
 <% if @products.count == 0 %>
   <h3> No products to show </h3>
 <% else %>
-<%= paginate @products %>
-<table>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
-        <td> <%= image_tag(product.image_url, class: 'list_image')%> </td>
-        <td class="list_description"> 
-          <dl>
-            <dt> <%= product.title %> </dt>
-            <dd> <%= truncate(strip_tags(product.description), length: 80)%> 
-            </dd>
-            <dd><strong>Model: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %>
-            </dd>
-          </dl>
-        </td>
 
-        <td>
-          <%= link_to 'Show', product %><br/>
-          <% if current_user.role == "admin" %>
-          <%= link_to 'Edit', edit_product_path(product) %><br/>
-          <%= link_to 'Remove', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-          <% if current_user.role == "seller" %>
-          <br/><%= link_to 'Modify Stock', mod_stock_path(:seller_id => current_user.seller.id, :product_id => product.id), method: :post %>
-          <% end %>
-        </td>
-        <td>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @products %>
+<div class="pull-right">
+  <%= paginate @products %>
+</div>
+<div class="clearfix"></div>
+
+<% first_half = @products.slice(0, @products.length/2) %>
+<% second_half = @products.slice(@products.length/2, @products.length) %>
+
+<div class="col-sm-6">
+  <table class="table">
+    <tbody>
+      <% first_half.each do |product| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
+          <td> <%= image_tag(product.image_url, class: 'list_image')%> </td>
+          <td class="list_description"> 
+            <dl>
+              <dt> <%= product.title %> </dt>
+              <dd> <%= truncate(strip_tags(product.description), length: 80)%> 
+              </dd>
+              <dd><strong>Model: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %>
+              </dd>
+            </dl>
+          </td>
+
+          <td>
+            <%= link_to 'Show', product %><br/>
+            <% if current_user.role == "admin" %>
+            <%= link_to 'Edit', edit_product_path(product) %><br/>
+            <%= link_to 'Remove', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+            <% if current_user.role == "seller" %>
+            <br/><%= link_to 'Modify Stock', mod_stock_path(:seller_id => current_user.seller.id, :product_id => product.id), method: :post %>
+            <% end %>
+          </td>
+          <td>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="col-sm-6">
+  <table class="table">
+    <tbody>
+      <% second_half.each do |product| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
+          <td> <%= image_tag(product.image_url, class: 'list_image')%> </td>
+          <td class="list_description"> 
+            <dl>
+              <dt> <%= product.title %> </dt>
+              <dd> <%= truncate(strip_tags(product.description), length: 80)%> 
+              </dd>
+              <dd><strong>Model: </strong><%= product.brand.brand_name + " " + product.vehicle_model.model_name + " " + product.vehicle_model.year.to_s %>
+              </dd>
+            </dl>
+          </td>
+
+          <td>
+            <%= link_to 'Show', product %><br/>
+            <% if current_user.role == "admin" %>
+            <%= link_to 'Edit', edit_product_path(product) %><br/>
+            <%= link_to 'Remove', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+            <% if current_user.role == "seller" %>
+            <br/><%= link_to 'Modify Stock', mod_stock_path(:seller_id => current_user.seller.id, :product_id => product.id), method: :post %>
+            <% end %>
+          </td>
+          <td>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="pull-right">
+  <%= paginate @products %>
+</div>
+<div class="clearfix"></div>
+
 <% end %>
 <br>
-<% if current_user.role == "admin" or current_user.role == "seller" %>
-  <%= link_to 'New Product', new_product_path %>
-<% end %>
