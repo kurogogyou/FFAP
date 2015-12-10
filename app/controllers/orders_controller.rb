@@ -68,8 +68,11 @@ class OrdersController < ApplicationController
     if status == "Completed"
       @order = Order.find get_order_id_from_invoice(params[:invoice]) #in orders helper
       #Cart.destroy(session[:cart_id])
-      Cart.where(:user_id => @order.user_id).take.destroy
-     # session[:cart_id] = nil
+      begin
+        Cart.where(:user_id => @order.user_id).take.destroy
+      rescue NoMethodError
+      end
+      # session[:cart_id] = nil
       OrderNotifier.received(@order).deliver
       OrderNotifier.created(@order).deliver
       @order.update_attributes notification_params: params, status: status, transaction_id: params[:txn_id], 
