@@ -20,7 +20,7 @@ class OrderNotifier < ActionMailer::Base
   def shipped(order)
     @order = order
 
-    mail to: order.email, subject: 'Fast Find Auto Parts Order Shipped'
+    #mail to: order.email, subject: 'Fast Find Auto Parts Order Shipped'
   end
 
   def created(order)
@@ -29,7 +29,7 @@ class OrderNotifier < ActionMailer::Base
     @admins = User.where(:role => "admin")
 
     @admins.each do |admin|
-      mail to: admin.email, subject: 'Order created'
+     # mail to: admin.email, subject: 'Order created'
     end  
   end
 
@@ -37,6 +37,6 @@ class OrderNotifier < ActionMailer::Base
     @order = order
     @removed_items = removed_items
 
-    mail to: order.email, subject: 'Order processed. You can now complete order.'
+    #mail to: order.email, subject: 'Order processed. You can now complete order.'
   end
 end
